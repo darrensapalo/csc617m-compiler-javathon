@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 src/grammar/JavathonTreeWalker.g 2013-12-15 23:03:24
+// $ANTLR 3.5.1 src/grammar/JavathonTreeWalker.g 2013-12-16 02:27:18
  
   package grammar;
   import main.javathon.*; 
@@ -357,19 +357,23 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "assignment"
-	// src/grammar/JavathonTreeWalker.g:57:1: assignment returns [JNode node] : ^( ASSIGNMENT Identifier ( indexes )? expression ) ;
+	// src/grammar/JavathonTreeWalker.g:57:1: assignment returns [JNode node] : ^( ASSIGNMENT i= Identifier (x= indexes )? e= expression ) ;
 	public final JNode assignment() throws RecognitionException {
 		JNode node = null;
 
 
+		CommonTree i=null;
+		List<JNode> x =null;
+		JNode e =null;
+
 		try {
-			// src/grammar/JavathonTreeWalker.g:58:3: ( ^( ASSIGNMENT Identifier ( indexes )? expression ) )
-			// src/grammar/JavathonTreeWalker.g:58:6: ^( ASSIGNMENT Identifier ( indexes )? expression )
+			// src/grammar/JavathonTreeWalker.g:58:3: ( ^( ASSIGNMENT i= Identifier (x= indexes )? e= expression ) )
+			// src/grammar/JavathonTreeWalker.g:58:6: ^( ASSIGNMENT i= Identifier (x= indexes )? e= expression )
 			{
-			match(input,ASSIGNMENT,FOLLOW_ASSIGNMENT_in_assignment272); 
+			match(input,ASSIGNMENT,FOLLOW_ASSIGNMENT_in_assignment274); 
 			match(input, Token.DOWN, null); 
-			match(input,Identifier,FOLLOW_Identifier_in_assignment274); 
-			// src/grammar/JavathonTreeWalker.g:58:30: ( indexes )?
+			i=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_assignment278); 
+			// src/grammar/JavathonTreeWalker.g:58:33: (x= indexes )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0==INDEXES) ) {
@@ -377,10 +381,10 @@ public class JavathonTreeWalker extends TreeParser {
 			}
 			switch (alt4) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:58:30: indexes
+					// src/grammar/JavathonTreeWalker.g:58:33: x= indexes
 					{
-					pushFollow(FOLLOW_indexes_in_assignment276);
-					indexes();
+					pushFollow(FOLLOW_indexes_in_assignment282);
+					x=indexes();
 					state._fsp--;
 
 					}
@@ -388,12 +392,13 @@ public class JavathonTreeWalker extends TreeParser {
 
 			}
 
-			pushFollow(FOLLOW_expression_in_assignment279);
-			expression();
+			pushFollow(FOLLOW_expression_in_assignment287);
+			e=expression();
 			state._fsp--;
 
 			match(input, Token.UP, null); 
 
+			node = new AssignmentNode((i!=null?i.getText():null), x, e, currentScope);
 			}
 
 		}
@@ -411,7 +416,7 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "functionCall"
-	// src/grammar/JavathonTreeWalker.g:61:1: functionCall returns [JNode node] : ( ^( FUNC_CALL Identifier ( exprList )? ) | ^( FUNC_CALL Println ( expression )? ) | ^( FUNC_CALL Print expression ) | ^( FUNC_CALL Assert expression ) | ^( FUNC_CALL Size expression ) );
+	// src/grammar/JavathonTreeWalker.g:62:1: functionCall returns [JNode node] : ( ^( FUNC_CALL Identifier ( exprList )? ) | ^( FUNC_CALL Println ( expression )? ) | ^( FUNC_CALL Print expression ) | ^( FUNC_CALL Assert expression ) | ^( FUNC_CALL Size expression ) );
 	public final JNode functionCall() throws RecognitionException {
 		JNode node = null;
 
@@ -419,7 +424,7 @@ public class JavathonTreeWalker extends TreeParser {
 		JNode expression8 =null;
 
 		try {
-			// src/grammar/JavathonTreeWalker.g:62:3: ( ^( FUNC_CALL Identifier ( exprList )? ) | ^( FUNC_CALL Println ( expression )? ) | ^( FUNC_CALL Print expression ) | ^( FUNC_CALL Assert expression ) | ^( FUNC_CALL Size expression ) )
+			// src/grammar/JavathonTreeWalker.g:63:3: ( ^( FUNC_CALL Identifier ( exprList )? ) | ^( FUNC_CALL Println ( expression )? ) | ^( FUNC_CALL Print expression ) | ^( FUNC_CALL Assert expression ) | ^( FUNC_CALL Size expression ) )
 			int alt7=5;
 			int LA7_0 = input.LA(1);
 			if ( (LA7_0==FUNC_CALL) ) {
@@ -488,12 +493,12 @@ public class JavathonTreeWalker extends TreeParser {
 
 			switch (alt7) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:62:6: ^( FUNC_CALL Identifier ( exprList )? )
+					// src/grammar/JavathonTreeWalker.g:63:6: ^( FUNC_CALL Identifier ( exprList )? )
 					{
-					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall308); 
+					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall325); 
 					match(input, Token.DOWN, null); 
-					match(input,Identifier,FOLLOW_Identifier_in_functionCall310); 
-					// src/grammar/JavathonTreeWalker.g:62:29: ( exprList )?
+					match(input,Identifier,FOLLOW_Identifier_in_functionCall327); 
+					// src/grammar/JavathonTreeWalker.g:63:29: ( exprList )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==EXP_LIST) ) {
@@ -501,9 +506,9 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					switch (alt5) {
 						case 1 :
-							// src/grammar/JavathonTreeWalker.g:62:29: exprList
+							// src/grammar/JavathonTreeWalker.g:63:29: exprList
 							{
-							pushFollow(FOLLOW_exprList_in_functionCall312);
+							pushFollow(FOLLOW_exprList_in_functionCall329);
 							exprList();
 							state._fsp--;
 
@@ -517,12 +522,12 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 2 :
-					// src/grammar/JavathonTreeWalker.g:63:6: ^( FUNC_CALL Println ( expression )? )
+					// src/grammar/JavathonTreeWalker.g:64:6: ^( FUNC_CALL Println ( expression )? )
 					{
-					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall324); 
+					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall341); 
 					match(input, Token.DOWN, null); 
-					match(input,Println,FOLLOW_Println_in_functionCall326); 
-					// src/grammar/JavathonTreeWalker.g:63:26: ( expression )?
+					match(input,Println,FOLLOW_Println_in_functionCall343); 
+					// src/grammar/JavathonTreeWalker.g:64:26: ( expression )?
 					int alt6=2;
 					int LA6_0 = input.LA(1);
 					if ( ((LA6_0 >= Add && LA6_0 <= And)||LA6_0==Bool||LA6_0==Divide||LA6_0==Equals||(LA6_0 >= GT && LA6_0 <= GTEquals)||LA6_0==In||(LA6_0 >= LOOKUP && LA6_0 <= Number)||(LA6_0 >= Or && LA6_0 <= Pow)||(LA6_0 >= Subtract && LA6_0 <= TERNARY)||LA6_0==UNARY_MIN) ) {
@@ -530,9 +535,9 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					switch (alt6) {
 						case 1 :
-							// src/grammar/JavathonTreeWalker.g:63:26: expression
+							// src/grammar/JavathonTreeWalker.g:64:26: expression
 							{
-							pushFollow(FOLLOW_expression_in_functionCall328);
+							pushFollow(FOLLOW_expression_in_functionCall345);
 							expression8=expression();
 							state._fsp--;
 
@@ -547,12 +552,12 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 3 :
-					// src/grammar/JavathonTreeWalker.g:64:6: ^( FUNC_CALL Print expression )
+					// src/grammar/JavathonTreeWalker.g:65:6: ^( FUNC_CALL Print expression )
 					{
-					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall345); 
+					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall362); 
 					match(input, Token.DOWN, null); 
-					match(input,Print,FOLLOW_Print_in_functionCall347); 
-					pushFollow(FOLLOW_expression_in_functionCall349);
+					match(input,Print,FOLLOW_Print_in_functionCall364); 
+					pushFollow(FOLLOW_expression_in_functionCall366);
 					expression();
 					state._fsp--;
 
@@ -561,12 +566,12 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 4 :
-					// src/grammar/JavathonTreeWalker.g:65:6: ^( FUNC_CALL Assert expression )
+					// src/grammar/JavathonTreeWalker.g:66:6: ^( FUNC_CALL Assert expression )
 					{
-					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall360); 
+					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall377); 
 					match(input, Token.DOWN, null); 
-					match(input,Assert,FOLLOW_Assert_in_functionCall362); 
-					pushFollow(FOLLOW_expression_in_functionCall364);
+					match(input,Assert,FOLLOW_Assert_in_functionCall379); 
+					pushFollow(FOLLOW_expression_in_functionCall381);
 					expression();
 					state._fsp--;
 
@@ -575,12 +580,12 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 5 :
-					// src/grammar/JavathonTreeWalker.g:66:6: ^( FUNC_CALL Size expression )
+					// src/grammar/JavathonTreeWalker.g:67:6: ^( FUNC_CALL Size expression )
 					{
-					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall375); 
+					match(input,FUNC_CALL,FOLLOW_FUNC_CALL_in_functionCall392); 
 					match(input, Token.DOWN, null); 
-					match(input,Size,FOLLOW_Size_in_functionCall377); 
-					pushFollow(FOLLOW_expression_in_functionCall379);
+					match(input,Size,FOLLOW_Size_in_functionCall394); 
+					pushFollow(FOLLOW_expression_in_functionCall396);
 					expression();
 					state._fsp--;
 
@@ -605,7 +610,7 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "ifStatement"
-	// src/grammar/JavathonTreeWalker.g:69:1: ifStatement returns [JNode node] : ^( IF ( ^( EXP expression b1= block ) )+ ( ^( EXP b2= block ) )? ) ;
+	// src/grammar/JavathonTreeWalker.g:70:1: ifStatement returns [JNode node] : ^( IF ( ^( EXP expression b1= block ) )+ ( ^( EXP b2= block ) )? ) ;
 	public final JNode ifStatement() throws RecognitionException {
 		JNode node = null;
 
@@ -619,12 +624,12 @@ public class JavathonTreeWalker extends TreeParser {
 		  node = ifNode; 
 
 		try {
-			// src/grammar/JavathonTreeWalker.g:74:3: ( ^( IF ( ^( EXP expression b1= block ) )+ ( ^( EXP b2= block ) )? ) )
-			// src/grammar/JavathonTreeWalker.g:74:6: ^( IF ( ^( EXP expression b1= block ) )+ ( ^( EXP b2= block ) )? )
+			// src/grammar/JavathonTreeWalker.g:75:3: ( ^( IF ( ^( EXP expression b1= block ) )+ ( ^( EXP b2= block ) )? ) )
+			// src/grammar/JavathonTreeWalker.g:75:6: ^( IF ( ^( EXP expression b1= block ) )+ ( ^( EXP b2= block ) )? )
 			{
-			match(input,IF,FOLLOW_IF_in_ifStatement415); 
+			match(input,IF,FOLLOW_IF_in_ifStatement432); 
 			match(input, Token.DOWN, null); 
-			// src/grammar/JavathonTreeWalker.g:75:8: ( ^( EXP expression b1= block ) )+
+			// src/grammar/JavathonTreeWalker.g:76:8: ( ^( EXP expression b1= block ) )+
 			int cnt8=0;
 			loop8:
 			while (true) {
@@ -644,15 +649,15 @@ public class JavathonTreeWalker extends TreeParser {
 
 				switch (alt8) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:75:9: ^( EXP expression b1= block )
+					// src/grammar/JavathonTreeWalker.g:76:9: ^( EXP expression b1= block )
 					{
-					match(input,EXP,FOLLOW_EXP_in_ifStatement429); 
+					match(input,EXP,FOLLOW_EXP_in_ifStatement446); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_ifStatement431);
+					pushFollow(FOLLOW_expression_in_ifStatement448);
 					expression9=expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_block_in_ifStatement435);
+					pushFollow(FOLLOW_block_in_ifStatement452);
 					b1=block();
 					state._fsp--;
 
@@ -670,7 +675,7 @@ public class JavathonTreeWalker extends TreeParser {
 				cnt8++;
 			}
 
-			// src/grammar/JavathonTreeWalker.g:76:8: ( ^( EXP b2= block ) )?
+			// src/grammar/JavathonTreeWalker.g:77:8: ( ^( EXP b2= block ) )?
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0==EXP) ) {
@@ -678,11 +683,11 @@ public class JavathonTreeWalker extends TreeParser {
 			}
 			switch (alt9) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:76:9: ^( EXP b2= block )
+					// src/grammar/JavathonTreeWalker.g:77:9: ^( EXP b2= block )
 					{
-					match(input,EXP,FOLLOW_EXP_in_ifStatement453); 
+					match(input,EXP,FOLLOW_EXP_in_ifStatement470); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_block_in_ifStatement457);
+					pushFollow(FOLLOW_block_in_ifStatement474);
 					b2=block();
 					state._fsp--;
 
@@ -713,22 +718,22 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "whileStatement"
-	// src/grammar/JavathonTreeWalker.g:80:1: whileStatement returns [JNode node] : ^( While expression block ) ;
+	// src/grammar/JavathonTreeWalker.g:81:1: whileStatement returns [JNode node] : ^( While expression block ) ;
 	public final JNode whileStatement() throws RecognitionException {
 		JNode node = null;
 
 
 		try {
-			// src/grammar/JavathonTreeWalker.g:81:3: ( ^( While expression block ) )
-			// src/grammar/JavathonTreeWalker.g:81:6: ^( While expression block )
+			// src/grammar/JavathonTreeWalker.g:82:3: ( ^( While expression block ) )
+			// src/grammar/JavathonTreeWalker.g:82:6: ^( While expression block )
 			{
-			match(input,While,FOLLOW_While_in_whileStatement506); 
+			match(input,While,FOLLOW_While_in_whileStatement523); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_whileStatement508);
+			pushFollow(FOLLOW_expression_in_whileStatement525);
 			expression();
 			state._fsp--;
 
-			pushFollow(FOLLOW_block_in_whileStatement510);
+			pushFollow(FOLLOW_block_in_whileStatement527);
 			block();
 			state._fsp--;
 
@@ -751,15 +756,15 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "idList"
-	// src/grammar/JavathonTreeWalker.g:84:1: idList : ^( ID_LIST ( Identifier )+ ) ;
+	// src/grammar/JavathonTreeWalker.g:85:1: idList : ^( ID_LIST ( Identifier )+ ) ;
 	public final void idList() throws RecognitionException {
 		try {
-			// src/grammar/JavathonTreeWalker.g:85:3: ( ^( ID_LIST ( Identifier )+ ) )
-			// src/grammar/JavathonTreeWalker.g:85:6: ^( ID_LIST ( Identifier )+ )
+			// src/grammar/JavathonTreeWalker.g:86:3: ( ^( ID_LIST ( Identifier )+ ) )
+			// src/grammar/JavathonTreeWalker.g:86:6: ^( ID_LIST ( Identifier )+ )
 			{
-			match(input,ID_LIST,FOLLOW_ID_LIST_in_idList534); 
+			match(input,ID_LIST,FOLLOW_ID_LIST_in_idList551); 
 			match(input, Token.DOWN, null); 
-			// src/grammar/JavathonTreeWalker.g:85:16: ( Identifier )+
+			// src/grammar/JavathonTreeWalker.g:86:16: ( Identifier )+
 			int cnt10=0;
 			loop10:
 			while (true) {
@@ -771,9 +776,9 @@ public class JavathonTreeWalker extends TreeParser {
 
 				switch (alt10) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:85:16: Identifier
+					// src/grammar/JavathonTreeWalker.g:86:16: Identifier
 					{
-					match(input,Identifier,FOLLOW_Identifier_in_idList536); 
+					match(input,Identifier,FOLLOW_Identifier_in_idList553); 
 					}
 					break;
 
@@ -803,15 +808,15 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "exprList"
-	// src/grammar/JavathonTreeWalker.g:88:1: exprList : ^( EXP_LIST ( expression )+ ) ;
+	// src/grammar/JavathonTreeWalker.g:89:1: exprList : ^( EXP_LIST ( expression )+ ) ;
 	public final void exprList() throws RecognitionException {
 		try {
-			// src/grammar/JavathonTreeWalker.g:89:3: ( ^( EXP_LIST ( expression )+ ) )
-			// src/grammar/JavathonTreeWalker.g:89:6: ^( EXP_LIST ( expression )+ )
+			// src/grammar/JavathonTreeWalker.g:90:3: ( ^( EXP_LIST ( expression )+ ) )
+			// src/grammar/JavathonTreeWalker.g:90:6: ^( EXP_LIST ( expression )+ )
 			{
-			match(input,EXP_LIST,FOLLOW_EXP_LIST_in_exprList561); 
+			match(input,EXP_LIST,FOLLOW_EXP_LIST_in_exprList578); 
 			match(input, Token.DOWN, null); 
-			// src/grammar/JavathonTreeWalker.g:89:17: ( expression )+
+			// src/grammar/JavathonTreeWalker.g:90:17: ( expression )+
 			int cnt11=0;
 			loop11:
 			while (true) {
@@ -823,9 +828,9 @@ public class JavathonTreeWalker extends TreeParser {
 
 				switch (alt11) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:89:17: expression
+					// src/grammar/JavathonTreeWalker.g:90:17: expression
 					{
-					pushFollow(FOLLOW_expression_in_exprList563);
+					pushFollow(FOLLOW_expression_in_exprList580);
 					expression();
 					state._fsp--;
 
@@ -858,7 +863,7 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "expression"
-	// src/grammar/JavathonTreeWalker.g:92:1: expression returns [JNode node] : ( ^( TERNARY expression expression expression ) | ^( In expression expression ) | ^( '||' expression expression ) | ^( '&&' expression expression ) | ^( '==' expression expression ) | ^( '!=' expression expression ) | ^( '>=' expression expression ) | ^( '<=' expression expression ) | ^( '>' expression expression ) | ^( '<' a= expression b= expression ) | ^( '+' a= expression b= expression ) | ^( '-' expression expression ) | ^( '*' expression expression ) | ^( '/' expression expression ) | ^( '%' expression expression ) | ^( '^' expression expression ) | ^( UNARY_MIN expression ) | ^( NEGATE expression ) | Number | Bool | Null | lookup );
+	// src/grammar/JavathonTreeWalker.g:93:1: expression returns [JNode node] : ( ^( TERNARY expression expression expression ) | ^( In expression expression ) | ^( '||' expression expression ) | ^( '&&' expression expression ) | ^( '==' expression expression ) | ^( '!=' expression expression ) | ^( '>=' expression expression ) | ^( '<=' expression expression ) | ^( '>' expression expression ) | ^( '<' a= expression b= expression ) | ^( '+' a= expression b= expression ) | ^( '-' expression expression ) | ^( '*' expression expression ) | ^( '/' expression expression ) | ^( '%' expression expression ) | ^( '^' expression expression ) | ^( UNARY_MIN expression ) | ^( NEGATE expression ) | Number | Bool | Null | lookup );
 	public final JNode expression() throws RecognitionException {
 		JNode node = null;
 
@@ -866,9 +871,10 @@ public class JavathonTreeWalker extends TreeParser {
 		CommonTree Number10=null;
 		JNode a =null;
 		JNode b =null;
+		JNode lookup11 =null;
 
 		try {
-			// src/grammar/JavathonTreeWalker.g:93:3: ( ^( TERNARY expression expression expression ) | ^( In expression expression ) | ^( '||' expression expression ) | ^( '&&' expression expression ) | ^( '==' expression expression ) | ^( '!=' expression expression ) | ^( '>=' expression expression ) | ^( '<=' expression expression ) | ^( '>' expression expression ) | ^( '<' a= expression b= expression ) | ^( '+' a= expression b= expression ) | ^( '-' expression expression ) | ^( '*' expression expression ) | ^( '/' expression expression ) | ^( '%' expression expression ) | ^( '^' expression expression ) | ^( UNARY_MIN expression ) | ^( NEGATE expression ) | Number | Bool | Null | lookup )
+			// src/grammar/JavathonTreeWalker.g:94:3: ( ^( TERNARY expression expression expression ) | ^( In expression expression ) | ^( '||' expression expression ) | ^( '&&' expression expression ) | ^( '==' expression expression ) | ^( '!=' expression expression ) | ^( '>=' expression expression ) | ^( '<=' expression expression ) | ^( '>' expression expression ) | ^( '<' a= expression b= expression ) | ^( '+' a= expression b= expression ) | ^( '-' expression expression ) | ^( '*' expression expression ) | ^( '/' expression expression ) | ^( '%' expression expression ) | ^( '^' expression expression ) | ^( UNARY_MIN expression ) | ^( NEGATE expression ) | Number | Bool | Null | lookup )
 			int alt12=22;
 			switch ( input.LA(1) ) {
 			case TERNARY:
@@ -988,30 +994,9 @@ public class JavathonTreeWalker extends TreeParser {
 			}
 			switch (alt12) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:93:6: ^( TERNARY expression expression expression )
+					// src/grammar/JavathonTreeWalker.g:94:6: ^( TERNARY expression expression expression )
 					{
-					match(input,TERNARY,FOLLOW_TERNARY_in_expression592); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression594);
-					expression();
-					state._fsp--;
-
-					pushFollow(FOLLOW_expression_in_expression596);
-					expression();
-					state._fsp--;
-
-					pushFollow(FOLLOW_expression_in_expression598);
-					expression();
-					state._fsp--;
-
-					match(input, Token.UP, null); 
-
-					}
-					break;
-				case 2 :
-					// src/grammar/JavathonTreeWalker.g:94:6: ^( In expression expression )
-					{
-					match(input,In,FOLLOW_In_in_expression609); 
+					match(input,TERNARY,FOLLOW_TERNARY_in_expression609); 
 					match(input, Token.DOWN, null); 
 					pushFollow(FOLLOW_expression_in_expression611);
 					expression();
@@ -1021,20 +1006,41 @@ public class JavathonTreeWalker extends TreeParser {
 					expression();
 					state._fsp--;
 
+					pushFollow(FOLLOW_expression_in_expression615);
+					expression();
+					state._fsp--;
+
+					match(input, Token.UP, null); 
+
+					}
+					break;
+				case 2 :
+					// src/grammar/JavathonTreeWalker.g:95:6: ^( In expression expression )
+					{
+					match(input,In,FOLLOW_In_in_expression626); 
+					match(input, Token.DOWN, null); 
+					pushFollow(FOLLOW_expression_in_expression628);
+					expression();
+					state._fsp--;
+
+					pushFollow(FOLLOW_expression_in_expression630);
+					expression();
+					state._fsp--;
+
 					match(input, Token.UP, null); 
 
 					}
 					break;
 				case 3 :
-					// src/grammar/JavathonTreeWalker.g:95:6: ^( '||' expression expression )
+					// src/grammar/JavathonTreeWalker.g:96:6: ^( '||' expression expression )
 					{
-					match(input,Or,FOLLOW_Or_in_expression624); 
+					match(input,Or,FOLLOW_Or_in_expression641); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression626);
+					pushFollow(FOLLOW_expression_in_expression643);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression628);
+					pushFollow(FOLLOW_expression_in_expression645);
 					expression();
 					state._fsp--;
 
@@ -1043,15 +1049,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 4 :
-					// src/grammar/JavathonTreeWalker.g:96:6: ^( '&&' expression expression )
+					// src/grammar/JavathonTreeWalker.g:97:6: ^( '&&' expression expression )
 					{
-					match(input,And,FOLLOW_And_in_expression639); 
+					match(input,And,FOLLOW_And_in_expression656); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression641);
+					pushFollow(FOLLOW_expression_in_expression658);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression643);
+					pushFollow(FOLLOW_expression_in_expression660);
 					expression();
 					state._fsp--;
 
@@ -1060,15 +1066,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 5 :
-					// src/grammar/JavathonTreeWalker.g:97:6: ^( '==' expression expression )
+					// src/grammar/JavathonTreeWalker.g:98:6: ^( '==' expression expression )
 					{
-					match(input,Equals,FOLLOW_Equals_in_expression654); 
+					match(input,Equals,FOLLOW_Equals_in_expression671); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression656);
+					pushFollow(FOLLOW_expression_in_expression673);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression658);
+					pushFollow(FOLLOW_expression_in_expression675);
 					expression();
 					state._fsp--;
 
@@ -1077,15 +1083,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 6 :
-					// src/grammar/JavathonTreeWalker.g:98:6: ^( '!=' expression expression )
+					// src/grammar/JavathonTreeWalker.g:99:6: ^( '!=' expression expression )
 					{
-					match(input,NEquals,FOLLOW_NEquals_in_expression669); 
+					match(input,NEquals,FOLLOW_NEquals_in_expression686); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression671);
+					pushFollow(FOLLOW_expression_in_expression688);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression673);
+					pushFollow(FOLLOW_expression_in_expression690);
 					expression();
 					state._fsp--;
 
@@ -1094,15 +1100,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 7 :
-					// src/grammar/JavathonTreeWalker.g:99:6: ^( '>=' expression expression )
+					// src/grammar/JavathonTreeWalker.g:100:6: ^( '>=' expression expression )
 					{
-					match(input,GTEquals,FOLLOW_GTEquals_in_expression684); 
+					match(input,GTEquals,FOLLOW_GTEquals_in_expression701); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression686);
+					pushFollow(FOLLOW_expression_in_expression703);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression688);
+					pushFollow(FOLLOW_expression_in_expression705);
 					expression();
 					state._fsp--;
 
@@ -1111,15 +1117,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 8 :
-					// src/grammar/JavathonTreeWalker.g:100:6: ^( '<=' expression expression )
+					// src/grammar/JavathonTreeWalker.g:101:6: ^( '<=' expression expression )
 					{
-					match(input,LTEquals,FOLLOW_LTEquals_in_expression699); 
+					match(input,LTEquals,FOLLOW_LTEquals_in_expression716); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression701);
+					pushFollow(FOLLOW_expression_in_expression718);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression703);
+					pushFollow(FOLLOW_expression_in_expression720);
 					expression();
 					state._fsp--;
 
@@ -1128,15 +1134,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 9 :
-					// src/grammar/JavathonTreeWalker.g:101:6: ^( '>' expression expression )
+					// src/grammar/JavathonTreeWalker.g:102:6: ^( '>' expression expression )
 					{
-					match(input,GT,FOLLOW_GT_in_expression714); 
+					match(input,GT,FOLLOW_GT_in_expression731); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression716);
+					pushFollow(FOLLOW_expression_in_expression733);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression718);
+					pushFollow(FOLLOW_expression_in_expression735);
 					expression();
 					state._fsp--;
 
@@ -1145,15 +1151,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 10 :
-					// src/grammar/JavathonTreeWalker.g:102:6: ^( '<' a= expression b= expression )
+					// src/grammar/JavathonTreeWalker.g:103:6: ^( '<' a= expression b= expression )
 					{
-					match(input,LT,FOLLOW_LT_in_expression729); 
+					match(input,LT,FOLLOW_LT_in_expression746); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression733);
+					pushFollow(FOLLOW_expression_in_expression750);
 					a=expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression737);
+					pushFollow(FOLLOW_expression_in_expression754);
 					b=expression();
 					state._fsp--;
 
@@ -1163,15 +1169,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 11 :
-					// src/grammar/JavathonTreeWalker.g:103:6: ^( '+' a= expression b= expression )
+					// src/grammar/JavathonTreeWalker.g:104:6: ^( '+' a= expression b= expression )
 					{
-					match(input,Add,FOLLOW_Add_in_expression753); 
+					match(input,Add,FOLLOW_Add_in_expression770); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression757);
+					pushFollow(FOLLOW_expression_in_expression774);
 					a=expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression761);
+					pushFollow(FOLLOW_expression_in_expression778);
 					b=expression();
 					state._fsp--;
 
@@ -1181,15 +1187,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 12 :
-					// src/grammar/JavathonTreeWalker.g:104:6: ^( '-' expression expression )
+					// src/grammar/JavathonTreeWalker.g:105:6: ^( '-' expression expression )
 					{
-					match(input,Subtract,FOLLOW_Subtract_in_expression773); 
+					match(input,Subtract,FOLLOW_Subtract_in_expression791); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression775);
+					pushFollow(FOLLOW_expression_in_expression793);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression777);
+					pushFollow(FOLLOW_expression_in_expression795);
 					expression();
 					state._fsp--;
 
@@ -1198,15 +1204,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 13 :
-					// src/grammar/JavathonTreeWalker.g:105:6: ^( '*' expression expression )
+					// src/grammar/JavathonTreeWalker.g:106:6: ^( '*' expression expression )
 					{
-					match(input,Multiply,FOLLOW_Multiply_in_expression788); 
+					match(input,Multiply,FOLLOW_Multiply_in_expression806); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression790);
+					pushFollow(FOLLOW_expression_in_expression808);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression792);
+					pushFollow(FOLLOW_expression_in_expression810);
 					expression();
 					state._fsp--;
 
@@ -1215,15 +1221,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 14 :
-					// src/grammar/JavathonTreeWalker.g:106:6: ^( '/' expression expression )
+					// src/grammar/JavathonTreeWalker.g:107:6: ^( '/' expression expression )
 					{
-					match(input,Divide,FOLLOW_Divide_in_expression803); 
+					match(input,Divide,FOLLOW_Divide_in_expression821); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression805);
+					pushFollow(FOLLOW_expression_in_expression823);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression807);
+					pushFollow(FOLLOW_expression_in_expression825);
 					expression();
 					state._fsp--;
 
@@ -1232,15 +1238,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 15 :
-					// src/grammar/JavathonTreeWalker.g:107:6: ^( '%' expression expression )
+					// src/grammar/JavathonTreeWalker.g:108:6: ^( '%' expression expression )
 					{
-					match(input,Modulus,FOLLOW_Modulus_in_expression818); 
+					match(input,Modulus,FOLLOW_Modulus_in_expression836); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression820);
+					pushFollow(FOLLOW_expression_in_expression838);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression822);
+					pushFollow(FOLLOW_expression_in_expression840);
 					expression();
 					state._fsp--;
 
@@ -1249,15 +1255,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 16 :
-					// src/grammar/JavathonTreeWalker.g:108:6: ^( '^' expression expression )
+					// src/grammar/JavathonTreeWalker.g:109:6: ^( '^' expression expression )
 					{
-					match(input,Pow,FOLLOW_Pow_in_expression833); 
+					match(input,Pow,FOLLOW_Pow_in_expression851); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression835);
+					pushFollow(FOLLOW_expression_in_expression853);
 					expression();
 					state._fsp--;
 
-					pushFollow(FOLLOW_expression_in_expression837);
+					pushFollow(FOLLOW_expression_in_expression855);
 					expression();
 					state._fsp--;
 
@@ -1266,11 +1272,11 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 17 :
-					// src/grammar/JavathonTreeWalker.g:109:6: ^( UNARY_MIN expression )
+					// src/grammar/JavathonTreeWalker.g:110:6: ^( UNARY_MIN expression )
 					{
-					match(input,UNARY_MIN,FOLLOW_UNARY_MIN_in_expression848); 
+					match(input,UNARY_MIN,FOLLOW_UNARY_MIN_in_expression866); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression850);
+					pushFollow(FOLLOW_expression_in_expression868);
 					expression();
 					state._fsp--;
 
@@ -1279,11 +1285,11 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 18 :
-					// src/grammar/JavathonTreeWalker.g:110:6: ^( NEGATE expression )
+					// src/grammar/JavathonTreeWalker.g:111:6: ^( NEGATE expression )
 					{
-					match(input,NEGATE,FOLLOW_NEGATE_in_expression861); 
+					match(input,NEGATE,FOLLOW_NEGATE_in_expression879); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_expression863);
+					pushFollow(FOLLOW_expression_in_expression881);
 					expression();
 					state._fsp--;
 
@@ -1292,31 +1298,32 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 19 :
-					// src/grammar/JavathonTreeWalker.g:111:6: Number
+					// src/grammar/JavathonTreeWalker.g:112:6: Number
 					{
-					Number10=(CommonTree)match(input,Number,FOLLOW_Number_in_expression873); 
+					Number10=(CommonTree)match(input,Number,FOLLOW_Number_in_expression891); 
 					node = new AtomNode(Double.parseDouble((Number10!=null?Number10.getText():null)));
 					}
 					break;
 				case 20 :
-					// src/grammar/JavathonTreeWalker.g:112:6: Bool
+					// src/grammar/JavathonTreeWalker.g:113:6: Bool
 					{
-					match(input,Bool,FOLLOW_Bool_in_expression892); 
+					match(input,Bool,FOLLOW_Bool_in_expression911); 
 					}
 					break;
 				case 21 :
-					// src/grammar/JavathonTreeWalker.g:113:6: Null
+					// src/grammar/JavathonTreeWalker.g:114:6: Null
 					{
-					match(input,Null,FOLLOW_Null_in_expression901); 
+					match(input,Null,FOLLOW_Null_in_expression920); 
 					}
 					break;
 				case 22 :
-					// src/grammar/JavathonTreeWalker.g:114:6: lookup
+					// src/grammar/JavathonTreeWalker.g:115:6: lookup
 					{
-					pushFollow(FOLLOW_lookup_in_expression910);
-					lookup();
+					pushFollow(FOLLOW_lookup_in_expression929);
+					lookup11=lookup();
 					state._fsp--;
 
+					node = lookup11;
 					}
 					break;
 
@@ -1336,16 +1343,16 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "list"
-	// src/grammar/JavathonTreeWalker.g:117:1: list : ^( LIST ( exprList )? ) ;
+	// src/grammar/JavathonTreeWalker.g:118:1: list : ^( LIST ( exprList )? ) ;
 	public final void list() throws RecognitionException {
 		try {
-			// src/grammar/JavathonTreeWalker.g:118:3: ( ^( LIST ( exprList )? ) )
-			// src/grammar/JavathonTreeWalker.g:118:6: ^( LIST ( exprList )? )
+			// src/grammar/JavathonTreeWalker.g:119:3: ( ^( LIST ( exprList )? ) )
+			// src/grammar/JavathonTreeWalker.g:119:6: ^( LIST ( exprList )? )
 			{
-			match(input,LIST,FOLLOW_LIST_in_list944); 
+			match(input,LIST,FOLLOW_LIST_in_list970); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
-				// src/grammar/JavathonTreeWalker.g:118:13: ( exprList )?
+				// src/grammar/JavathonTreeWalker.g:119:13: ( exprList )?
 				int alt13=2;
 				int LA13_0 = input.LA(1);
 				if ( (LA13_0==EXP_LIST) ) {
@@ -1353,9 +1360,9 @@ public class JavathonTreeWalker extends TreeParser {
 				}
 				switch (alt13) {
 					case 1 :
-						// src/grammar/JavathonTreeWalker.g:118:13: exprList
+						// src/grammar/JavathonTreeWalker.g:119:13: exprList
 						{
-						pushFollow(FOLLOW_exprList_in_list946);
+						pushFollow(FOLLOW_exprList_in_list972);
 						exprList();
 						state._fsp--;
 
@@ -1383,10 +1390,16 @@ public class JavathonTreeWalker extends TreeParser {
 
 
 	// $ANTLR start "lookup"
-	// src/grammar/JavathonTreeWalker.g:121:1: lookup : ( ^( LOOKUP functionCall ( indexes )? ) | ^( LOOKUP list ( indexes )? ) | ^( LOOKUP expression ( indexes )? ) | ^( LOOKUP Identifier ( indexes )? ) | ^( LOOKUP String ( indexes )? ) );
-	public final void lookup() throws RecognitionException {
+	// src/grammar/JavathonTreeWalker.g:122:1: lookup returns [JNode node] : ( ^( LOOKUP functionCall ( indexes )? ) | ^( LOOKUP list ( indexes )? ) | ^( LOOKUP expression ( indexes )? ) | ^( LOOKUP i= Identifier (x= indexes )? ) | ^( LOOKUP String ( indexes )? ) );
+	public final JNode lookup() throws RecognitionException {
+		JNode node = null;
+
+
+		CommonTree i=null;
+		List<JNode> x =null;
+
 		try {
-			// src/grammar/JavathonTreeWalker.g:122:3: ( ^( LOOKUP functionCall ( indexes )? ) | ^( LOOKUP list ( indexes )? ) | ^( LOOKUP expression ( indexes )? ) | ^( LOOKUP Identifier ( indexes )? ) | ^( LOOKUP String ( indexes )? ) )
+			// src/grammar/JavathonTreeWalker.g:123:3: ( ^( LOOKUP functionCall ( indexes )? ) | ^( LOOKUP list ( indexes )? ) | ^( LOOKUP expression ( indexes )? ) | ^( LOOKUP i= Identifier (x= indexes )? ) | ^( LOOKUP String ( indexes )? ) )
 			int alt19=5;
 			int LA19_0 = input.LA(1);
 			if ( (LA19_0==LOOKUP) ) {
@@ -1476,15 +1489,15 @@ public class JavathonTreeWalker extends TreeParser {
 
 			switch (alt19) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:122:6: ^( LOOKUP functionCall ( indexes )? )
+					// src/grammar/JavathonTreeWalker.g:123:6: ^( LOOKUP functionCall ( indexes )? )
 					{
-					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup971); 
+					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup1001); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_functionCall_in_lookup973);
+					pushFollow(FOLLOW_functionCall_in_lookup1003);
 					functionCall();
 					state._fsp--;
 
-					// src/grammar/JavathonTreeWalker.g:122:28: ( indexes )?
+					// src/grammar/JavathonTreeWalker.g:123:28: ( indexes )?
 					int alt14=2;
 					int LA14_0 = input.LA(1);
 					if ( (LA14_0==INDEXES) ) {
@@ -1492,9 +1505,9 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					switch (alt14) {
 						case 1 :
-							// src/grammar/JavathonTreeWalker.g:122:28: indexes
+							// src/grammar/JavathonTreeWalker.g:123:28: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup975);
+							pushFollow(FOLLOW_indexes_in_lookup1005);
 							indexes();
 							state._fsp--;
 
@@ -1508,15 +1521,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 2 :
-					// src/grammar/JavathonTreeWalker.g:123:6: ^( LOOKUP list ( indexes )? )
+					// src/grammar/JavathonTreeWalker.g:124:6: ^( LOOKUP list ( indexes )? )
 					{
-					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup987); 
+					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup1017); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_list_in_lookup989);
+					pushFollow(FOLLOW_list_in_lookup1019);
 					list();
 					state._fsp--;
 
-					// src/grammar/JavathonTreeWalker.g:123:20: ( indexes )?
+					// src/grammar/JavathonTreeWalker.g:124:20: ( indexes )?
 					int alt15=2;
 					int LA15_0 = input.LA(1);
 					if ( (LA15_0==INDEXES) ) {
@@ -1524,9 +1537,9 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					switch (alt15) {
 						case 1 :
-							// src/grammar/JavathonTreeWalker.g:123:20: indexes
+							// src/grammar/JavathonTreeWalker.g:124:20: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup991);
+							pushFollow(FOLLOW_indexes_in_lookup1021);
 							indexes();
 							state._fsp--;
 
@@ -1540,15 +1553,15 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 3 :
-					// src/grammar/JavathonTreeWalker.g:124:6: ^( LOOKUP expression ( indexes )? )
+					// src/grammar/JavathonTreeWalker.g:125:6: ^( LOOKUP expression ( indexes )? )
 					{
-					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup1003); 
+					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup1033); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_lookup1005);
+					pushFollow(FOLLOW_expression_in_lookup1035);
 					expression();
 					state._fsp--;
 
-					// src/grammar/JavathonTreeWalker.g:124:26: ( indexes )?
+					// src/grammar/JavathonTreeWalker.g:125:26: ( indexes )?
 					int alt16=2;
 					int LA16_0 = input.LA(1);
 					if ( (LA16_0==INDEXES) ) {
@@ -1556,9 +1569,9 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					switch (alt16) {
 						case 1 :
-							// src/grammar/JavathonTreeWalker.g:124:26: indexes
+							// src/grammar/JavathonTreeWalker.g:125:26: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup1007);
+							pushFollow(FOLLOW_indexes_in_lookup1037);
 							indexes();
 							state._fsp--;
 
@@ -1572,12 +1585,12 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					break;
 				case 4 :
-					// src/grammar/JavathonTreeWalker.g:125:6: ^( LOOKUP Identifier ( indexes )? )
+					// src/grammar/JavathonTreeWalker.g:126:6: ^( LOOKUP i= Identifier (x= indexes )? )
 					{
-					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup1020); 
+					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup1050); 
 					match(input, Token.DOWN, null); 
-					match(input,Identifier,FOLLOW_Identifier_in_lookup1022); 
-					// src/grammar/JavathonTreeWalker.g:125:26: ( indexes )?
+					i=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_lookup1054); 
+					// src/grammar/JavathonTreeWalker.g:126:29: (x= indexes )?
 					int alt17=2;
 					int LA17_0 = input.LA(1);
 					if ( (LA17_0==INDEXES) ) {
@@ -1585,10 +1598,10 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					switch (alt17) {
 						case 1 :
-							// src/grammar/JavathonTreeWalker.g:125:26: indexes
+							// src/grammar/JavathonTreeWalker.g:126:29: x= indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup1024);
-							indexes();
+							pushFollow(FOLLOW_indexes_in_lookup1058);
+							x=indexes();
 							state._fsp--;
 
 							}
@@ -1598,15 +1611,20 @@ public class JavathonTreeWalker extends TreeParser {
 
 					match(input, Token.UP, null); 
 
+					 
+					        node = (x != null) 
+					          ? new LookupNode(new IdentifierNode((i!=null?i.getText():null), currentScope), x) 
+					          : new IdentifierNode((i!=null?i.getText():null), currentScope); 
+					      
 					}
 					break;
 				case 5 :
-					// src/grammar/JavathonTreeWalker.g:126:6: ^( LOOKUP String ( indexes )? )
+					// src/grammar/JavathonTreeWalker.g:132:6: ^( LOOKUP String ( indexes )? )
 					{
-					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup1036); 
+					match(input,LOOKUP,FOLLOW_LOOKUP_in_lookup1080); 
 					match(input, Token.DOWN, null); 
-					match(input,String,FOLLOW_String_in_lookup1038); 
-					// src/grammar/JavathonTreeWalker.g:126:22: ( indexes )?
+					match(input,String,FOLLOW_String_in_lookup1082); 
+					// src/grammar/JavathonTreeWalker.g:132:22: ( indexes )?
 					int alt18=2;
 					int LA18_0 = input.LA(1);
 					if ( (LA18_0==INDEXES) ) {
@@ -1614,9 +1632,9 @@ public class JavathonTreeWalker extends TreeParser {
 					}
 					switch (alt18) {
 						case 1 :
-							// src/grammar/JavathonTreeWalker.g:126:22: indexes
+							// src/grammar/JavathonTreeWalker.g:132:22: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup1040);
+							pushFollow(FOLLOW_indexes_in_lookup1084);
 							indexes();
 							state._fsp--;
 
@@ -1639,21 +1657,28 @@ public class JavathonTreeWalker extends TreeParser {
 		finally {
 			// do for sure before leaving
 		}
+		return node;
 	}
 	// $ANTLR end "lookup"
 
 
 
 	// $ANTLR start "indexes"
-	// src/grammar/JavathonTreeWalker.g:129:1: indexes : ^( INDEXES ( expression )+ ) ;
-	public final void indexes() throws RecognitionException {
+	// src/grammar/JavathonTreeWalker.g:135:1: indexes returns [List<JNode> e] : ^( INDEXES ( expression )+ ) ;
+	public final List<JNode> indexes() throws RecognitionException {
+		List<JNode> e = null;
+
+
+		JNode expression12 =null;
+
+		e = new ArrayList<JNode>();
 		try {
-			// src/grammar/JavathonTreeWalker.g:130:3: ( ^( INDEXES ( expression )+ ) )
-			// src/grammar/JavathonTreeWalker.g:130:6: ^( INDEXES ( expression )+ )
+			// src/grammar/JavathonTreeWalker.g:137:3: ( ^( INDEXES ( expression )+ ) )
+			// src/grammar/JavathonTreeWalker.g:137:6: ^( INDEXES ( expression )+ )
 			{
-			match(input,INDEXES,FOLLOW_INDEXES_in_indexes1065); 
+			match(input,INDEXES,FOLLOW_INDEXES_in_indexes1120); 
 			match(input, Token.DOWN, null); 
-			// src/grammar/JavathonTreeWalker.g:130:16: ( expression )+
+			// src/grammar/JavathonTreeWalker.g:137:16: ( expression )+
 			int cnt20=0;
 			loop20:
 			while (true) {
@@ -1665,12 +1690,13 @@ public class JavathonTreeWalker extends TreeParser {
 
 				switch (alt20) {
 				case 1 :
-					// src/grammar/JavathonTreeWalker.g:130:16: expression
+					// src/grammar/JavathonTreeWalker.g:137:17: expression
 					{
-					pushFollow(FOLLOW_expression_in_indexes1067);
-					expression();
+					pushFollow(FOLLOW_expression_in_indexes1123);
+					expression12=expression();
 					state._fsp--;
 
+					e.add(expression12);
 					}
 					break;
 
@@ -1694,6 +1720,7 @@ public class JavathonTreeWalker extends TreeParser {
 		finally {
 			// do for sure before leaving
 		}
+		return e;
 	}
 	// $ANTLR end "indexes"
 
@@ -1711,112 +1738,112 @@ public class JavathonTreeWalker extends TreeParser {
 	public static final BitSet FOLLOW_functionCall_in_statement217 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ifStatement_in_statement230 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_whileStatement_in_statement245 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ASSIGNMENT_in_assignment272 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_assignment274 = new BitSet(new long[]{0x0031FF24C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_indexes_in_assignment276 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_assignment279 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall308 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_functionCall310 = new BitSet(new long[]{0x0000000000400008L});
-	public static final BitSet FOLLOW_exprList_in_functionCall312 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall324 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Println_in_functionCall326 = new BitSet(new long[]{0x0031FF20C2080468L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_functionCall328 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall345 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Print_in_functionCall347 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_functionCall349 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall360 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Assert_in_functionCall362 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_functionCall364 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall375 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Size_in_functionCall377 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_functionCall379 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_IF_in_ifStatement415 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_EXP_in_ifStatement429 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_ifStatement431 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_block_in_ifStatement435 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_EXP_in_ifStatement453 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_block_in_ifStatement457 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_While_in_whileStatement506 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_whileStatement508 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_block_in_whileStatement510 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ID_LIST_in_idList534 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_idList536 = new BitSet(new long[]{0x0000000800000008L});
-	public static final BitSet FOLLOW_EXP_LIST_in_exprList561 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_exprList563 = new BitSet(new long[]{0x0031FF20C2080468L,0x000000000000000BL});
-	public static final BitSet FOLLOW_TERNARY_in_expression592 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression594 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression596 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression598 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_In_in_expression609 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ASSIGNMENT_in_assignment274 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Identifier_in_assignment278 = new BitSet(new long[]{0x0031FF24C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_indexes_in_assignment282 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_assignment287 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall325 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Identifier_in_functionCall327 = new BitSet(new long[]{0x0000000000400008L});
+	public static final BitSet FOLLOW_exprList_in_functionCall329 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall341 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Println_in_functionCall343 = new BitSet(new long[]{0x0031FF20C2080468L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_functionCall345 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall362 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Print_in_functionCall364 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_functionCall366 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall377 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Assert_in_functionCall379 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_functionCall381 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_FUNC_CALL_in_functionCall392 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Size_in_functionCall394 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_functionCall396 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_IF_in_ifStatement432 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_EXP_in_ifStatement446 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_ifStatement448 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_block_in_ifStatement452 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_EXP_in_ifStatement470 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_block_in_ifStatement474 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_While_in_whileStatement523 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_whileStatement525 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_block_in_whileStatement527 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ID_LIST_in_idList551 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Identifier_in_idList553 = new BitSet(new long[]{0x0000000800000008L});
+	public static final BitSet FOLLOW_EXP_LIST_in_exprList578 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_exprList580 = new BitSet(new long[]{0x0031FF20C2080468L,0x000000000000000BL});
+	public static final BitSet FOLLOW_TERNARY_in_expression609 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_expression_in_expression611 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression613 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Or_in_expression624 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression626 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression628 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_And_in_expression639 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression641 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression643 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Equals_in_expression654 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression656 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression658 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NEquals_in_expression669 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression671 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression673 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_GTEquals_in_expression684 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression686 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression688 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LTEquals_in_expression699 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression701 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression703 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_GT_in_expression714 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression716 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression718 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LT_in_expression729 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression613 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression615 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_In_in_expression626 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression628 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression630 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Or_in_expression641 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression643 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression645 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_And_in_expression656 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression658 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression660 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Equals_in_expression671 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression673 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression675 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NEquals_in_expression686 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression688 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression690 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_GTEquals_in_expression701 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression703 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression705 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LTEquals_in_expression716 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression718 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression720 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_GT_in_expression731 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_expression_in_expression733 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression737 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Add_in_expression753 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression757 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression761 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Subtract_in_expression773 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression775 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression777 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Multiply_in_expression788 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression790 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression792 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Divide_in_expression803 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression805 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression807 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Modulus_in_expression818 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression820 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression822 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Pow_in_expression833 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression835 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
-	public static final BitSet FOLLOW_expression_in_expression837 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_UNARY_MIN_in_expression848 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression850 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NEGATE_in_expression861 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_expression863 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Number_in_expression873 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Bool_in_expression892 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Null_in_expression901 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_lookup_in_expression910 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LIST_in_list944 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_exprList_in_list946 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LOOKUP_in_lookup971 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_functionCall_in_lookup973 = new BitSet(new long[]{0x0000000400000008L});
-	public static final BitSet FOLLOW_indexes_in_lookup975 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LOOKUP_in_lookup987 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_list_in_lookup989 = new BitSet(new long[]{0x0000000400000008L});
-	public static final BitSet FOLLOW_indexes_in_lookup991 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LOOKUP_in_lookup1003 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_lookup1005 = new BitSet(new long[]{0x0000000400000008L});
-	public static final BitSet FOLLOW_indexes_in_lookup1007 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LOOKUP_in_lookup1020 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_lookup1022 = new BitSet(new long[]{0x0000000400000008L});
-	public static final BitSet FOLLOW_indexes_in_lookup1024 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LOOKUP_in_lookup1036 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_String_in_lookup1038 = new BitSet(new long[]{0x0000000400000008L});
-	public static final BitSet FOLLOW_indexes_in_lookup1040 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INDEXES_in_indexes1065 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_indexes1067 = new BitSet(new long[]{0x0031FF20C2080468L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression735 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LT_in_expression746 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression750 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression754 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Add_in_expression770 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression774 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression778 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Subtract_in_expression791 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression793 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression795 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Multiply_in_expression806 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression808 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression810 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Divide_in_expression821 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression823 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression825 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Modulus_in_expression836 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression838 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression840 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Pow_in_expression851 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression853 = new BitSet(new long[]{0x0031FF20C2080460L,0x000000000000000BL});
+	public static final BitSet FOLLOW_expression_in_expression855 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_UNARY_MIN_in_expression866 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression868 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NEGATE_in_expression879 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_expression881 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Number_in_expression891 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Bool_in_expression911 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Null_in_expression920 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_lookup_in_expression929 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LIST_in_list970 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_exprList_in_list972 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LOOKUP_in_lookup1001 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_functionCall_in_lookup1003 = new BitSet(new long[]{0x0000000400000008L});
+	public static final BitSet FOLLOW_indexes_in_lookup1005 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LOOKUP_in_lookup1017 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_list_in_lookup1019 = new BitSet(new long[]{0x0000000400000008L});
+	public static final BitSet FOLLOW_indexes_in_lookup1021 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LOOKUP_in_lookup1033 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_lookup1035 = new BitSet(new long[]{0x0000000400000008L});
+	public static final BitSet FOLLOW_indexes_in_lookup1037 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LOOKUP_in_lookup1050 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Identifier_in_lookup1054 = new BitSet(new long[]{0x0000000400000008L});
+	public static final BitSet FOLLOW_indexes_in_lookup1058 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LOOKUP_in_lookup1080 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_String_in_lookup1082 = new BitSet(new long[]{0x0000000400000008L});
+	public static final BitSet FOLLOW_indexes_in_lookup1084 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INDEXES_in_indexes1120 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_indexes1123 = new BitSet(new long[]{0x0031FF20C2080468L,0x000000000000000BL});
 }

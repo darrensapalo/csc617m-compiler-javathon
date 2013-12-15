@@ -54,9 +54,10 @@ statement returns [JNode node]
   |  whileStatement {node = $whileStatement.node;}  
   ;  
   
-assignment returns [JNode node]
-  :  ^(ASSIGNMENT Identifier indexes? expression)  
-  ;  
+assignment returns [JNode node]  
+  :  ^(ASSIGNMENT i=Identifier x=indexes? e=expression)   
+     {node = new AssignmentNode($i.text, $x.e, $e.node, currentScope);}  
+  ; 
   
 functionCall  returns [JNode node]  
   :  ^(FUNC_CALL Identifier exprList?)  
@@ -100,7 +101,7 @@ expression returns [JNode node]
   |  ^('<=' expression expression)  
   |  ^('>' expression expression)  
   |  ^('<' a=expression b=expression)  		{node = new LTNode 	($a.node, $b.node);}  
-  |  ^('+' a=expression b=expression) 	{node = new AddNode	($a.node, $b.node);}
+  |  ^('+' a=expression b=expression) 		{node = new AddNode	($a.node, $b.node);}
   |  ^('-' expression expression)  
   |  ^('*' expression expression)  
   |  ^('/' expression expression)  
@@ -108,24 +109,30 @@ expression returns [JNode node]
   |  ^('^' expression expression)  
   |  ^(UNARY_MIN expression)  
   |  ^(NEGATE expression)  
-  |  Number  							{node = new AtomNode(Double.parseDouble($Number.text));}  
+  |  Number  								{node = new AtomNode(Double.parseDouble($Number.text));}  
   |  Bool  
   |  Null  
-  |  lookup             
+  |  lookup 								{node = $lookup.node;}          
   ;  
   
 list  
   :  ^(LIST exprList?)  
   ;  
   
-lookup  
+lookup returns [JNode node]  
   :  ^(LOOKUP functionCall indexes?)  
   |  ^(LOOKUP list indexes?)  
   |  ^(LOOKUP expression indexes?)   
-  |  ^(LOOKUP Identifier indexes?)  
+  |  ^(LOOKUP i=Identifier x=indexes?)  
+      { 
+        node = ($x.e != null) 
+          ? new LookupNode(new IdentifierNode($i.text, currentScope), $x.e) 
+          : new IdentifierNode($i.text, currentScope); 
+      }  
   |  ^(LOOKUP String indexes?)  
   ;  
   
-indexes  
-  :  ^(INDEXES expression+)  
+indexes returns [List<JNode> e]  
+@init {e = new ArrayList<JNode>();}  
+  :  ^(INDEXES (expression {e.add($expression.node);})+)  
   ;  

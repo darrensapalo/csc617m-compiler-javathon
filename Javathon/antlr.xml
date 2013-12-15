@@ -3,8 +3,8 @@
   
   <path id="classpath">  
     <pathelement location="build/classes/" />  
-    <pathelement location="src/grammar/" />  
-    <fileset dir="lib">  
+  	<pathelement location="src/" />
+<fileset dir="lib">  
       <include name="*.jar" />  
     </fileset>  
   </path>  
@@ -15,7 +15,7 @@
   </target>  
   
   <target name="compile" depends="clean">  
-    <javac srcdir="src/grammar/" destdir="build/classes/" includeantruntime="false">  
+    <javac srcdir="src/" destdir="build/classes/" includeantruntime="false">  
       <classpath refid="classpath" />  
     </javac>  
   </target>  

@@ -52,6 +52,7 @@ tokens {
   } 
 }  
 
+
 parse  
   :  block EOF -> block  
   ;  
@@ -65,11 +66,10 @@ statement
   :  assignment ';' 	-> assignment 
   |  functionCall ';'  	-> functionCall
   |  ifStatement   
+
   |  whileStatement  
   ;  
-  
 
-/* Assignment */  
 assignment  
   :  Identifier indexes? '=' expression  
   	 -> ^(ASSIGNMENT Identifier indexes? expression)
@@ -83,9 +83,6 @@ functionCall
   |  Size '(' expression ')'      -> ^(FUNC_CALL Size expression)  
   ;  
   
-   
-
-/* if statements */
 ifStatement  
   :  ifStat elseIfStat* elseStat? End -> ^(IF ifStat elseIfStat* elseStat?)  
   ;  
@@ -102,14 +99,16 @@ elseStat
   :  Else Do block -> ^(EXP block)  
   ;
   
-
-/* function declaration */
-  
   functionDecl  
   :  Def Identifier '(' idList? ')' block End   
      {defineFunction($Identifier.text, $idList.tree, $block.tree);}  
   ;  
   
+
+
+
+
+
 whileStatement  
   :  While expression Do block End -> ^(While expression block)  
   ;  
@@ -122,7 +121,6 @@ exprList
   :  expression (',' expression)* -> ^(EXP_LIST expression+)  
   ;  
 
-/* Expressions */  
 expression  
   :  condExpr  
   ;  
@@ -179,14 +177,12 @@ list
   :  '[' exprList? ']' -> ^(LIST exprList?)  
   ;  
   
-
-/* Look up */
 lookup  
-  :  functionCall indexes?  
-  |  '(' expression ')' indexes?  
-  |  list indexes?  
-  |  Identifier indexes?  
-  |  String indexes?  
+  :  functionCall indexes?       -> ^(LOOKUP functionCall indexes?)
+  |  list indexes?               -> ^(LOOKUP list indexes?)
+  |  Identifier indexes?         -> ^(LOOKUP Identifier indexes?)
+  |  String indexes?             -> ^(LOOKUP String indexes?)
+  |  '(' expression ')' indexes? -> ^(LOOKUP expression indexes?)
   ;  
   
   

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-15 23:03:22
+// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-16 02:27:16
  
   package grammar; 
   import main.javathon.*;  
@@ -145,7 +145,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "parse"
-	// src/grammar/Javathon.g:55:1: parse : block EOF -> block ;
+	// src/grammar/Javathon.g:56:1: parse : block EOF -> block ;
 	public final JavathonParser.parse_return parse() throws RecognitionException {
 		JavathonParser.parse_return retval = new JavathonParser.parse_return();
 		retval.start = input.LT(1);
@@ -160,15 +160,15 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
 
 		try {
-			// src/grammar/Javathon.g:56:3: ( block EOF -> block )
-			// src/grammar/Javathon.g:56:6: block EOF
+			// src/grammar/Javathon.g:57:3: ( block EOF -> block )
+			// src/grammar/Javathon.g:57:6: block EOF
 			{
-			pushFollow(FOLLOW_block_in_parse166);
+			pushFollow(FOLLOW_block_in_parse167);
 			block1=block();
 			state._fsp--;
 
 			stream_block.add(block1.getTree());
-			EOF2=(Token)match(input,EOF,FOLLOW_EOF_in_parse168);  
+			EOF2=(Token)match(input,EOF,FOLLOW_EOF_in_parse169);  
 			stream_EOF.add(EOF2);
 
 			// AST REWRITE
@@ -182,7 +182,7 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 56:16: -> block
+			// 57:16: -> block
 			{
 				adaptor.addChild(root_0, stream_block.nextTree());
 			}
@@ -219,7 +219,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "block"
-	// src/grammar/Javathon.g:59:1: block : ( statement | functionDecl )* ( Return expression ';' )? -> ^( BLOCK ^( STATEMENTS ( statement )* ) ^( RETURN ( expression )? ) ) ;
+	// src/grammar/Javathon.g:60:1: block : ( statement | functionDecl )* ( Return expression ';' )? -> ^( BLOCK ^( STATEMENTS ( statement )* ) ^( RETURN ( expression )? ) ) ;
 	public final JavathonParser.block_return block() throws RecognitionException {
 		JavathonParser.block_return retval = new JavathonParser.block_return();
 		retval.start = input.LT(1);
@@ -241,10 +241,10 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_functionDecl=new RewriteRuleSubtreeStream(adaptor,"rule functionDecl");
 
 		try {
-			// src/grammar/Javathon.g:60:3: ( ( statement | functionDecl )* ( Return expression ';' )? -> ^( BLOCK ^( STATEMENTS ( statement )* ) ^( RETURN ( expression )? ) ) )
-			// src/grammar/Javathon.g:60:6: ( statement | functionDecl )* ( Return expression ';' )?
+			// src/grammar/Javathon.g:61:3: ( ( statement | functionDecl )* ( Return expression ';' )? -> ^( BLOCK ^( STATEMENTS ( statement )* ) ^( RETURN ( expression )? ) ) )
+			// src/grammar/Javathon.g:61:6: ( statement | functionDecl )* ( Return expression ';' )?
 			{
-			// src/grammar/Javathon.g:60:6: ( statement | functionDecl )*
+			// src/grammar/Javathon.g:61:6: ( statement | functionDecl )*
 			loop1:
 			while (true) {
 				int alt1=3;
@@ -258,9 +258,9 @@ public class JavathonParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// src/grammar/Javathon.g:60:7: statement
+					// src/grammar/Javathon.g:61:7: statement
 					{
-					pushFollow(FOLLOW_statement_in_block195);
+					pushFollow(FOLLOW_statement_in_block196);
 					statement3=statement();
 					state._fsp--;
 
@@ -268,9 +268,9 @@ public class JavathonParser extends Parser {
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:60:19: functionDecl
+					// src/grammar/Javathon.g:61:19: functionDecl
 					{
-					pushFollow(FOLLOW_functionDecl_in_block199);
+					pushFollow(FOLLOW_functionDecl_in_block200);
 					functionDecl4=functionDecl();
 					state._fsp--;
 
@@ -283,7 +283,7 @@ public class JavathonParser extends Parser {
 				}
 			}
 
-			// src/grammar/Javathon.g:60:34: ( Return expression ';' )?
+			// src/grammar/Javathon.g:61:34: ( Return expression ';' )?
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0==Return) ) {
@@ -291,17 +291,17 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt2) {
 				case 1 :
-					// src/grammar/Javathon.g:60:35: Return expression ';'
+					// src/grammar/Javathon.g:61:35: Return expression ';'
 					{
-					Return5=(Token)match(input,Return,FOLLOW_Return_in_block204);  
+					Return5=(Token)match(input,Return,FOLLOW_Return_in_block205);  
 					stream_Return.add(Return5);
 
-					pushFollow(FOLLOW_expression_in_block206);
+					pushFollow(FOLLOW_expression_in_block207);
 					expression6=expression();
 					state._fsp--;
 
 					stream_expression.add(expression6.getTree());
-					char_literal7=(Token)match(input,SColon,FOLLOW_SColon_in_block208);  
+					char_literal7=(Token)match(input,SColon,FOLLOW_SColon_in_block209);  
 					stream_SColon.add(char_literal7);
 
 					}
@@ -320,17 +320,17 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 61:6: -> ^( BLOCK ^( STATEMENTS ( statement )* ) ^( RETURN ( expression )? ) )
+			// 62:6: -> ^( BLOCK ^( STATEMENTS ( statement )* ) ^( RETURN ( expression )? ) )
 			{
-				// src/grammar/Javathon.g:61:9: ^( BLOCK ^( STATEMENTS ( statement )* ) ^( RETURN ( expression )? ) )
+				// src/grammar/Javathon.g:62:9: ^( BLOCK ^( STATEMENTS ( statement )* ) ^( RETURN ( expression )? ) )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(BLOCK, "BLOCK"), root_1);
-				// src/grammar/Javathon.g:61:17: ^( STATEMENTS ( statement )* )
+				// src/grammar/Javathon.g:62:17: ^( STATEMENTS ( statement )* )
 				{
 				Object root_2 = (Object)adaptor.nil();
 				root_2 = (Object)adaptor.becomeRoot((Object)adaptor.create(STATEMENTS, "STATEMENTS"), root_2);
-				// src/grammar/Javathon.g:61:30: ( statement )*
+				// src/grammar/Javathon.g:62:30: ( statement )*
 				while ( stream_statement.hasNext() ) {
 					adaptor.addChild(root_2, stream_statement.nextTree());
 				}
@@ -339,11 +339,11 @@ public class JavathonParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// src/grammar/Javathon.g:61:42: ^( RETURN ( expression )? )
+				// src/grammar/Javathon.g:62:42: ^( RETURN ( expression )? )
 				{
 				Object root_2 = (Object)adaptor.nil();
 				root_2 = (Object)adaptor.becomeRoot((Object)adaptor.create(RETURN, "RETURN"), root_2);
-				// src/grammar/Javathon.g:61:51: ( expression )?
+				// src/grammar/Javathon.g:62:51: ( expression )?
 				if ( stream_expression.hasNext() ) {
 					adaptor.addChild(root_2, stream_expression.nextTree());
 				}
@@ -389,7 +389,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "statement"
-	// src/grammar/Javathon.g:64:1: statement : ( assignment ';' -> assignment | functionCall ';' -> functionCall | ifStatement | whileStatement );
+	// src/grammar/Javathon.g:65:1: statement : ( assignment ';' -> assignment | functionCall ';' -> functionCall | ifStatement | whileStatement );
 	public final JavathonParser.statement_return statement() throws RecognitionException {
 		JavathonParser.statement_return retval = new JavathonParser.statement_return();
 		retval.start = input.LT(1);
@@ -410,7 +410,7 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_assignment=new RewriteRuleSubtreeStream(adaptor,"rule assignment");
 
 		try {
-			// src/grammar/Javathon.g:65:3: ( assignment ';' -> assignment | functionCall ';' -> functionCall | ifStatement | whileStatement )
+			// src/grammar/Javathon.g:66:3: ( assignment ';' -> assignment | functionCall ';' -> functionCall | ifStatement | whileStatement )
 			int alt3=4;
 			switch ( input.LA(1) ) {
 			case Identifier:
@@ -462,14 +462,14 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt3) {
 				case 1 :
-					// src/grammar/Javathon.g:65:6: assignment ';'
+					// src/grammar/Javathon.g:66:6: assignment ';'
 					{
-					pushFollow(FOLLOW_assignment_in_statement260);
+					pushFollow(FOLLOW_assignment_in_statement261);
 					assignment8=assignment();
 					state._fsp--;
 
 					stream_assignment.add(assignment8.getTree());
-					char_literal9=(Token)match(input,SColon,FOLLOW_SColon_in_statement262);  
+					char_literal9=(Token)match(input,SColon,FOLLOW_SColon_in_statement263);  
 					stream_SColon.add(char_literal9);
 
 					// AST REWRITE
@@ -483,7 +483,7 @@ public class JavathonParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (Object)adaptor.nil();
-					// 65:22: -> assignment
+					// 66:22: -> assignment
 					{
 						adaptor.addChild(root_0, stream_assignment.nextTree());
 					}
@@ -494,14 +494,14 @@ public class JavathonParser extends Parser {
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:66:6: functionCall ';'
+					// src/grammar/Javathon.g:67:6: functionCall ';'
 					{
-					pushFollow(FOLLOW_functionCall_in_statement275);
+					pushFollow(FOLLOW_functionCall_in_statement276);
 					functionCall10=functionCall();
 					state._fsp--;
 
 					stream_functionCall.add(functionCall10.getTree());
-					char_literal11=(Token)match(input,SColon,FOLLOW_SColon_in_statement277);  
+					char_literal11=(Token)match(input,SColon,FOLLOW_SColon_in_statement278);  
 					stream_SColon.add(char_literal11);
 
 					// AST REWRITE
@@ -515,7 +515,7 @@ public class JavathonParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (Object)adaptor.nil();
-					// 66:25: -> functionCall
+					// 67:25: -> functionCall
 					{
 						adaptor.addChild(root_0, stream_functionCall.nextTree());
 					}
@@ -526,12 +526,12 @@ public class JavathonParser extends Parser {
 					}
 					break;
 				case 3 :
-					// src/grammar/Javathon.g:67:6: ifStatement
+					// src/grammar/Javathon.g:68:6: ifStatement
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_ifStatement_in_statement290);
+					pushFollow(FOLLOW_ifStatement_in_statement291);
 					ifStatement12=ifStatement();
 					state._fsp--;
 
@@ -540,12 +540,12 @@ public class JavathonParser extends Parser {
 					}
 					break;
 				case 4 :
-					// src/grammar/Javathon.g:68:6: whileStatement
+					// src/grammar/Javathon.g:70:6: whileStatement
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_whileStatement_in_statement300);
+					pushFollow(FOLLOW_whileStatement_in_statement302);
 					whileStatement13=whileStatement();
 					state._fsp--;
 
@@ -605,7 +605,7 @@ public class JavathonParser extends Parser {
 			// src/grammar/Javathon.g:74:3: ( Identifier ( indexes )? '=' expression -> ^( ASSIGNMENT Identifier ( indexes )? expression ) )
 			// src/grammar/Javathon.g:74:6: Identifier ( indexes )? '=' expression
 			{
-			Identifier14=(Token)match(input,Identifier,FOLLOW_Identifier_in_assignment327);  
+			Identifier14=(Token)match(input,Identifier,FOLLOW_Identifier_in_assignment322);  
 			stream_Identifier.add(Identifier14);
 
 			// src/grammar/Javathon.g:74:17: ( indexes )?
@@ -618,7 +618,7 @@ public class JavathonParser extends Parser {
 				case 1 :
 					// src/grammar/Javathon.g:74:17: indexes
 					{
-					pushFollow(FOLLOW_indexes_in_assignment329);
+					pushFollow(FOLLOW_indexes_in_assignment324);
 					indexes15=indexes();
 					state._fsp--;
 
@@ -628,10 +628,10 @@ public class JavathonParser extends Parser {
 
 			}
 
-			char_literal16=(Token)match(input,Assign,FOLLOW_Assign_in_assignment332);  
+			char_literal16=(Token)match(input,Assign,FOLLOW_Assign_in_assignment327);  
 			stream_Assign.add(char_literal16);
 
-			pushFollow(FOLLOW_expression_in_assignment334);
+			pushFollow(FOLLOW_expression_in_assignment329);
 			expression17=expression();
 			state._fsp--;
 
@@ -789,10 +789,10 @@ public class JavathonParser extends Parser {
 				case 1 :
 					// src/grammar/Javathon.g:79:6: Identifier '(' ( exprList )? ')'
 					{
-					Identifier18=(Token)match(input,Identifier,FOLLOW_Identifier_in_functionCall371);  
+					Identifier18=(Token)match(input,Identifier,FOLLOW_Identifier_in_functionCall366);  
 					stream_Identifier.add(Identifier18);
 
-					char_literal19=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall373);  
+					char_literal19=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall368);  
 					stream_OParen.add(char_literal19);
 
 					// src/grammar/Javathon.g:79:21: ( exprList )?
@@ -805,7 +805,7 @@ public class JavathonParser extends Parser {
 						case 1 :
 							// src/grammar/Javathon.g:79:21: exprList
 							{
-							pushFollow(FOLLOW_exprList_in_functionCall375);
+							pushFollow(FOLLOW_exprList_in_functionCall370);
 							exprList20=exprList();
 							state._fsp--;
 
@@ -815,7 +815,7 @@ public class JavathonParser extends Parser {
 
 					}
 
-					char_literal21=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall378);  
+					char_literal21=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall373);  
 					stream_CParen.add(char_literal21);
 
 					// AST REWRITE
@@ -855,10 +855,10 @@ public class JavathonParser extends Parser {
 				case 2 :
 					// src/grammar/Javathon.g:80:6: Println '(' ( expression )? ')'
 					{
-					Println22=(Token)match(input,Println,FOLLOW_Println_in_functionCall398);  
+					Println22=(Token)match(input,Println,FOLLOW_Println_in_functionCall393);  
 					stream_Println.add(Println22);
 
-					char_literal23=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall400);  
+					char_literal23=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall395);  
 					stream_OParen.add(char_literal23);
 
 					// src/grammar/Javathon.g:80:18: ( expression )?
@@ -871,7 +871,7 @@ public class JavathonParser extends Parser {
 						case 1 :
 							// src/grammar/Javathon.g:80:18: expression
 							{
-							pushFollow(FOLLOW_expression_in_functionCall402);
+							pushFollow(FOLLOW_expression_in_functionCall397);
 							expression24=expression();
 							state._fsp--;
 
@@ -881,7 +881,7 @@ public class JavathonParser extends Parser {
 
 					}
 
-					char_literal25=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall405);  
+					char_literal25=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall400);  
 					stream_CParen.add(char_literal25);
 
 					// AST REWRITE
@@ -921,18 +921,18 @@ public class JavathonParser extends Parser {
 				case 3 :
 					// src/grammar/Javathon.g:81:6: Print '(' expression ')'
 					{
-					Print26=(Token)match(input,Print,FOLLOW_Print_in_functionCall426);  
+					Print26=(Token)match(input,Print,FOLLOW_Print_in_functionCall421);  
 					stream_Print.add(Print26);
 
-					char_literal27=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall428);  
+					char_literal27=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall423);  
 					stream_OParen.add(char_literal27);
 
-					pushFollow(FOLLOW_expression_in_functionCall430);
+					pushFollow(FOLLOW_expression_in_functionCall425);
 					expression28=expression();
 					state._fsp--;
 
 					stream_expression.add(expression28.getTree());
-					char_literal29=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall432);  
+					char_literal29=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall427);  
 					stream_CParen.add(char_literal29);
 
 					// AST REWRITE
@@ -967,18 +967,18 @@ public class JavathonParser extends Parser {
 				case 4 :
 					// src/grammar/Javathon.g:82:6: Assert '(' expression ')'
 					{
-					Assert30=(Token)match(input,Assert,FOLLOW_Assert_in_functionCall455);  
+					Assert30=(Token)match(input,Assert,FOLLOW_Assert_in_functionCall450);  
 					stream_Assert.add(Assert30);
 
-					char_literal31=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall457);  
+					char_literal31=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall452);  
 					stream_OParen.add(char_literal31);
 
-					pushFollow(FOLLOW_expression_in_functionCall459);
+					pushFollow(FOLLOW_expression_in_functionCall454);
 					expression32=expression();
 					state._fsp--;
 
 					stream_expression.add(expression32.getTree());
-					char_literal33=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall461);  
+					char_literal33=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall456);  
 					stream_CParen.add(char_literal33);
 
 					// AST REWRITE
@@ -1013,18 +1013,18 @@ public class JavathonParser extends Parser {
 				case 5 :
 					// src/grammar/Javathon.g:83:6: Size '(' expression ')'
 					{
-					Size34=(Token)match(input,Size,FOLLOW_Size_in_functionCall483);  
+					Size34=(Token)match(input,Size,FOLLOW_Size_in_functionCall478);  
 					stream_Size.add(Size34);
 
-					char_literal35=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall485);  
+					char_literal35=(Token)match(input,OParen,FOLLOW_OParen_in_functionCall480);  
 					stream_OParen.add(char_literal35);
 
-					pushFollow(FOLLOW_expression_in_functionCall487);
+					pushFollow(FOLLOW_expression_in_functionCall482);
 					expression36=expression();
 					state._fsp--;
 
 					stream_expression.add(expression36.getTree());
-					char_literal37=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall489);  
+					char_literal37=(Token)match(input,CParen,FOLLOW_CParen_in_functionCall484);  
 					stream_CParen.add(char_literal37);
 
 					// AST REWRITE
@@ -1085,7 +1085,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "ifStatement"
-	// src/grammar/Javathon.g:89:1: ifStatement : ifStat ( elseIfStat )* ( elseStat )? End -> ^( IF ifStat ( elseIfStat )* ( elseStat )? ) ;
+	// src/grammar/Javathon.g:86:1: ifStatement : ifStat ( elseIfStat )* ( elseStat )? End -> ^( IF ifStat ( elseIfStat )* ( elseStat )? ) ;
 	public final JavathonParser.ifStatement_return ifStatement() throws RecognitionException {
 		JavathonParser.ifStatement_return retval = new JavathonParser.ifStatement_return();
 		retval.start = input.LT(1);
@@ -1104,15 +1104,15 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_elseStat=new RewriteRuleSubtreeStream(adaptor,"rule elseStat");
 
 		try {
-			// src/grammar/Javathon.g:90:3: ( ifStat ( elseIfStat )* ( elseStat )? End -> ^( IF ifStat ( elseIfStat )* ( elseStat )? ) )
-			// src/grammar/Javathon.g:90:6: ifStat ( elseIfStat )* ( elseStat )? End
+			// src/grammar/Javathon.g:87:3: ( ifStat ( elseIfStat )* ( elseStat )? End -> ^( IF ifStat ( elseIfStat )* ( elseStat )? ) )
+			// src/grammar/Javathon.g:87:6: ifStat ( elseIfStat )* ( elseStat )? End
 			{
-			pushFollow(FOLLOW_ifStat_in_ifStatement533);
+			pushFollow(FOLLOW_ifStat_in_ifStatement521);
 			ifStat38=ifStat();
 			state._fsp--;
 
 			stream_ifStat.add(ifStat38.getTree());
-			// src/grammar/Javathon.g:90:13: ( elseIfStat )*
+			// src/grammar/Javathon.g:87:13: ( elseIfStat )*
 			loop8:
 			while (true) {
 				int alt8=2;
@@ -1127,9 +1127,9 @@ public class JavathonParser extends Parser {
 
 				switch (alt8) {
 				case 1 :
-					// src/grammar/Javathon.g:90:13: elseIfStat
+					// src/grammar/Javathon.g:87:13: elseIfStat
 					{
-					pushFollow(FOLLOW_elseIfStat_in_ifStatement535);
+					pushFollow(FOLLOW_elseIfStat_in_ifStatement523);
 					elseIfStat39=elseIfStat();
 					state._fsp--;
 
@@ -1142,7 +1142,7 @@ public class JavathonParser extends Parser {
 				}
 			}
 
-			// src/grammar/Javathon.g:90:25: ( elseStat )?
+			// src/grammar/Javathon.g:87:25: ( elseStat )?
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0==Else) ) {
@@ -1150,9 +1150,9 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt9) {
 				case 1 :
-					// src/grammar/Javathon.g:90:25: elseStat
+					// src/grammar/Javathon.g:87:25: elseStat
 					{
-					pushFollow(FOLLOW_elseStat_in_ifStatement538);
+					pushFollow(FOLLOW_elseStat_in_ifStatement526);
 					elseStat40=elseStat();
 					state._fsp--;
 
@@ -1162,7 +1162,7 @@ public class JavathonParser extends Parser {
 
 			}
 
-			End41=(Token)match(input,End,FOLLOW_End_in_ifStatement541);  
+			End41=(Token)match(input,End,FOLLOW_End_in_ifStatement529);  
 			stream_End.add(End41);
 
 			// AST REWRITE
@@ -1176,20 +1176,20 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 90:39: -> ^( IF ifStat ( elseIfStat )* ( elseStat )? )
+			// 87:39: -> ^( IF ifStat ( elseIfStat )* ( elseStat )? )
 			{
-				// src/grammar/Javathon.g:90:42: ^( IF ifStat ( elseIfStat )* ( elseStat )? )
+				// src/grammar/Javathon.g:87:42: ^( IF ifStat ( elseIfStat )* ( elseStat )? )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(IF, "IF"), root_1);
 				adaptor.addChild(root_1, stream_ifStat.nextTree());
-				// src/grammar/Javathon.g:90:54: ( elseIfStat )*
+				// src/grammar/Javathon.g:87:54: ( elseIfStat )*
 				while ( stream_elseIfStat.hasNext() ) {
 					adaptor.addChild(root_1, stream_elseIfStat.nextTree());
 				}
 				stream_elseIfStat.reset();
 
-				// src/grammar/Javathon.g:90:66: ( elseStat )?
+				// src/grammar/Javathon.g:87:66: ( elseStat )?
 				if ( stream_elseStat.hasNext() ) {
 					adaptor.addChild(root_1, stream_elseStat.nextTree());
 				}
@@ -1232,7 +1232,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "ifStat"
-	// src/grammar/Javathon.g:93:1: ifStat : If expression Do block -> ^( EXP expression block ) ;
+	// src/grammar/Javathon.g:90:1: ifStat : If expression Do block -> ^( EXP expression block ) ;
 	public final JavathonParser.ifStat_return ifStat() throws RecognitionException {
 		JavathonParser.ifStat_return retval = new JavathonParser.ifStat_return();
 		retval.start = input.LT(1);
@@ -1252,21 +1252,21 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
 
 		try {
-			// src/grammar/Javathon.g:94:3: ( If expression Do block -> ^( EXP expression block ) )
-			// src/grammar/Javathon.g:94:6: If expression Do block
+			// src/grammar/Javathon.g:91:3: ( If expression Do block -> ^( EXP expression block ) )
+			// src/grammar/Javathon.g:91:6: If expression Do block
 			{
-			If42=(Token)match(input,If,FOLLOW_If_in_ifStat577);  
+			If42=(Token)match(input,If,FOLLOW_If_in_ifStat565);  
 			stream_If.add(If42);
 
-			pushFollow(FOLLOW_expression_in_ifStat579);
+			pushFollow(FOLLOW_expression_in_ifStat567);
 			expression43=expression();
 			state._fsp--;
 
 			stream_expression.add(expression43.getTree());
-			Do44=(Token)match(input,Do,FOLLOW_Do_in_ifStat581);  
+			Do44=(Token)match(input,Do,FOLLOW_Do_in_ifStat569);  
 			stream_Do.add(Do44);
 
-			pushFollow(FOLLOW_block_in_ifStat583);
+			pushFollow(FOLLOW_block_in_ifStat571);
 			block45=block();
 			state._fsp--;
 
@@ -1282,9 +1282,9 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 94:29: -> ^( EXP expression block )
+			// 91:29: -> ^( EXP expression block )
 			{
-				// src/grammar/Javathon.g:94:32: ^( EXP expression block )
+				// src/grammar/Javathon.g:91:32: ^( EXP expression block )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(EXP, "EXP"), root_1);
@@ -1327,7 +1327,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "elseIfStat"
-	// src/grammar/Javathon.g:97:1: elseIfStat : Else If expression Do block -> ^( EXP expression block ) ;
+	// src/grammar/Javathon.g:94:1: elseIfStat : Else If expression Do block -> ^( EXP expression block ) ;
 	public final JavathonParser.elseIfStat_return elseIfStat() throws RecognitionException {
 		JavathonParser.elseIfStat_return retval = new JavathonParser.elseIfStat_return();
 		retval.start = input.LT(1);
@@ -1350,24 +1350,24 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
 
 		try {
-			// src/grammar/Javathon.g:98:3: ( Else If expression Do block -> ^( EXP expression block ) )
-			// src/grammar/Javathon.g:98:6: Else If expression Do block
+			// src/grammar/Javathon.g:95:3: ( Else If expression Do block -> ^( EXP expression block ) )
+			// src/grammar/Javathon.g:95:6: Else If expression Do block
 			{
-			Else46=(Token)match(input,Else,FOLLOW_Else_in_elseIfStat615);  
+			Else46=(Token)match(input,Else,FOLLOW_Else_in_elseIfStat603);  
 			stream_Else.add(Else46);
 
-			If47=(Token)match(input,If,FOLLOW_If_in_elseIfStat617);  
+			If47=(Token)match(input,If,FOLLOW_If_in_elseIfStat605);  
 			stream_If.add(If47);
 
-			pushFollow(FOLLOW_expression_in_elseIfStat619);
+			pushFollow(FOLLOW_expression_in_elseIfStat607);
 			expression48=expression();
 			state._fsp--;
 
 			stream_expression.add(expression48.getTree());
-			Do49=(Token)match(input,Do,FOLLOW_Do_in_elseIfStat621);  
+			Do49=(Token)match(input,Do,FOLLOW_Do_in_elseIfStat609);  
 			stream_Do.add(Do49);
 
-			pushFollow(FOLLOW_block_in_elseIfStat623);
+			pushFollow(FOLLOW_block_in_elseIfStat611);
 			block50=block();
 			state._fsp--;
 
@@ -1383,9 +1383,9 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 98:34: -> ^( EXP expression block )
+			// 95:34: -> ^( EXP expression block )
 			{
-				// src/grammar/Javathon.g:98:37: ^( EXP expression block )
+				// src/grammar/Javathon.g:95:37: ^( EXP expression block )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(EXP, "EXP"), root_1);
@@ -1428,7 +1428,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "elseStat"
-	// src/grammar/Javathon.g:101:1: elseStat : Else Do block -> ^( EXP block ) ;
+	// src/grammar/Javathon.g:98:1: elseStat : Else Do block -> ^( EXP block ) ;
 	public final JavathonParser.elseStat_return elseStat() throws RecognitionException {
 		JavathonParser.elseStat_return retval = new JavathonParser.elseStat_return();
 		retval.start = input.LT(1);
@@ -1446,16 +1446,16 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
 
 		try {
-			// src/grammar/Javathon.g:102:3: ( Else Do block -> ^( EXP block ) )
-			// src/grammar/Javathon.g:102:6: Else Do block
+			// src/grammar/Javathon.g:99:3: ( Else Do block -> ^( EXP block ) )
+			// src/grammar/Javathon.g:99:6: Else Do block
 			{
-			Else51=(Token)match(input,Else,FOLLOW_Else_in_elseStat655);  
+			Else51=(Token)match(input,Else,FOLLOW_Else_in_elseStat643);  
 			stream_Else.add(Else51);
 
-			Do52=(Token)match(input,Do,FOLLOW_Do_in_elseStat657);  
+			Do52=(Token)match(input,Do,FOLLOW_Do_in_elseStat645);  
 			stream_Do.add(Do52);
 
-			pushFollow(FOLLOW_block_in_elseStat659);
+			pushFollow(FOLLOW_block_in_elseStat647);
 			block53=block();
 			state._fsp--;
 
@@ -1471,9 +1471,9 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 102:20: -> ^( EXP block )
+			// 99:20: -> ^( EXP block )
 			{
-				// src/grammar/Javathon.g:102:23: ^( EXP block )
+				// src/grammar/Javathon.g:99:23: ^( EXP block )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(EXP, "EXP"), root_1);
@@ -1515,7 +1515,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "functionDecl"
-	// src/grammar/Javathon.g:108:3: functionDecl : Def Identifier '(' ( idList )? ')' block End ;
+	// src/grammar/Javathon.g:102:3: functionDecl : Def Identifier '(' ( idList )? ')' block End ;
 	public final JavathonParser.functionDecl_return functionDecl() throws RecognitionException {
 		JavathonParser.functionDecl_return retval = new JavathonParser.functionDecl_return();
 		retval.start = input.LT(1);
@@ -1537,25 +1537,25 @@ public class JavathonParser extends Parser {
 		Object End60_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:109:3: ( Def Identifier '(' ( idList )? ')' block End )
-			// src/grammar/Javathon.g:109:6: Def Identifier '(' ( idList )? ')' block End
+			// src/grammar/Javathon.g:103:3: ( Def Identifier '(' ( idList )? ')' block End )
+			// src/grammar/Javathon.g:103:6: Def Identifier '(' ( idList )? ')' block End
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			Def54=(Token)match(input,Def,FOLLOW_Def_in_functionDecl695); 
+			Def54=(Token)match(input,Def,FOLLOW_Def_in_functionDecl677); 
 			Def54_tree = (Object)adaptor.create(Def54);
 			adaptor.addChild(root_0, Def54_tree);
 
-			Identifier55=(Token)match(input,Identifier,FOLLOW_Identifier_in_functionDecl697); 
+			Identifier55=(Token)match(input,Identifier,FOLLOW_Identifier_in_functionDecl679); 
 			Identifier55_tree = (Object)adaptor.create(Identifier55);
 			adaptor.addChild(root_0, Identifier55_tree);
 
-			char_literal56=(Token)match(input,OParen,FOLLOW_OParen_in_functionDecl699); 
+			char_literal56=(Token)match(input,OParen,FOLLOW_OParen_in_functionDecl681); 
 			char_literal56_tree = (Object)adaptor.create(char_literal56);
 			adaptor.addChild(root_0, char_literal56_tree);
 
-			// src/grammar/Javathon.g:109:25: ( idList )?
+			// src/grammar/Javathon.g:103:25: ( idList )?
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0==Identifier) ) {
@@ -1563,9 +1563,9 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt10) {
 				case 1 :
-					// src/grammar/Javathon.g:109:25: idList
+					// src/grammar/Javathon.g:103:25: idList
 					{
-					pushFollow(FOLLOW_idList_in_functionDecl701);
+					pushFollow(FOLLOW_idList_in_functionDecl683);
 					idList57=idList();
 					state._fsp--;
 
@@ -1576,17 +1576,17 @@ public class JavathonParser extends Parser {
 
 			}
 
-			char_literal58=(Token)match(input,CParen,FOLLOW_CParen_in_functionDecl704); 
+			char_literal58=(Token)match(input,CParen,FOLLOW_CParen_in_functionDecl686); 
 			char_literal58_tree = (Object)adaptor.create(char_literal58);
 			adaptor.addChild(root_0, char_literal58_tree);
 
-			pushFollow(FOLLOW_block_in_functionDecl706);
+			pushFollow(FOLLOW_block_in_functionDecl688);
 			block59=block();
 			state._fsp--;
 
 			adaptor.addChild(root_0, block59.getTree());
 
-			End60=(Token)match(input,End,FOLLOW_End_in_functionDecl708); 
+			End60=(Token)match(input,End,FOLLOW_End_in_functionDecl690); 
 			End60_tree = (Object)adaptor.create(End60);
 			adaptor.addChild(root_0, End60_tree);
 
@@ -1620,7 +1620,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "whileStatement"
-	// src/grammar/Javathon.g:113:1: whileStatement : While expression Do block End -> ^( While expression block ) ;
+	// src/grammar/Javathon.g:112:1: whileStatement : While expression Do block End -> ^( While expression block ) ;
 	public final JavathonParser.whileStatement_return whileStatement() throws RecognitionException {
 		JavathonParser.whileStatement_return retval = new JavathonParser.whileStatement_return();
 		retval.start = input.LT(1);
@@ -1643,26 +1643,26 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
 
 		try {
-			// src/grammar/Javathon.g:114:3: ( While expression Do block End -> ^( While expression block ) )
-			// src/grammar/Javathon.g:114:6: While expression Do block End
+			// src/grammar/Javathon.g:113:3: ( While expression Do block End -> ^( While expression block ) )
+			// src/grammar/Javathon.g:113:6: While expression Do block End
 			{
-			While61=(Token)match(input,While,FOLLOW_While_in_whileStatement740);  
+			While61=(Token)match(input,While,FOLLOW_While_in_whileStatement727);  
 			stream_While.add(While61);
 
-			pushFollow(FOLLOW_expression_in_whileStatement742);
+			pushFollow(FOLLOW_expression_in_whileStatement729);
 			expression62=expression();
 			state._fsp--;
 
 			stream_expression.add(expression62.getTree());
-			Do63=(Token)match(input,Do,FOLLOW_Do_in_whileStatement744);  
+			Do63=(Token)match(input,Do,FOLLOW_Do_in_whileStatement731);  
 			stream_Do.add(Do63);
 
-			pushFollow(FOLLOW_block_in_whileStatement746);
+			pushFollow(FOLLOW_block_in_whileStatement733);
 			block64=block();
 			state._fsp--;
 
 			stream_block.add(block64.getTree());
-			End65=(Token)match(input,End,FOLLOW_End_in_whileStatement748);  
+			End65=(Token)match(input,End,FOLLOW_End_in_whileStatement735);  
 			stream_End.add(End65);
 
 			// AST REWRITE
@@ -1676,9 +1676,9 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 114:36: -> ^( While expression block )
+			// 113:36: -> ^( While expression block )
 			{
-				// src/grammar/Javathon.g:114:39: ^( While expression block )
+				// src/grammar/Javathon.g:113:39: ^( While expression block )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot(stream_While.nextNode(), root_1);
@@ -1721,7 +1721,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "idList"
-	// src/grammar/Javathon.g:117:1: idList : Identifier ( ',' Identifier )* -> ^( ID_LIST ( Identifier )+ ) ;
+	// src/grammar/Javathon.g:116:1: idList : Identifier ( ',' Identifier )* -> ^( ID_LIST ( Identifier )+ ) ;
 	public final JavathonParser.idList_return idList() throws RecognitionException {
 		JavathonParser.idList_return retval = new JavathonParser.idList_return();
 		retval.start = input.LT(1);
@@ -1739,13 +1739,13 @@ public class JavathonParser extends Parser {
 		RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
 
 		try {
-			// src/grammar/Javathon.g:118:3: ( Identifier ( ',' Identifier )* -> ^( ID_LIST ( Identifier )+ ) )
-			// src/grammar/Javathon.g:118:6: Identifier ( ',' Identifier )*
+			// src/grammar/Javathon.g:117:3: ( Identifier ( ',' Identifier )* -> ^( ID_LIST ( Identifier )+ ) )
+			// src/grammar/Javathon.g:117:6: Identifier ( ',' Identifier )*
 			{
-			Identifier66=(Token)match(input,Identifier,FOLLOW_Identifier_in_idList780);  
+			Identifier66=(Token)match(input,Identifier,FOLLOW_Identifier_in_idList767);  
 			stream_Identifier.add(Identifier66);
 
-			// src/grammar/Javathon.g:118:17: ( ',' Identifier )*
+			// src/grammar/Javathon.g:117:17: ( ',' Identifier )*
 			loop11:
 			while (true) {
 				int alt11=2;
@@ -1756,12 +1756,12 @@ public class JavathonParser extends Parser {
 
 				switch (alt11) {
 				case 1 :
-					// src/grammar/Javathon.g:118:18: ',' Identifier
+					// src/grammar/Javathon.g:117:18: ',' Identifier
 					{
-					char_literal67=(Token)match(input,Comma,FOLLOW_Comma_in_idList783);  
+					char_literal67=(Token)match(input,Comma,FOLLOW_Comma_in_idList770);  
 					stream_Comma.add(char_literal67);
 
-					Identifier68=(Token)match(input,Identifier,FOLLOW_Identifier_in_idList785);  
+					Identifier68=(Token)match(input,Identifier,FOLLOW_Identifier_in_idList772);  
 					stream_Identifier.add(Identifier68);
 
 					}
@@ -1783,9 +1783,9 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 118:35: -> ^( ID_LIST ( Identifier )+ )
+			// 117:35: -> ^( ID_LIST ( Identifier )+ )
 			{
-				// src/grammar/Javathon.g:118:38: ^( ID_LIST ( Identifier )+ )
+				// src/grammar/Javathon.g:117:38: ^( ID_LIST ( Identifier )+ )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(ID_LIST, "ID_LIST"), root_1);
@@ -1834,7 +1834,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "exprList"
-	// src/grammar/Javathon.g:121:1: exprList : expression ( ',' expression )* -> ^( EXP_LIST ( expression )+ ) ;
+	// src/grammar/Javathon.g:120:1: exprList : expression ( ',' expression )* -> ^( EXP_LIST ( expression )+ ) ;
 	public final JavathonParser.exprList_return exprList() throws RecognitionException {
 		JavathonParser.exprList_return retval = new JavathonParser.exprList_return();
 		retval.start = input.LT(1);
@@ -1850,15 +1850,15 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
 
 		try {
-			// src/grammar/Javathon.g:122:3: ( expression ( ',' expression )* -> ^( EXP_LIST ( expression )+ ) )
-			// src/grammar/Javathon.g:122:6: expression ( ',' expression )*
+			// src/grammar/Javathon.g:121:3: ( expression ( ',' expression )* -> ^( EXP_LIST ( expression )+ ) )
+			// src/grammar/Javathon.g:121:6: expression ( ',' expression )*
 			{
-			pushFollow(FOLLOW_expression_in_exprList818);
+			pushFollow(FOLLOW_expression_in_exprList805);
 			expression69=expression();
 			state._fsp--;
 
 			stream_expression.add(expression69.getTree());
-			// src/grammar/Javathon.g:122:17: ( ',' expression )*
+			// src/grammar/Javathon.g:121:17: ( ',' expression )*
 			loop12:
 			while (true) {
 				int alt12=2;
@@ -1869,12 +1869,12 @@ public class JavathonParser extends Parser {
 
 				switch (alt12) {
 				case 1 :
-					// src/grammar/Javathon.g:122:18: ',' expression
+					// src/grammar/Javathon.g:121:18: ',' expression
 					{
-					char_literal70=(Token)match(input,Comma,FOLLOW_Comma_in_exprList821);  
+					char_literal70=(Token)match(input,Comma,FOLLOW_Comma_in_exprList808);  
 					stream_Comma.add(char_literal70);
 
-					pushFollow(FOLLOW_expression_in_exprList823);
+					pushFollow(FOLLOW_expression_in_exprList810);
 					expression71=expression();
 					state._fsp--;
 
@@ -1898,9 +1898,9 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 122:35: -> ^( EXP_LIST ( expression )+ )
+			// 121:35: -> ^( EXP_LIST ( expression )+ )
 			{
-				// src/grammar/Javathon.g:122:38: ^( EXP_LIST ( expression )+ )
+				// src/grammar/Javathon.g:121:38: ^( EXP_LIST ( expression )+ )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(EXP_LIST, "EXP_LIST"), root_1);
@@ -1949,7 +1949,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "expression"
-	// src/grammar/Javathon.g:126:1: expression : condExpr ;
+	// src/grammar/Javathon.g:124:1: expression : condExpr ;
 	public final JavathonParser.expression_return expression() throws RecognitionException {
 		JavathonParser.expression_return retval = new JavathonParser.expression_return();
 		retval.start = input.LT(1);
@@ -1960,13 +1960,13 @@ public class JavathonParser extends Parser {
 
 
 		try {
-			// src/grammar/Javathon.g:127:3: ( condExpr )
-			// src/grammar/Javathon.g:127:6: condExpr
+			// src/grammar/Javathon.g:125:3: ( condExpr )
+			// src/grammar/Javathon.g:125:6: condExpr
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_condExpr_in_expression858);
+			pushFollow(FOLLOW_condExpr_in_expression841);
 			condExpr72=condExpr();
 			state._fsp--;
 
@@ -2001,7 +2001,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "condExpr"
-	// src/grammar/Javathon.g:130:1: condExpr : ( orExpr -> orExpr ) ( '?' a= expression ':' b= expression -> ^( TERNARY orExpr $a $b) | In expression -> ^( In orExpr expression ) )? ;
+	// src/grammar/Javathon.g:128:1: condExpr : ( orExpr -> orExpr ) ( '?' a= expression ':' b= expression -> ^( TERNARY orExpr $a $b) | In expression -> ^( In orExpr expression ) )? ;
 	public final JavathonParser.condExpr_return condExpr() throws RecognitionException {
 		JavathonParser.condExpr_return retval = new JavathonParser.condExpr_return();
 		retval.start = input.LT(1);
@@ -2026,13 +2026,13 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_orExpr=new RewriteRuleSubtreeStream(adaptor,"rule orExpr");
 
 		try {
-			// src/grammar/Javathon.g:131:3: ( ( orExpr -> orExpr ) ( '?' a= expression ':' b= expression -> ^( TERNARY orExpr $a $b) | In expression -> ^( In orExpr expression ) )? )
-			// src/grammar/Javathon.g:131:6: ( orExpr -> orExpr ) ( '?' a= expression ':' b= expression -> ^( TERNARY orExpr $a $b) | In expression -> ^( In orExpr expression ) )?
+			// src/grammar/Javathon.g:129:3: ( ( orExpr -> orExpr ) ( '?' a= expression ':' b= expression -> ^( TERNARY orExpr $a $b) | In expression -> ^( In orExpr expression ) )? )
+			// src/grammar/Javathon.g:129:6: ( orExpr -> orExpr ) ( '?' a= expression ':' b= expression -> ^( TERNARY orExpr $a $b) | In expression -> ^( In orExpr expression ) )?
 			{
-			// src/grammar/Javathon.g:131:6: ( orExpr -> orExpr )
-			// src/grammar/Javathon.g:131:7: orExpr
+			// src/grammar/Javathon.g:129:6: ( orExpr -> orExpr )
+			// src/grammar/Javathon.g:129:7: orExpr
 			{
-			pushFollow(FOLLOW_orExpr_in_condExpr881);
+			pushFollow(FOLLOW_orExpr_in_condExpr864);
 			orExpr73=orExpr();
 			state._fsp--;
 
@@ -2048,7 +2048,7 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 131:14: -> orExpr
+			// 129:14: -> orExpr
 			{
 				adaptor.addChild(root_0, stream_orExpr.nextTree());
 			}
@@ -2058,7 +2058,7 @@ public class JavathonParser extends Parser {
 
 			}
 
-			// src/grammar/Javathon.g:132:6: ( '?' a= expression ':' b= expression -> ^( TERNARY orExpr $a $b) | In expression -> ^( In orExpr expression ) )?
+			// src/grammar/Javathon.g:130:6: ( '?' a= expression ':' b= expression -> ^( TERNARY orExpr $a $b) | In expression -> ^( In orExpr expression ) )?
 			int alt13=3;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0==QMark) ) {
@@ -2069,20 +2069,20 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt13) {
 				case 1 :
-					// src/grammar/Javathon.g:132:8: '?' a= expression ':' b= expression
+					// src/grammar/Javathon.g:130:8: '?' a= expression ':' b= expression
 					{
-					char_literal74=(Token)match(input,QMark,FOLLOW_QMark_in_condExpr898);  
+					char_literal74=(Token)match(input,QMark,FOLLOW_QMark_in_condExpr881);  
 					stream_QMark.add(char_literal74);
 
-					pushFollow(FOLLOW_expression_in_condExpr902);
+					pushFollow(FOLLOW_expression_in_condExpr885);
 					a=expression();
 					state._fsp--;
 
 					stream_expression.add(a.getTree());
-					char_literal75=(Token)match(input,Colon,FOLLOW_Colon_in_condExpr904);  
+					char_literal75=(Token)match(input,Colon,FOLLOW_Colon_in_condExpr887);  
 					stream_Colon.add(char_literal75);
 
-					pushFollow(FOLLOW_expression_in_condExpr908);
+					pushFollow(FOLLOW_expression_in_condExpr891);
 					b=expression();
 					state._fsp--;
 
@@ -2100,9 +2100,9 @@ public class JavathonParser extends Parser {
 					RewriteRuleSubtreeStream stream_a=new RewriteRuleSubtreeStream(adaptor,"rule a",a!=null?a.getTree():null);
 
 					root_0 = (Object)adaptor.nil();
-					// 132:42: -> ^( TERNARY orExpr $a $b)
+					// 130:42: -> ^( TERNARY orExpr $a $b)
 					{
-						// src/grammar/Javathon.g:132:45: ^( TERNARY orExpr $a $b)
+						// src/grammar/Javathon.g:130:45: ^( TERNARY orExpr $a $b)
 						{
 						Object root_1 = (Object)adaptor.nil();
 						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERNARY, "TERNARY"), root_1);
@@ -2120,12 +2120,12 @@ public class JavathonParser extends Parser {
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:133:8: In expression
+					// src/grammar/Javathon.g:131:8: In expression
 					{
-					In76=(Token)match(input,In,FOLLOW_In_in_condExpr933);  
+					In76=(Token)match(input,In,FOLLOW_In_in_condExpr916);  
 					stream_In.add(In76);
 
-					pushFollow(FOLLOW_expression_in_condExpr935);
+					pushFollow(FOLLOW_expression_in_condExpr918);
 					expression77=expression();
 					state._fsp--;
 
@@ -2141,9 +2141,9 @@ public class JavathonParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (Object)adaptor.nil();
-					// 133:42: -> ^( In orExpr expression )
+					// 131:42: -> ^( In orExpr expression )
 					{
-						// src/grammar/Javathon.g:133:45: ^( In orExpr expression )
+						// src/grammar/Javathon.g:131:45: ^( In orExpr expression )
 						{
 						Object root_1 = (Object)adaptor.nil();
 						root_1 = (Object)adaptor.becomeRoot(stream_In.nextNode(), root_1);
@@ -2191,7 +2191,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "orExpr"
-	// src/grammar/Javathon.g:137:1: orExpr : andExpr ( '||' ^ andExpr )* ;
+	// src/grammar/Javathon.g:135:1: orExpr : andExpr ( '||' ^ andExpr )* ;
 	public final JavathonParser.orExpr_return orExpr() throws RecognitionException {
 		JavathonParser.orExpr_return retval = new JavathonParser.orExpr_return();
 		retval.start = input.LT(1);
@@ -2205,19 +2205,19 @@ public class JavathonParser extends Parser {
 		Object string_literal79_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:138:3: ( andExpr ( '||' ^ andExpr )* )
-			// src/grammar/Javathon.g:138:6: andExpr ( '||' ^ andExpr )*
+			// src/grammar/Javathon.g:136:3: ( andExpr ( '||' ^ andExpr )* )
+			// src/grammar/Javathon.g:136:6: andExpr ( '||' ^ andExpr )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_andExpr_in_orExpr997);
+			pushFollow(FOLLOW_andExpr_in_orExpr980);
 			andExpr78=andExpr();
 			state._fsp--;
 
 			adaptor.addChild(root_0, andExpr78.getTree());
 
-			// src/grammar/Javathon.g:138:14: ( '||' ^ andExpr )*
+			// src/grammar/Javathon.g:136:14: ( '||' ^ andExpr )*
 			loop14:
 			while (true) {
 				int alt14=2;
@@ -2228,13 +2228,13 @@ public class JavathonParser extends Parser {
 
 				switch (alt14) {
 				case 1 :
-					// src/grammar/Javathon.g:138:15: '||' ^ andExpr
+					// src/grammar/Javathon.g:136:15: '||' ^ andExpr
 					{
-					string_literal79=(Token)match(input,Or,FOLLOW_Or_in_orExpr1000); 
+					string_literal79=(Token)match(input,Or,FOLLOW_Or_in_orExpr983); 
 					string_literal79_tree = (Object)adaptor.create(string_literal79);
 					root_0 = (Object)adaptor.becomeRoot(string_literal79_tree, root_0);
 
-					pushFollow(FOLLOW_andExpr_in_orExpr1003);
+					pushFollow(FOLLOW_andExpr_in_orExpr986);
 					andExpr80=andExpr();
 					state._fsp--;
 
@@ -2277,7 +2277,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "andExpr"
-	// src/grammar/Javathon.g:141:1: andExpr : equExpr ( '&&' ^ equExpr )* ;
+	// src/grammar/Javathon.g:139:1: andExpr : equExpr ( '&&' ^ equExpr )* ;
 	public final JavathonParser.andExpr_return andExpr() throws RecognitionException {
 		JavathonParser.andExpr_return retval = new JavathonParser.andExpr_return();
 		retval.start = input.LT(1);
@@ -2291,19 +2291,19 @@ public class JavathonParser extends Parser {
 		Object string_literal82_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:142:3: ( equExpr ( '&&' ^ equExpr )* )
-			// src/grammar/Javathon.g:142:6: equExpr ( '&&' ^ equExpr )*
+			// src/grammar/Javathon.g:140:3: ( equExpr ( '&&' ^ equExpr )* )
+			// src/grammar/Javathon.g:140:6: equExpr ( '&&' ^ equExpr )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_equExpr_in_andExpr1027);
+			pushFollow(FOLLOW_equExpr_in_andExpr1010);
 			equExpr81=equExpr();
 			state._fsp--;
 
 			adaptor.addChild(root_0, equExpr81.getTree());
 
-			// src/grammar/Javathon.g:142:14: ( '&&' ^ equExpr )*
+			// src/grammar/Javathon.g:140:14: ( '&&' ^ equExpr )*
 			loop15:
 			while (true) {
 				int alt15=2;
@@ -2314,13 +2314,13 @@ public class JavathonParser extends Parser {
 
 				switch (alt15) {
 				case 1 :
-					// src/grammar/Javathon.g:142:15: '&&' ^ equExpr
+					// src/grammar/Javathon.g:140:15: '&&' ^ equExpr
 					{
-					string_literal82=(Token)match(input,And,FOLLOW_And_in_andExpr1030); 
+					string_literal82=(Token)match(input,And,FOLLOW_And_in_andExpr1013); 
 					string_literal82_tree = (Object)adaptor.create(string_literal82);
 					root_0 = (Object)adaptor.becomeRoot(string_literal82_tree, root_0);
 
-					pushFollow(FOLLOW_equExpr_in_andExpr1033);
+					pushFollow(FOLLOW_equExpr_in_andExpr1016);
 					equExpr83=equExpr();
 					state._fsp--;
 
@@ -2363,7 +2363,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "equExpr"
-	// src/grammar/Javathon.g:145:1: equExpr : relExpr ( ( '==' | '!=' ) ^ relExpr )* ;
+	// src/grammar/Javathon.g:143:1: equExpr : relExpr ( ( '==' | '!=' ) ^ relExpr )* ;
 	public final JavathonParser.equExpr_return equExpr() throws RecognitionException {
 		JavathonParser.equExpr_return retval = new JavathonParser.equExpr_return();
 		retval.start = input.LT(1);
@@ -2377,19 +2377,19 @@ public class JavathonParser extends Parser {
 		Object set85_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:146:3: ( relExpr ( ( '==' | '!=' ) ^ relExpr )* )
-			// src/grammar/Javathon.g:146:6: relExpr ( ( '==' | '!=' ) ^ relExpr )*
+			// src/grammar/Javathon.g:144:3: ( relExpr ( ( '==' | '!=' ) ^ relExpr )* )
+			// src/grammar/Javathon.g:144:6: relExpr ( ( '==' | '!=' ) ^ relExpr )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_relExpr_in_equExpr1057);
+			pushFollow(FOLLOW_relExpr_in_equExpr1040);
 			relExpr84=relExpr();
 			state._fsp--;
 
 			adaptor.addChild(root_0, relExpr84.getTree());
 
-			// src/grammar/Javathon.g:146:14: ( ( '==' | '!=' ) ^ relExpr )*
+			// src/grammar/Javathon.g:144:14: ( ( '==' | '!=' ) ^ relExpr )*
 			loop16:
 			while (true) {
 				int alt16=2;
@@ -2400,7 +2400,7 @@ public class JavathonParser extends Parser {
 
 				switch (alt16) {
 				case 1 :
-					// src/grammar/Javathon.g:146:15: ( '==' | '!=' ) ^ relExpr
+					// src/grammar/Javathon.g:144:15: ( '==' | '!=' ) ^ relExpr
 					{
 					set85=input.LT(1);
 					set85=input.LT(1);
@@ -2413,7 +2413,7 @@ public class JavathonParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_relExpr_in_equExpr1069);
+					pushFollow(FOLLOW_relExpr_in_equExpr1052);
 					relExpr86=relExpr();
 					state._fsp--;
 
@@ -2456,7 +2456,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "relExpr"
-	// src/grammar/Javathon.g:149:1: relExpr : addExpr ( ( '>=' | '<=' | '>' | '<' ) ^ addExpr )* ;
+	// src/grammar/Javathon.g:147:1: relExpr : addExpr ( ( '>=' | '<=' | '>' | '<' ) ^ addExpr )* ;
 	public final JavathonParser.relExpr_return relExpr() throws RecognitionException {
 		JavathonParser.relExpr_return retval = new JavathonParser.relExpr_return();
 		retval.start = input.LT(1);
@@ -2470,19 +2470,19 @@ public class JavathonParser extends Parser {
 		Object set88_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:150:3: ( addExpr ( ( '>=' | '<=' | '>' | '<' ) ^ addExpr )* )
-			// src/grammar/Javathon.g:150:6: addExpr ( ( '>=' | '<=' | '>' | '<' ) ^ addExpr )*
+			// src/grammar/Javathon.g:148:3: ( addExpr ( ( '>=' | '<=' | '>' | '<' ) ^ addExpr )* )
+			// src/grammar/Javathon.g:148:6: addExpr ( ( '>=' | '<=' | '>' | '<' ) ^ addExpr )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_addExpr_in_relExpr1093);
+			pushFollow(FOLLOW_addExpr_in_relExpr1076);
 			addExpr87=addExpr();
 			state._fsp--;
 
 			adaptor.addChild(root_0, addExpr87.getTree());
 
-			// src/grammar/Javathon.g:150:14: ( ( '>=' | '<=' | '>' | '<' ) ^ addExpr )*
+			// src/grammar/Javathon.g:148:14: ( ( '>=' | '<=' | '>' | '<' ) ^ addExpr )*
 			loop17:
 			while (true) {
 				int alt17=2;
@@ -2493,7 +2493,7 @@ public class JavathonParser extends Parser {
 
 				switch (alt17) {
 				case 1 :
-					// src/grammar/Javathon.g:150:15: ( '>=' | '<=' | '>' | '<' ) ^ addExpr
+					// src/grammar/Javathon.g:148:15: ( '>=' | '<=' | '>' | '<' ) ^ addExpr
 					{
 					set88=input.LT(1);
 					set88=input.LT(1);
@@ -2506,7 +2506,7 @@ public class JavathonParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_addExpr_in_relExpr1113);
+					pushFollow(FOLLOW_addExpr_in_relExpr1096);
 					addExpr89=addExpr();
 					state._fsp--;
 
@@ -2549,7 +2549,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "addExpr"
-	// src/grammar/Javathon.g:153:1: addExpr : mulExpr ( ( '+' | '-' ) ^ mulExpr )* ;
+	// src/grammar/Javathon.g:151:1: addExpr : mulExpr ( ( '+' | '-' ) ^ mulExpr )* ;
 	public final JavathonParser.addExpr_return addExpr() throws RecognitionException {
 		JavathonParser.addExpr_return retval = new JavathonParser.addExpr_return();
 		retval.start = input.LT(1);
@@ -2563,19 +2563,19 @@ public class JavathonParser extends Parser {
 		Object set91_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:154:3: ( mulExpr ( ( '+' | '-' ) ^ mulExpr )* )
-			// src/grammar/Javathon.g:154:6: mulExpr ( ( '+' | '-' ) ^ mulExpr )*
+			// src/grammar/Javathon.g:152:3: ( mulExpr ( ( '+' | '-' ) ^ mulExpr )* )
+			// src/grammar/Javathon.g:152:6: mulExpr ( ( '+' | '-' ) ^ mulExpr )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_mulExpr_in_addExpr1137);
+			pushFollow(FOLLOW_mulExpr_in_addExpr1120);
 			mulExpr90=mulExpr();
 			state._fsp--;
 
 			adaptor.addChild(root_0, mulExpr90.getTree());
 
-			// src/grammar/Javathon.g:154:14: ( ( '+' | '-' ) ^ mulExpr )*
+			// src/grammar/Javathon.g:152:14: ( ( '+' | '-' ) ^ mulExpr )*
 			loop18:
 			while (true) {
 				int alt18=2;
@@ -2586,7 +2586,7 @@ public class JavathonParser extends Parser {
 
 				switch (alt18) {
 				case 1 :
-					// src/grammar/Javathon.g:154:15: ( '+' | '-' ) ^ mulExpr
+					// src/grammar/Javathon.g:152:15: ( '+' | '-' ) ^ mulExpr
 					{
 					set91=input.LT(1);
 					set91=input.LT(1);
@@ -2599,7 +2599,7 @@ public class JavathonParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_mulExpr_in_addExpr1149);
+					pushFollow(FOLLOW_mulExpr_in_addExpr1132);
 					mulExpr92=mulExpr();
 					state._fsp--;
 
@@ -2642,7 +2642,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "mulExpr"
-	// src/grammar/Javathon.g:157:1: mulExpr : powExpr ( ( '*' | '/' | '%' ) ^ powExpr )* ;
+	// src/grammar/Javathon.g:155:1: mulExpr : powExpr ( ( '*' | '/' | '%' ) ^ powExpr )* ;
 	public final JavathonParser.mulExpr_return mulExpr() throws RecognitionException {
 		JavathonParser.mulExpr_return retval = new JavathonParser.mulExpr_return();
 		retval.start = input.LT(1);
@@ -2656,19 +2656,19 @@ public class JavathonParser extends Parser {
 		Object set94_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:158:3: ( powExpr ( ( '*' | '/' | '%' ) ^ powExpr )* )
-			// src/grammar/Javathon.g:158:6: powExpr ( ( '*' | '/' | '%' ) ^ powExpr )*
+			// src/grammar/Javathon.g:156:3: ( powExpr ( ( '*' | '/' | '%' ) ^ powExpr )* )
+			// src/grammar/Javathon.g:156:6: powExpr ( ( '*' | '/' | '%' ) ^ powExpr )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_powExpr_in_mulExpr1173);
+			pushFollow(FOLLOW_powExpr_in_mulExpr1156);
 			powExpr93=powExpr();
 			state._fsp--;
 
 			adaptor.addChild(root_0, powExpr93.getTree());
 
-			// src/grammar/Javathon.g:158:14: ( ( '*' | '/' | '%' ) ^ powExpr )*
+			// src/grammar/Javathon.g:156:14: ( ( '*' | '/' | '%' ) ^ powExpr )*
 			loop19:
 			while (true) {
 				int alt19=2;
@@ -2679,7 +2679,7 @@ public class JavathonParser extends Parser {
 
 				switch (alt19) {
 				case 1 :
-					// src/grammar/Javathon.g:158:15: ( '*' | '/' | '%' ) ^ powExpr
+					// src/grammar/Javathon.g:156:15: ( '*' | '/' | '%' ) ^ powExpr
 					{
 					set94=input.LT(1);
 					set94=input.LT(1);
@@ -2692,7 +2692,7 @@ public class JavathonParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_powExpr_in_mulExpr1189);
+					pushFollow(FOLLOW_powExpr_in_mulExpr1172);
 					powExpr95=powExpr();
 					state._fsp--;
 
@@ -2735,7 +2735,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "powExpr"
-	// src/grammar/Javathon.g:161:1: powExpr : unaryExpr ( '^' ^ unaryExpr )* ;
+	// src/grammar/Javathon.g:159:1: powExpr : unaryExpr ( '^' ^ unaryExpr )* ;
 	public final JavathonParser.powExpr_return powExpr() throws RecognitionException {
 		JavathonParser.powExpr_return retval = new JavathonParser.powExpr_return();
 		retval.start = input.LT(1);
@@ -2749,19 +2749,19 @@ public class JavathonParser extends Parser {
 		Object char_literal97_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:162:3: ( unaryExpr ( '^' ^ unaryExpr )* )
-			// src/grammar/Javathon.g:162:6: unaryExpr ( '^' ^ unaryExpr )*
+			// src/grammar/Javathon.g:160:3: ( unaryExpr ( '^' ^ unaryExpr )* )
+			// src/grammar/Javathon.g:160:6: unaryExpr ( '^' ^ unaryExpr )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_unaryExpr_in_powExpr1213);
+			pushFollow(FOLLOW_unaryExpr_in_powExpr1196);
 			unaryExpr96=unaryExpr();
 			state._fsp--;
 
 			adaptor.addChild(root_0, unaryExpr96.getTree());
 
-			// src/grammar/Javathon.g:162:16: ( '^' ^ unaryExpr )*
+			// src/grammar/Javathon.g:160:16: ( '^' ^ unaryExpr )*
 			loop20:
 			while (true) {
 				int alt20=2;
@@ -2772,13 +2772,13 @@ public class JavathonParser extends Parser {
 
 				switch (alt20) {
 				case 1 :
-					// src/grammar/Javathon.g:162:17: '^' ^ unaryExpr
+					// src/grammar/Javathon.g:160:17: '^' ^ unaryExpr
 					{
-					char_literal97=(Token)match(input,Pow,FOLLOW_Pow_in_powExpr1216); 
+					char_literal97=(Token)match(input,Pow,FOLLOW_Pow_in_powExpr1199); 
 					char_literal97_tree = (Object)adaptor.create(char_literal97);
 					root_0 = (Object)adaptor.becomeRoot(char_literal97_tree, root_0);
 
-					pushFollow(FOLLOW_unaryExpr_in_powExpr1219);
+					pushFollow(FOLLOW_unaryExpr_in_powExpr1202);
 					unaryExpr98=unaryExpr();
 					state._fsp--;
 
@@ -2821,7 +2821,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "unaryExpr"
-	// src/grammar/Javathon.g:165:1: unaryExpr : ( '-' atom -> ^( UNARY_MIN atom ) | '!' atom -> ^( NEGATE atom ) | atom );
+	// src/grammar/Javathon.g:163:1: unaryExpr : ( '-' atom -> ^( UNARY_MIN atom ) | '!' atom -> ^( NEGATE atom ) | atom );
 	public final JavathonParser.unaryExpr_return unaryExpr() throws RecognitionException {
 		JavathonParser.unaryExpr_return retval = new JavathonParser.unaryExpr_return();
 		retval.start = input.LT(1);
@@ -2841,7 +2841,7 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_atom=new RewriteRuleSubtreeStream(adaptor,"rule atom");
 
 		try {
-			// src/grammar/Javathon.g:166:3: ( '-' atom -> ^( UNARY_MIN atom ) | '!' atom -> ^( NEGATE atom ) | atom )
+			// src/grammar/Javathon.g:164:3: ( '-' atom -> ^( UNARY_MIN atom ) | '!' atom -> ^( NEGATE atom ) | atom )
 			int alt21=3;
 			switch ( input.LA(1) ) {
 			case Subtract:
@@ -2876,12 +2876,12 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt21) {
 				case 1 :
-					// src/grammar/Javathon.g:166:6: '-' atom
+					// src/grammar/Javathon.g:164:6: '-' atom
 					{
-					char_literal99=(Token)match(input,Subtract,FOLLOW_Subtract_in_unaryExpr1245);  
+					char_literal99=(Token)match(input,Subtract,FOLLOW_Subtract_in_unaryExpr1228);  
 					stream_Subtract.add(char_literal99);
 
-					pushFollow(FOLLOW_atom_in_unaryExpr1247);
+					pushFollow(FOLLOW_atom_in_unaryExpr1230);
 					atom100=atom();
 					state._fsp--;
 
@@ -2897,9 +2897,9 @@ public class JavathonParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (Object)adaptor.nil();
-					// 166:15: -> ^( UNARY_MIN atom )
+					// 164:15: -> ^( UNARY_MIN atom )
 					{
-						// src/grammar/Javathon.g:166:18: ^( UNARY_MIN atom )
+						// src/grammar/Javathon.g:164:18: ^( UNARY_MIN atom )
 						{
 						Object root_1 = (Object)adaptor.nil();
 						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(UNARY_MIN, "UNARY_MIN"), root_1);
@@ -2915,12 +2915,12 @@ public class JavathonParser extends Parser {
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:167:6: '!' atom
+					// src/grammar/Javathon.g:165:6: '!' atom
 					{
-					char_literal101=(Token)match(input,Excl,FOLLOW_Excl_in_unaryExpr1264);  
+					char_literal101=(Token)match(input,Excl,FOLLOW_Excl_in_unaryExpr1247);  
 					stream_Excl.add(char_literal101);
 
-					pushFollow(FOLLOW_atom_in_unaryExpr1266);
+					pushFollow(FOLLOW_atom_in_unaryExpr1249);
 					atom102=atom();
 					state._fsp--;
 
@@ -2936,9 +2936,9 @@ public class JavathonParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (Object)adaptor.nil();
-					// 167:15: -> ^( NEGATE atom )
+					// 165:15: -> ^( NEGATE atom )
 					{
-						// src/grammar/Javathon.g:167:18: ^( NEGATE atom )
+						// src/grammar/Javathon.g:165:18: ^( NEGATE atom )
 						{
 						Object root_1 = (Object)adaptor.nil();
 						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(NEGATE, "NEGATE"), root_1);
@@ -2954,12 +2954,12 @@ public class JavathonParser extends Parser {
 					}
 					break;
 				case 3 :
-					// src/grammar/Javathon.g:168:6: atom
+					// src/grammar/Javathon.g:166:6: atom
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_atom_in_unaryExpr1283);
+					pushFollow(FOLLOW_atom_in_unaryExpr1266);
 					atom103=atom();
 					state._fsp--;
 
@@ -2996,7 +2996,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "atom"
-	// src/grammar/Javathon.g:171:1: atom : ( Number | Bool | Null | lookup );
+	// src/grammar/Javathon.g:169:1: atom : ( Number | Bool | Null | lookup );
 	public final JavathonParser.atom_return atom() throws RecognitionException {
 		JavathonParser.atom_return retval = new JavathonParser.atom_return();
 		retval.start = input.LT(1);
@@ -3013,7 +3013,7 @@ public class JavathonParser extends Parser {
 		Object Null106_tree=null;
 
 		try {
-			// src/grammar/Javathon.g:172:3: ( Number | Bool | Null | lookup )
+			// src/grammar/Javathon.g:170:3: ( Number | Bool | Null | lookup )
 			int alt22=4;
 			switch ( input.LA(1) ) {
 			case Number:
@@ -3050,48 +3050,48 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt22) {
 				case 1 :
-					// src/grammar/Javathon.g:172:6: Number
+					// src/grammar/Javathon.g:170:6: Number
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					Number104=(Token)match(input,Number,FOLLOW_Number_in_atom1305); 
+					Number104=(Token)match(input,Number,FOLLOW_Number_in_atom1288); 
 					Number104_tree = (Object)adaptor.create(Number104);
 					adaptor.addChild(root_0, Number104_tree);
 
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:173:6: Bool
+					// src/grammar/Javathon.g:171:6: Bool
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					Bool105=(Token)match(input,Bool,FOLLOW_Bool_in_atom1314); 
+					Bool105=(Token)match(input,Bool,FOLLOW_Bool_in_atom1297); 
 					Bool105_tree = (Object)adaptor.create(Bool105);
 					adaptor.addChild(root_0, Bool105_tree);
 
 					}
 					break;
 				case 3 :
-					// src/grammar/Javathon.g:174:6: Null
+					// src/grammar/Javathon.g:172:6: Null
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					Null106=(Token)match(input,Null,FOLLOW_Null_in_atom1323); 
+					Null106=(Token)match(input,Null,FOLLOW_Null_in_atom1306); 
 					Null106_tree = (Object)adaptor.create(Null106);
 					adaptor.addChild(root_0, Null106_tree);
 
 					}
 					break;
 				case 4 :
-					// src/grammar/Javathon.g:175:6: lookup
+					// src/grammar/Javathon.g:173:6: lookup
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_lookup_in_atom1332);
+					pushFollow(FOLLOW_lookup_in_atom1315);
 					lookup107=lookup();
 					state._fsp--;
 
@@ -3128,7 +3128,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "list"
-	// src/grammar/Javathon.g:178:1: list : '[' ( exprList )? ']' -> ^( LIST ( exprList )? ) ;
+	// src/grammar/Javathon.g:176:1: list : '[' ( exprList )? ']' -> ^( LIST ( exprList )? ) ;
 	public final JavathonParser.list_return list() throws RecognitionException {
 		JavathonParser.list_return retval = new JavathonParser.list_return();
 		retval.start = input.LT(1);
@@ -3146,13 +3146,13 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_exprList=new RewriteRuleSubtreeStream(adaptor,"rule exprList");
 
 		try {
-			// src/grammar/Javathon.g:179:3: ( '[' ( exprList )? ']' -> ^( LIST ( exprList )? ) )
-			// src/grammar/Javathon.g:179:6: '[' ( exprList )? ']'
+			// src/grammar/Javathon.g:177:3: ( '[' ( exprList )? ']' -> ^( LIST ( exprList )? ) )
+			// src/grammar/Javathon.g:177:6: '[' ( exprList )? ']'
 			{
-			char_literal108=(Token)match(input,OBracket,FOLLOW_OBracket_in_list1352);  
+			char_literal108=(Token)match(input,OBracket,FOLLOW_OBracket_in_list1335);  
 			stream_OBracket.add(char_literal108);
 
-			// src/grammar/Javathon.g:179:10: ( exprList )?
+			// src/grammar/Javathon.g:177:10: ( exprList )?
 			int alt23=2;
 			int LA23_0 = input.LA(1);
 			if ( (LA23_0==Assert||LA23_0==Bool||LA23_0==Excl||LA23_0==Identifier||(LA23_0 >= Null && LA23_0 <= Number)||(LA23_0 >= OBracket && LA23_0 <= OParen)||(LA23_0 >= Print && LA23_0 <= Println)||LA23_0==Size||(LA23_0 >= String && LA23_0 <= Subtract)) ) {
@@ -3160,9 +3160,9 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt23) {
 				case 1 :
-					// src/grammar/Javathon.g:179:10: exprList
+					// src/grammar/Javathon.g:177:10: exprList
 					{
-					pushFollow(FOLLOW_exprList_in_list1354);
+					pushFollow(FOLLOW_exprList_in_list1337);
 					exprList109=exprList();
 					state._fsp--;
 
@@ -3172,7 +3172,7 @@ public class JavathonParser extends Parser {
 
 			}
 
-			char_literal110=(Token)match(input,CBracket,FOLLOW_CBracket_in_list1357);  
+			char_literal110=(Token)match(input,CBracket,FOLLOW_CBracket_in_list1340);  
 			stream_CBracket.add(char_literal110);
 
 			// AST REWRITE
@@ -3186,13 +3186,13 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 179:24: -> ^( LIST ( exprList )? )
+			// 177:24: -> ^( LIST ( exprList )? )
 			{
-				// src/grammar/Javathon.g:179:27: ^( LIST ( exprList )? )
+				// src/grammar/Javathon.g:177:27: ^( LIST ( exprList )? )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LIST, "LIST"), root_1);
-				// src/grammar/Javathon.g:179:34: ( exprList )?
+				// src/grammar/Javathon.g:177:34: ( exprList )?
 				if ( stream_exprList.hasNext() ) {
 					adaptor.addChild(root_1, stream_exprList.nextTree());
 				}
@@ -3235,33 +3235,41 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "lookup"
-	// src/grammar/Javathon.g:184:1: lookup : ( functionCall ( indexes )? | '(' expression ')' ( indexes )? | list ( indexes )? | Identifier ( indexes )? | String ( indexes )? );
+	// src/grammar/Javathon.g:180:1: lookup : ( functionCall ( indexes )? -> ^( LOOKUP functionCall ( indexes )? ) | list ( indexes )? -> ^( LOOKUP list ( indexes )? ) | Identifier ( indexes )? -> ^( LOOKUP Identifier ( indexes )? ) | String ( indexes )? -> ^( LOOKUP String ( indexes )? ) | '(' expression ')' ( indexes )? -> ^( LOOKUP expression ( indexes )? ) );
 	public final JavathonParser.lookup_return lookup() throws RecognitionException {
 		JavathonParser.lookup_return retval = new JavathonParser.lookup_return();
 		retval.start = input.LT(1);
 
 		Object root_0 = null;
 
-		Token char_literal113=null;
-		Token char_literal115=null;
-		Token Identifier119=null;
-		Token String121=null;
+		Token Identifier115=null;
+		Token String117=null;
+		Token char_literal119=null;
+		Token char_literal121=null;
 		ParserRuleReturnScope functionCall111 =null;
 		ParserRuleReturnScope indexes112 =null;
-		ParserRuleReturnScope expression114 =null;
+		ParserRuleReturnScope list113 =null;
+		ParserRuleReturnScope indexes114 =null;
 		ParserRuleReturnScope indexes116 =null;
-		ParserRuleReturnScope list117 =null;
 		ParserRuleReturnScope indexes118 =null;
-		ParserRuleReturnScope indexes120 =null;
+		ParserRuleReturnScope expression120 =null;
 		ParserRuleReturnScope indexes122 =null;
 
-		Object char_literal113_tree=null;
-		Object char_literal115_tree=null;
-		Object Identifier119_tree=null;
-		Object String121_tree=null;
+		Object Identifier115_tree=null;
+		Object String117_tree=null;
+		Object char_literal119_tree=null;
+		Object char_literal121_tree=null;
+		RewriteRuleTokenStream stream_OParen=new RewriteRuleTokenStream(adaptor,"token OParen");
+		RewriteRuleTokenStream stream_CParen=new RewriteRuleTokenStream(adaptor,"token CParen");
+		RewriteRuleTokenStream stream_String=new RewriteRuleTokenStream(adaptor,"token String");
+		RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
+		RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
+		RewriteRuleSubtreeStream stream_functionCall=new RewriteRuleSubtreeStream(adaptor,"rule functionCall");
+		RewriteRuleSubtreeStream stream_indexes=new RewriteRuleSubtreeStream(adaptor,"rule indexes");
+		RewriteRuleSubtreeStream stream_list=new RewriteRuleSubtreeStream(adaptor,"rule list");
 
 		try {
-			// src/grammar/Javathon.g:185:3: ( functionCall ( indexes )? | '(' expression ')' ( indexes )? | list ( indexes )? | Identifier ( indexes )? | String ( indexes )? )
+			// src/grammar/Javathon.g:181:3: ( functionCall ( indexes )? -> ^( LOOKUP functionCall ( indexes )? ) | list ( indexes )? -> ^( LOOKUP list ( indexes )? ) | Identifier ( indexes )? -> ^( LOOKUP Identifier ( indexes )? ) | String ( indexes )? -> ^( LOOKUP String ( indexes )? ) | '(' expression ')' ( indexes )? -> ^( LOOKUP expression ( indexes )? ) )
 			int alt29=5;
 			switch ( input.LA(1) ) {
 			case Identifier:
@@ -3271,7 +3279,7 @@ public class JavathonParser extends Parser {
 					alt29=1;
 				}
 				else if ( ((LA29_1 >= Add && LA29_1 <= And)||(LA29_1 >= CBracket && LA29_1 <= Comma)||(LA29_1 >= Divide && LA29_1 <= Do)||LA29_1==Equals||(LA29_1 >= GT && LA29_1 <= GTEquals)||LA29_1==In||(LA29_1 >= LT && LA29_1 <= Multiply)||LA29_1==NEquals||LA29_1==OBracket||(LA29_1 >= Or && LA29_1 <= Pow)||LA29_1==QMark||LA29_1==SColon||LA29_1==Subtract) ) {
-					alt29=4;
+					alt29=3;
 				}
 
 				else {
@@ -3296,17 +3304,17 @@ public class JavathonParser extends Parser {
 				alt29=1;
 				}
 				break;
-			case OParen:
+			case OBracket:
 				{
 				alt29=2;
 				}
 				break;
-			case OBracket:
+			case String:
 				{
-				alt29=3;
+				alt29=4;
 				}
 				break;
-			case String:
+			case OParen:
 				{
 				alt29=5;
 				}
@@ -3318,18 +3326,14 @@ public class JavathonParser extends Parser {
 			}
 			switch (alt29) {
 				case 1 :
-					// src/grammar/Javathon.g:185:6: functionCall ( indexes )?
+					// src/grammar/Javathon.g:181:6: functionCall ( indexes )?
 					{
-					root_0 = (Object)adaptor.nil();
-
-
-					pushFollow(FOLLOW_functionCall_in_lookup1391);
+					pushFollow(FOLLOW_functionCall_in_lookup1371);
 					functionCall111=functionCall();
 					state._fsp--;
 
-					adaptor.addChild(root_0, functionCall111.getTree());
-
-					// src/grammar/Javathon.g:185:19: ( indexes )?
+					stream_functionCall.add(functionCall111.getTree());
+					// src/grammar/Javathon.g:181:19: ( indexes )?
 					int alt24=2;
 					int LA24_0 = input.LA(1);
 					if ( (LA24_0==OBracket) ) {
@@ -3337,42 +3341,61 @@ public class JavathonParser extends Parser {
 					}
 					switch (alt24) {
 						case 1 :
-							// src/grammar/Javathon.g:185:19: indexes
+							// src/grammar/Javathon.g:181:19: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup1393);
+							pushFollow(FOLLOW_indexes_in_lookup1373);
 							indexes112=indexes();
 							state._fsp--;
 
-							adaptor.addChild(root_0, indexes112.getTree());
-
+							stream_indexes.add(indexes112.getTree());
 							}
 							break;
 
 					}
 
+					// AST REWRITE
+					// elements: functionCall, indexes
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (Object)adaptor.nil();
+					// 181:34: -> ^( LOOKUP functionCall ( indexes )? )
+					{
+						// src/grammar/Javathon.g:181:37: ^( LOOKUP functionCall ( indexes )? )
+						{
+						Object root_1 = (Object)adaptor.nil();
+						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LOOKUP, "LOOKUP"), root_1);
+						adaptor.addChild(root_1, stream_functionCall.nextTree());
+						// src/grammar/Javathon.g:181:59: ( indexes )?
+						if ( stream_indexes.hasNext() ) {
+							adaptor.addChild(root_1, stream_indexes.nextTree());
+						}
+						stream_indexes.reset();
+
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:186:6: '(' expression ')' ( indexes )?
+					// src/grammar/Javathon.g:182:6: list ( indexes )?
 					{
-					root_0 = (Object)adaptor.nil();
-
-
-					char_literal113=(Token)match(input,OParen,FOLLOW_OParen_in_lookup1403); 
-					char_literal113_tree = (Object)adaptor.create(char_literal113);
-					adaptor.addChild(root_0, char_literal113_tree);
-
-					pushFollow(FOLLOW_expression_in_lookup1405);
-					expression114=expression();
+					pushFollow(FOLLOW_list_in_lookup1398);
+					list113=list();
 					state._fsp--;
 
-					adaptor.addChild(root_0, expression114.getTree());
-
-					char_literal115=(Token)match(input,CParen,FOLLOW_CParen_in_lookup1407); 
-					char_literal115_tree = (Object)adaptor.create(char_literal115);
-					adaptor.addChild(root_0, char_literal115_tree);
-
-					// src/grammar/Javathon.g:186:25: ( indexes )?
+					stream_list.add(list113.getTree());
+					// src/grammar/Javathon.g:182:11: ( indexes )?
 					int alt25=2;
 					int LA25_0 = input.LA(1);
 					if ( (LA25_0==OBracket) ) {
@@ -3380,34 +3403,59 @@ public class JavathonParser extends Parser {
 					}
 					switch (alt25) {
 						case 1 :
-							// src/grammar/Javathon.g:186:25: indexes
+							// src/grammar/Javathon.g:182:11: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup1409);
-							indexes116=indexes();
+							pushFollow(FOLLOW_indexes_in_lookup1400);
+							indexes114=indexes();
 							state._fsp--;
 
-							adaptor.addChild(root_0, indexes116.getTree());
-
+							stream_indexes.add(indexes114.getTree());
 							}
 							break;
 
 					}
 
+					// AST REWRITE
+					// elements: list, indexes
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (Object)adaptor.nil();
+					// 182:34: -> ^( LOOKUP list ( indexes )? )
+					{
+						// src/grammar/Javathon.g:182:37: ^( LOOKUP list ( indexes )? )
+						{
+						Object root_1 = (Object)adaptor.nil();
+						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LOOKUP, "LOOKUP"), root_1);
+						adaptor.addChild(root_1, stream_list.nextTree());
+						// src/grammar/Javathon.g:182:51: ( indexes )?
+						if ( stream_indexes.hasNext() ) {
+							adaptor.addChild(root_1, stream_indexes.nextTree());
+						}
+						stream_indexes.reset();
+
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+
 					}
 					break;
 				case 3 :
-					// src/grammar/Javathon.g:187:6: list ( indexes )?
+					// src/grammar/Javathon.g:183:6: Identifier ( indexes )?
 					{
-					root_0 = (Object)adaptor.nil();
+					Identifier115=(Token)match(input,Identifier,FOLLOW_Identifier_in_lookup1433);  
+					stream_Identifier.add(Identifier115);
 
-
-					pushFollow(FOLLOW_list_in_lookup1419);
-					list117=list();
-					state._fsp--;
-
-					adaptor.addChild(root_0, list117.getTree());
-
-					// src/grammar/Javathon.g:187:11: ( indexes )?
+					// src/grammar/Javathon.g:183:17: ( indexes )?
 					int alt26=2;
 					int LA26_0 = input.LA(1);
 					if ( (LA26_0==OBracket) ) {
@@ -3415,32 +3463,59 @@ public class JavathonParser extends Parser {
 					}
 					switch (alt26) {
 						case 1 :
-							// src/grammar/Javathon.g:187:11: indexes
+							// src/grammar/Javathon.g:183:17: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup1421);
-							indexes118=indexes();
+							pushFollow(FOLLOW_indexes_in_lookup1435);
+							indexes116=indexes();
 							state._fsp--;
 
-							adaptor.addChild(root_0, indexes118.getTree());
-
+							stream_indexes.add(indexes116.getTree());
 							}
 							break;
 
 					}
 
+					// AST REWRITE
+					// elements: indexes, Identifier
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (Object)adaptor.nil();
+					// 183:34: -> ^( LOOKUP Identifier ( indexes )? )
+					{
+						// src/grammar/Javathon.g:183:37: ^( LOOKUP Identifier ( indexes )? )
+						{
+						Object root_1 = (Object)adaptor.nil();
+						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LOOKUP, "LOOKUP"), root_1);
+						adaptor.addChild(root_1, stream_Identifier.nextNode());
+						// src/grammar/Javathon.g:183:57: ( indexes )?
+						if ( stream_indexes.hasNext() ) {
+							adaptor.addChild(root_1, stream_indexes.nextTree());
+						}
+						stream_indexes.reset();
+
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+
 					}
 					break;
 				case 4 :
-					// src/grammar/Javathon.g:188:6: Identifier ( indexes )?
+					// src/grammar/Javathon.g:184:6: String ( indexes )?
 					{
-					root_0 = (Object)adaptor.nil();
+					String117=(Token)match(input,String,FOLLOW_String_in_lookup1462);  
+					stream_String.add(String117);
 
-
-					Identifier119=(Token)match(input,Identifier,FOLLOW_Identifier_in_lookup1431); 
-					Identifier119_tree = (Object)adaptor.create(Identifier119);
-					adaptor.addChild(root_0, Identifier119_tree);
-
-					// src/grammar/Javathon.g:188:17: ( indexes )?
+					// src/grammar/Javathon.g:184:13: ( indexes )?
 					int alt27=2;
 					int LA27_0 = input.LA(1);
 					if ( (LA27_0==OBracket) ) {
@@ -3448,32 +3523,67 @@ public class JavathonParser extends Parser {
 					}
 					switch (alt27) {
 						case 1 :
-							// src/grammar/Javathon.g:188:17: indexes
+							// src/grammar/Javathon.g:184:13: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup1433);
-							indexes120=indexes();
+							pushFollow(FOLLOW_indexes_in_lookup1464);
+							indexes118=indexes();
 							state._fsp--;
 
-							adaptor.addChild(root_0, indexes120.getTree());
-
+							stream_indexes.add(indexes118.getTree());
 							}
 							break;
 
 					}
 
+					// AST REWRITE
+					// elements: indexes, String
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (Object)adaptor.nil();
+					// 184:34: -> ^( LOOKUP String ( indexes )? )
+					{
+						// src/grammar/Javathon.g:184:37: ^( LOOKUP String ( indexes )? )
+						{
+						Object root_1 = (Object)adaptor.nil();
+						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LOOKUP, "LOOKUP"), root_1);
+						adaptor.addChild(root_1, stream_String.nextNode());
+						// src/grammar/Javathon.g:184:53: ( indexes )?
+						if ( stream_indexes.hasNext() ) {
+							adaptor.addChild(root_1, stream_indexes.nextTree());
+						}
+						stream_indexes.reset();
+
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+
 					}
 					break;
 				case 5 :
-					// src/grammar/Javathon.g:189:6: String ( indexes )?
+					// src/grammar/Javathon.g:185:6: '(' expression ')' ( indexes )?
 					{
-					root_0 = (Object)adaptor.nil();
+					char_literal119=(Token)match(input,OParen,FOLLOW_OParen_in_lookup1495);  
+					stream_OParen.add(char_literal119);
 
+					pushFollow(FOLLOW_expression_in_lookup1497);
+					expression120=expression();
+					state._fsp--;
 
-					String121=(Token)match(input,String,FOLLOW_String_in_lookup1443); 
-					String121_tree = (Object)adaptor.create(String121);
-					adaptor.addChild(root_0, String121_tree);
+					stream_expression.add(expression120.getTree());
+					char_literal121=(Token)match(input,CParen,FOLLOW_CParen_in_lookup1499);  
+					stream_CParen.add(char_literal121);
 
-					// src/grammar/Javathon.g:189:13: ( indexes )?
+					// src/grammar/Javathon.g:185:25: ( indexes )?
 					int alt28=2;
 					int LA28_0 = input.LA(1);
 					if ( (LA28_0==OBracket) ) {
@@ -3481,18 +3591,49 @@ public class JavathonParser extends Parser {
 					}
 					switch (alt28) {
 						case 1 :
-							// src/grammar/Javathon.g:189:13: indexes
+							// src/grammar/Javathon.g:185:25: indexes
 							{
-							pushFollow(FOLLOW_indexes_in_lookup1445);
+							pushFollow(FOLLOW_indexes_in_lookup1501);
 							indexes122=indexes();
 							state._fsp--;
 
-							adaptor.addChild(root_0, indexes122.getTree());
-
+							stream_indexes.add(indexes122.getTree());
 							}
 							break;
 
 					}
+
+					// AST REWRITE
+					// elements: expression, indexes
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (Object)adaptor.nil();
+					// 185:34: -> ^( LOOKUP expression ( indexes )? )
+					{
+						// src/grammar/Javathon.g:185:37: ^( LOOKUP expression ( indexes )? )
+						{
+						Object root_1 = (Object)adaptor.nil();
+						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LOOKUP, "LOOKUP"), root_1);
+						adaptor.addChild(root_1, stream_expression.nextTree());
+						// src/grammar/Javathon.g:185:57: ( indexes )?
+						if ( stream_indexes.hasNext() ) {
+							adaptor.addChild(root_1, stream_indexes.nextTree());
+						}
+						stream_indexes.reset();
+
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
 
 					}
 					break;
@@ -3525,7 +3666,7 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "indexes"
-	// src/grammar/Javathon.g:194:1: indexes : ( '[' expression ']' )+ -> ^( INDEXES ( expression )+ ) ;
+	// src/grammar/Javathon.g:190:1: indexes : ( '[' expression ']' )+ -> ^( INDEXES ( expression )+ ) ;
 	public final JavathonParser.indexes_return indexes() throws RecognitionException {
 		JavathonParser.indexes_return retval = new JavathonParser.indexes_return();
 		retval.start = input.LT(1);
@@ -3543,10 +3684,10 @@ public class JavathonParser extends Parser {
 		RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
 
 		try {
-			// src/grammar/Javathon.g:195:3: ( ( '[' expression ']' )+ -> ^( INDEXES ( expression )+ ) )
-			// src/grammar/Javathon.g:195:6: ( '[' expression ']' )+
+			// src/grammar/Javathon.g:191:3: ( ( '[' expression ']' )+ -> ^( INDEXES ( expression )+ ) )
+			// src/grammar/Javathon.g:191:6: ( '[' expression ']' )+
 			{
-			// src/grammar/Javathon.g:195:6: ( '[' expression ']' )+
+			// src/grammar/Javathon.g:191:6: ( '[' expression ']' )+
 			int cnt30=0;
 			loop30:
 			while (true) {
@@ -3558,17 +3699,17 @@ public class JavathonParser extends Parser {
 
 				switch (alt30) {
 				case 1 :
-					// src/grammar/Javathon.g:195:7: '[' expression ']'
+					// src/grammar/Javathon.g:191:7: '[' expression ']'
 					{
-					char_literal123=(Token)match(input,OBracket,FOLLOW_OBracket_in_indexes1474);  
+					char_literal123=(Token)match(input,OBracket,FOLLOW_OBracket_in_indexes1539);  
 					stream_OBracket.add(char_literal123);
 
-					pushFollow(FOLLOW_expression_in_indexes1476);
+					pushFollow(FOLLOW_expression_in_indexes1541);
 					expression124=expression();
 					state._fsp--;
 
 					stream_expression.add(expression124.getTree());
-					char_literal125=(Token)match(input,CBracket,FOLLOW_CBracket_in_indexes1478);  
+					char_literal125=(Token)match(input,CBracket,FOLLOW_CBracket_in_indexes1543);  
 					stream_CBracket.add(char_literal125);
 
 					}
@@ -3593,9 +3734,9 @@ public class JavathonParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 195:28: -> ^( INDEXES ( expression )+ )
+			// 191:28: -> ^( INDEXES ( expression )+ )
 			{
-				// src/grammar/Javathon.g:195:31: ^( INDEXES ( expression )+ )
+				// src/grammar/Javathon.g:191:31: ^( INDEXES ( expression )+ )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(INDEXES, "INDEXES"), root_1);
@@ -3639,131 +3780,131 @@ public class JavathonParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_block_in_parse166 = new BitSet(new long[]{0x0000000000000000L});
-	public static final BitSet FOLLOW_EOF_in_parse168 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_statement_in_block195 = new BitSet(new long[]{0x24C0001800020082L,0x0000000000000010L});
-	public static final BitSet FOLLOW_functionDecl_in_block199 = new BitSet(new long[]{0x24C0001800020082L,0x0000000000000010L});
-	public static final BitSet FOLLOW_Return_in_block204 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_block206 = new BitSet(new long[]{0x0800000000000000L});
-	public static final BitSet FOLLOW_SColon_in_block208 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_assignment_in_statement260 = new BitSet(new long[]{0x0800000000000000L});
-	public static final BitSet FOLLOW_SColon_in_statement262 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_functionCall_in_statement275 = new BitSet(new long[]{0x0800000000000000L});
-	public static final BitSet FOLLOW_SColon_in_statement277 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifStatement_in_statement290 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_whileStatement_in_statement300 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_assignment327 = new BitSet(new long[]{0x0004000000000100L});
-	public static final BitSet FOLLOW_indexes_in_assignment329 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_Assign_in_assignment332 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_assignment334 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_functionCall371 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_OParen_in_functionCall373 = new BitSet(new long[]{0xA0CD800804002480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_exprList_in_functionCall375 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_CParen_in_functionCall378 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Println_in_functionCall398 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_OParen_in_functionCall400 = new BitSet(new long[]{0xA0CD800804002480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_functionCall402 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_CParen_in_functionCall405 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Print_in_functionCall426 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_OParen_in_functionCall428 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_functionCall430 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_CParen_in_functionCall432 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Assert_in_functionCall455 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_OParen_in_functionCall457 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_functionCall459 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_CParen_in_functionCall461 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Size_in_functionCall483 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_OParen_in_functionCall485 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_functionCall487 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_CParen_in_functionCall489 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifStat_in_ifStatement533 = new BitSet(new long[]{0x0000000001800000L});
-	public static final BitSet FOLLOW_elseIfStat_in_ifStatement535 = new BitSet(new long[]{0x0000000001800000L});
-	public static final BitSet FOLLOW_elseStat_in_ifStatement538 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_End_in_ifStatement541 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_If_in_ifStat577 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_ifStat579 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_Do_in_ifStat581 = new BitSet(new long[]{0x24C0001800020080L,0x0000000000000010L});
-	public static final BitSet FOLLOW_block_in_ifStat583 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Else_in_elseIfStat615 = new BitSet(new long[]{0x0000001000000000L});
-	public static final BitSet FOLLOW_If_in_elseIfStat617 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_elseIfStat619 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_Do_in_elseIfStat621 = new BitSet(new long[]{0x24C0001800020080L,0x0000000000000010L});
-	public static final BitSet FOLLOW_block_in_elseIfStat623 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Else_in_elseStat655 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_Do_in_elseStat657 = new BitSet(new long[]{0x24C0001800020080L,0x0000000000000010L});
-	public static final BitSet FOLLOW_block_in_elseStat659 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Def_in_functionDecl695 = new BitSet(new long[]{0x0000000800000000L});
-	public static final BitSet FOLLOW_Identifier_in_functionDecl697 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_OParen_in_functionDecl699 = new BitSet(new long[]{0x0000000800002000L});
-	public static final BitSet FOLLOW_idList_in_functionDecl701 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_CParen_in_functionDecl704 = new BitSet(new long[]{0x24C0001801020080L,0x0000000000000010L});
-	public static final BitSet FOLLOW_block_in_functionDecl706 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_End_in_functionDecl708 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_While_in_whileStatement740 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_whileStatement742 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_Do_in_whileStatement744 = new BitSet(new long[]{0x24C0001801020080L,0x0000000000000010L});
-	public static final BitSet FOLLOW_block_in_whileStatement746 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_End_in_whileStatement748 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_idList780 = new BitSet(new long[]{0x0000000000008002L});
-	public static final BitSet FOLLOW_Comma_in_idList783 = new BitSet(new long[]{0x0000000800000000L});
-	public static final BitSet FOLLOW_Identifier_in_idList785 = new BitSet(new long[]{0x0000000000008002L});
-	public static final BitSet FOLLOW_expression_in_exprList818 = new BitSet(new long[]{0x0000000000008002L});
-	public static final BitSet FOLLOW_Comma_in_exprList821 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_exprList823 = new BitSet(new long[]{0x0000000000008002L});
-	public static final BitSet FOLLOW_condExpr_in_expression858 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_orExpr_in_condExpr881 = new BitSet(new long[]{0x0100002000000002L});
-	public static final BitSet FOLLOW_QMark_in_condExpr898 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_condExpr902 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_Colon_in_condExpr904 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_condExpr908 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_In_in_condExpr933 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_condExpr935 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_andExpr_in_orExpr997 = new BitSet(new long[]{0x0010000000000002L});
-	public static final BitSet FOLLOW_Or_in_orExpr1000 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_andExpr_in_orExpr1003 = new BitSet(new long[]{0x0010000000000002L});
-	public static final BitSet FOLLOW_equExpr_in_andExpr1027 = new BitSet(new long[]{0x0000000000000042L});
-	public static final BitSet FOLLOW_And_in_andExpr1030 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_equExpr_in_andExpr1033 = new BitSet(new long[]{0x0000000000000042L});
-	public static final BitSet FOLLOW_relExpr_in_equExpr1057 = new BitSet(new long[]{0x0000400002000002L});
-	public static final BitSet FOLLOW_set_in_equExpr1060 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_relExpr_in_equExpr1069 = new BitSet(new long[]{0x0000400002000002L});
-	public static final BitSet FOLLOW_addExpr_in_relExpr1093 = new BitSet(new long[]{0x00000600C0000002L});
-	public static final BitSet FOLLOW_set_in_relExpr1096 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_addExpr_in_relExpr1113 = new BitSet(new long[]{0x00000600C0000002L});
-	public static final BitSet FOLLOW_mulExpr_in_addExpr1137 = new BitSet(new long[]{0x0000000000000022L,0x0000000000000001L});
-	public static final BitSet FOLLOW_set_in_addExpr1140 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_mulExpr_in_addExpr1149 = new BitSet(new long[]{0x0000000000000022L,0x0000000000000001L});
-	public static final BitSet FOLLOW_powExpr_in_mulExpr1173 = new BitSet(new long[]{0x0000180000080002L});
-	public static final BitSet FOLLOW_set_in_mulExpr1176 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_powExpr_in_mulExpr1189 = new BitSet(new long[]{0x0000180000080002L});
-	public static final BitSet FOLLOW_unaryExpr_in_powExpr1213 = new BitSet(new long[]{0x0020000000000002L});
-	public static final BitSet FOLLOW_Pow_in_powExpr1216 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_unaryExpr_in_powExpr1219 = new BitSet(new long[]{0x0020000000000002L});
-	public static final BitSet FOLLOW_Subtract_in_unaryExpr1245 = new BitSet(new long[]{0xA0CD800800000480L});
-	public static final BitSet FOLLOW_atom_in_unaryExpr1247 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Excl_in_unaryExpr1264 = new BitSet(new long[]{0xA0CD800800000480L});
+	public static final BitSet FOLLOW_block_in_parse167 = new BitSet(new long[]{0x0000000000000000L});
+	public static final BitSet FOLLOW_EOF_in_parse169 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_statement_in_block196 = new BitSet(new long[]{0x24C0001800020082L,0x0000000000000010L});
+	public static final BitSet FOLLOW_functionDecl_in_block200 = new BitSet(new long[]{0x24C0001800020082L,0x0000000000000010L});
+	public static final BitSet FOLLOW_Return_in_block205 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_block207 = new BitSet(new long[]{0x0800000000000000L});
+	public static final BitSet FOLLOW_SColon_in_block209 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_assignment_in_statement261 = new BitSet(new long[]{0x0800000000000000L});
+	public static final BitSet FOLLOW_SColon_in_statement263 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_functionCall_in_statement276 = new BitSet(new long[]{0x0800000000000000L});
+	public static final BitSet FOLLOW_SColon_in_statement278 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifStatement_in_statement291 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whileStatement_in_statement302 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_assignment322 = new BitSet(new long[]{0x0004000000000100L});
+	public static final BitSet FOLLOW_indexes_in_assignment324 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_Assign_in_assignment327 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_assignment329 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_functionCall366 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_OParen_in_functionCall368 = new BitSet(new long[]{0xA0CD800804002480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_exprList_in_functionCall370 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_CParen_in_functionCall373 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Println_in_functionCall393 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_OParen_in_functionCall395 = new BitSet(new long[]{0xA0CD800804002480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_functionCall397 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_CParen_in_functionCall400 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Print_in_functionCall421 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_OParen_in_functionCall423 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_functionCall425 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_CParen_in_functionCall427 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Assert_in_functionCall450 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_OParen_in_functionCall452 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_functionCall454 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_CParen_in_functionCall456 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Size_in_functionCall478 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_OParen_in_functionCall480 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_functionCall482 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_CParen_in_functionCall484 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifStat_in_ifStatement521 = new BitSet(new long[]{0x0000000001800000L});
+	public static final BitSet FOLLOW_elseIfStat_in_ifStatement523 = new BitSet(new long[]{0x0000000001800000L});
+	public static final BitSet FOLLOW_elseStat_in_ifStatement526 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_End_in_ifStatement529 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_If_in_ifStat565 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_ifStat567 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_Do_in_ifStat569 = new BitSet(new long[]{0x24C0001800020080L,0x0000000000000010L});
+	public static final BitSet FOLLOW_block_in_ifStat571 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Else_in_elseIfStat603 = new BitSet(new long[]{0x0000001000000000L});
+	public static final BitSet FOLLOW_If_in_elseIfStat605 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_elseIfStat607 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_Do_in_elseIfStat609 = new BitSet(new long[]{0x24C0001800020080L,0x0000000000000010L});
+	public static final BitSet FOLLOW_block_in_elseIfStat611 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Else_in_elseStat643 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_Do_in_elseStat645 = new BitSet(new long[]{0x24C0001800020080L,0x0000000000000010L});
+	public static final BitSet FOLLOW_block_in_elseStat647 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Def_in_functionDecl677 = new BitSet(new long[]{0x0000000800000000L});
+	public static final BitSet FOLLOW_Identifier_in_functionDecl679 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_OParen_in_functionDecl681 = new BitSet(new long[]{0x0000000800002000L});
+	public static final BitSet FOLLOW_idList_in_functionDecl683 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_CParen_in_functionDecl686 = new BitSet(new long[]{0x24C0001801020080L,0x0000000000000010L});
+	public static final BitSet FOLLOW_block_in_functionDecl688 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_End_in_functionDecl690 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_While_in_whileStatement727 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_whileStatement729 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_Do_in_whileStatement731 = new BitSet(new long[]{0x24C0001801020080L,0x0000000000000010L});
+	public static final BitSet FOLLOW_block_in_whileStatement733 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_End_in_whileStatement735 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_idList767 = new BitSet(new long[]{0x0000000000008002L});
+	public static final BitSet FOLLOW_Comma_in_idList770 = new BitSet(new long[]{0x0000000800000000L});
+	public static final BitSet FOLLOW_Identifier_in_idList772 = new BitSet(new long[]{0x0000000000008002L});
+	public static final BitSet FOLLOW_expression_in_exprList805 = new BitSet(new long[]{0x0000000000008002L});
+	public static final BitSet FOLLOW_Comma_in_exprList808 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_exprList810 = new BitSet(new long[]{0x0000000000008002L});
+	public static final BitSet FOLLOW_condExpr_in_expression841 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_orExpr_in_condExpr864 = new BitSet(new long[]{0x0100002000000002L});
+	public static final BitSet FOLLOW_QMark_in_condExpr881 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_condExpr885 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_Colon_in_condExpr887 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_condExpr891 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_In_in_condExpr916 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_condExpr918 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_andExpr_in_orExpr980 = new BitSet(new long[]{0x0010000000000002L});
+	public static final BitSet FOLLOW_Or_in_orExpr983 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_andExpr_in_orExpr986 = new BitSet(new long[]{0x0010000000000002L});
+	public static final BitSet FOLLOW_equExpr_in_andExpr1010 = new BitSet(new long[]{0x0000000000000042L});
+	public static final BitSet FOLLOW_And_in_andExpr1013 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_equExpr_in_andExpr1016 = new BitSet(new long[]{0x0000000000000042L});
+	public static final BitSet FOLLOW_relExpr_in_equExpr1040 = new BitSet(new long[]{0x0000400002000002L});
+	public static final BitSet FOLLOW_set_in_equExpr1043 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_relExpr_in_equExpr1052 = new BitSet(new long[]{0x0000400002000002L});
+	public static final BitSet FOLLOW_addExpr_in_relExpr1076 = new BitSet(new long[]{0x00000600C0000002L});
+	public static final BitSet FOLLOW_set_in_relExpr1079 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_addExpr_in_relExpr1096 = new BitSet(new long[]{0x00000600C0000002L});
+	public static final BitSet FOLLOW_mulExpr_in_addExpr1120 = new BitSet(new long[]{0x0000000000000022L,0x0000000000000001L});
+	public static final BitSet FOLLOW_set_in_addExpr1123 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_mulExpr_in_addExpr1132 = new BitSet(new long[]{0x0000000000000022L,0x0000000000000001L});
+	public static final BitSet FOLLOW_powExpr_in_mulExpr1156 = new BitSet(new long[]{0x0000180000080002L});
+	public static final BitSet FOLLOW_set_in_mulExpr1159 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_powExpr_in_mulExpr1172 = new BitSet(new long[]{0x0000180000080002L});
+	public static final BitSet FOLLOW_unaryExpr_in_powExpr1196 = new BitSet(new long[]{0x0020000000000002L});
+	public static final BitSet FOLLOW_Pow_in_powExpr1199 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_unaryExpr_in_powExpr1202 = new BitSet(new long[]{0x0020000000000002L});
+	public static final BitSet FOLLOW_Subtract_in_unaryExpr1228 = new BitSet(new long[]{0xA0CD800800000480L});
+	public static final BitSet FOLLOW_atom_in_unaryExpr1230 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Excl_in_unaryExpr1247 = new BitSet(new long[]{0xA0CD800800000480L});
+	public static final BitSet FOLLOW_atom_in_unaryExpr1249 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_atom_in_unaryExpr1266 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_atom_in_unaryExpr1283 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Number_in_atom1305 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Bool_in_atom1314 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Null_in_atom1323 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_lookup_in_atom1332 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OBracket_in_list1352 = new BitSet(new long[]{0xA0CD800804001480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_exprList_in_list1354 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_CBracket_in_list1357 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_functionCall_in_lookup1391 = new BitSet(new long[]{0x0004000000000002L});
-	public static final BitSet FOLLOW_indexes_in_lookup1393 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OParen_in_lookup1403 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_lookup1405 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_CParen_in_lookup1407 = new BitSet(new long[]{0x0004000000000002L});
-	public static final BitSet FOLLOW_indexes_in_lookup1409 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_list_in_lookup1419 = new BitSet(new long[]{0x0004000000000002L});
-	public static final BitSet FOLLOW_indexes_in_lookup1421 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_lookup1431 = new BitSet(new long[]{0x0004000000000002L});
-	public static final BitSet FOLLOW_indexes_in_lookup1433 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_String_in_lookup1443 = new BitSet(new long[]{0x0004000000000002L});
-	public static final BitSet FOLLOW_indexes_in_lookup1445 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OBracket_in_indexes1474 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
-	public static final BitSet FOLLOW_expression_in_indexes1476 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_CBracket_in_indexes1478 = new BitSet(new long[]{0x0004000000000002L});
+	public static final BitSet FOLLOW_Number_in_atom1288 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Bool_in_atom1297 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Null_in_atom1306 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_lookup_in_atom1315 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OBracket_in_list1335 = new BitSet(new long[]{0xA0CD800804001480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_exprList_in_list1337 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_CBracket_in_list1340 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_functionCall_in_lookup1371 = new BitSet(new long[]{0x0004000000000002L});
+	public static final BitSet FOLLOW_indexes_in_lookup1373 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_list_in_lookup1398 = new BitSet(new long[]{0x0004000000000002L});
+	public static final BitSet FOLLOW_indexes_in_lookup1400 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_lookup1433 = new BitSet(new long[]{0x0004000000000002L});
+	public static final BitSet FOLLOW_indexes_in_lookup1435 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_String_in_lookup1462 = new BitSet(new long[]{0x0004000000000002L});
+	public static final BitSet FOLLOW_indexes_in_lookup1464 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OParen_in_lookup1495 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_lookup1497 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_CParen_in_lookup1499 = new BitSet(new long[]{0x0004000000000002L});
+	public static final BitSet FOLLOW_indexes_in_lookup1501 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OBracket_in_indexes1539 = new BitSet(new long[]{0xA0CD800804000480L,0x0000000000000001L});
+	public static final BitSet FOLLOW_expression_in_indexes1541 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_CBracket_in_indexes1543 = new BitSet(new long[]{0x0004000000000002L});
 }
