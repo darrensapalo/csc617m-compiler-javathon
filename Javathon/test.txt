@@ -1,1 +1,5 @@
-return 9 + 15 + 2;
+if 4 < 3 do  
+  println(1);
+else do
+  println(5);
+end

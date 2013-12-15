@@ -48,41 +48,36 @@ block returns [JNode node]
   ;  
   
 statement returns [JNode node]  
-  :  assignment  
-  |  functionCall  
-  |  ifStatement   
-  |  whileStatement  
+  :  assignment     {node = $assignment.node;}  
+  |  functionCall   {node = $functionCall.node;}  
+  |  ifStatement    {node = $ifStatement.node;}   
+  |  whileStatement {node = $whileStatement.node;}  
   ;  
   
-assignment  
+assignment returns [JNode node]
   :  ^(ASSIGNMENT Identifier indexes? expression)  
   ;  
   
-functionCall  
+functionCall  returns [JNode node]  
   :  ^(FUNC_CALL Identifier exprList?)  
-  |  ^(FUNC_CALL Println expression?)  
+  |  ^(FUNC_CALL Println expression?)    {node = new PrintlnNode($expression.node);}  
   |  ^(FUNC_CALL Print expression)  
   |  ^(FUNC_CALL Assert expression)  
   |  ^(FUNC_CALL Size expression)  
   ;  
   
-ifStatement  
-  :  ^(IF ifStat elseIfStat* elseStat?)  
+ifStatement returns [JNode node]  
+@init  { 
+  IfNode ifNode = new IfNode(); 
+  node = ifNode; 
+}  
+  :  ^(IF   
+       (^(EXP expression b1=block){ifNode.addChoice($expression.node,$b1.node);})+   
+       (^(EXP b2=block)           {ifNode.addChoice(new AtomNode(true),$b2.node);})?  
+     )  
   ;  
   
-ifStat  
-  :  ^(EXP expression block)  
-  ;  
-  
-elseIfStat  
-  :  ^(EXP expression block)  
-  ;  
-  
-elseStat  
-  :  ^(EXP block)  
-  ;  
-  
-whileStatement  
+whileStatement returns [JNode node]
   :  ^(While expression block)  
   ;  
   
@@ -94,7 +89,7 @@ exprList
   :  ^(EXP_LIST expression+)  
   ;  
   
-expression  returns [JNode node]  
+expression returns [JNode node]  
   :  ^(TERNARY expression expression expression)  
   |  ^(In expression expression)  
   |  ^('||' expression expression)  
@@ -104,8 +99,8 @@ expression  returns [JNode node]
   |  ^('>=' expression expression)  
   |  ^('<=' expression expression)  
   |  ^('>' expression expression)  
-  |  ^('<' expression expression)  
-  |  ^('+' a=expression b=expression) 	{node = new AddNode($a.node, $b.node);}
+  |  ^('<' a=expression b=expression)  		{node = new LTNode 	($a.node, $b.node);}  
+  |  ^('+' a=expression b=expression) 	{node = new AddNode	($a.node, $b.node);}
   |  ^('-' expression expression)  
   |  ^('*' expression expression)  
   |  ^('/' expression expression)  
