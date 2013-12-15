@@ -1,5 +1,9 @@
 grammar Javathon;
-  
+
+options { 
+  output=AST;
+}
+
 @parser::header { 
   package grammar; 
 }  
@@ -8,11 +12,7 @@ grammar Javathon;
   package grammar; 
 }
 parse  
-  :  (t=.   
-          {System.out.printf("text: \%-7s  type: \%s \n",  
-           $t.text, tokenNames[$t.type]);}  
-     )*   
-     EOF  
+  : block EOF  
   ;  
   
 block  

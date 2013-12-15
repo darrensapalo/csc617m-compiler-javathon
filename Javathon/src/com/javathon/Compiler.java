@@ -5,6 +5,9 @@ import grammar.JavathonParser;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.DOTTreeGenerator;
+import org.antlr.stringtemplate.StringTemplate;
 
 
 /**
@@ -26,8 +29,14 @@ public class Compiler {
 		// create the parser
 		JavathonParser parser = new JavathonParser(tokens);
 
-		// invoke the entry point of our grammar
-		parser.parse();
+	    // invoke the entry point of our parser and generate a DOT image of the tree  
+	    CommonTree tree = (CommonTree)parser.parse().getTree();  
+	    DOTTreeGenerator gen = new DOTTreeGenerator();  
+	    StringTemplate st = gen.toDOT(tree);
+	    
+	    // Check out the graph by copy-pasting the result of this here:
+	    // http://graphviz-dev.appspot.com/
+	    System.out.println(st);  
 
 	}
 }
