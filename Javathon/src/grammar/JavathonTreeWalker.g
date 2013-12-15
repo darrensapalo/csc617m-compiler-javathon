@@ -28,14 +28,26 @@ options {
 }  
   
 walk returns [JNode node]  
-  :  block {node = null;}  
+  : block {node = $block.node;}  
   ;  
   
-block  
-  :  ^(BLOCK ^(STATEMENTS statement*) ^(RETURN expression?))  
+block returns [JNode node]  
+@init { 
+  BlockNode bn = new BlockNode(); 
+  node = bn; 
+  Scope scope = new Scope(currentScope); 
+  currentScope = scope; 
+}  
+@after { 
+  currentScope = currentScope.parent(); 
+}  
+  :  ^(BLOCK   
+        ^( STATEMENTS (statement  { bn.addStatement($statement.node);})* )   
+        ^( RETURN     (expression { bn.addReturn($expression.node);  })? )  
+      )  
   ;  
   
-statement  
+statement returns [JNode node]  
   :  assignment  
   |  functionCall  
   |  ifStatement   
@@ -82,7 +94,7 @@ exprList
   :  ^(EXP_LIST expression+)  
   ;  
   
-expression  
+expression  returns [JNode node]  
   :  ^(TERNARY expression expression expression)  
   |  ^(In expression expression)  
   |  ^('||' expression expression)  
@@ -93,7 +105,7 @@ expression
   |  ^('<=' expression expression)  
   |  ^('>' expression expression)  
   |  ^('<' expression expression)  
-  |  ^('+' expression expression)  
+  |  ^('+' a=expression b=expression) 	{node = new AddNode($a.node, $b.node);}
   |  ^('-' expression expression)  
   |  ^('*' expression expression)  
   |  ^('/' expression expression)  
@@ -101,7 +113,7 @@ expression
   |  ^('^' expression expression)  
   |  ^(UNARY_MIN expression)  
   |  ^(NEGATE expression)  
-  |  Number  
+  |  Number  							{node = new AtomNode(Double.parseDouble($Number.text));}  
   |  Bool  
   |  Null  
   |  lookup             
