@@ -6,11 +6,29 @@ options {
 }  
   
 @header { 
-  package grammar; 
+  package grammar;
+  import main.javathon.*; 
+  import java.util.Map; 
+  import java.util.HashMap; 
 }  
   
-walk  
-  :  block  
+@members { 
+  public Map<String, JFunction> functions = null; 
+  Scope currentScope = null; 
+   
+  public JavathonTreeWalker(CommonTreeNodeStream nodes, Map<String, JFunction> fns) { 
+    this(nodes, null, fns); 
+  } 
+   
+  public JavathonTreeWalker(CommonTreeNodeStream nds, Scope sc, Map<String, JFunction> fns) { 
+    super(nds); 
+    currentScope = sc; 
+    functions = fns; 
+  } 
+}  
+  
+walk returns [JNode node]  
+  :  block {node = null;}  
   ;  
   
 block  

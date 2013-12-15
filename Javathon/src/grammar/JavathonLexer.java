@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-15 19:24:32
+// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-15 20:44:28
  
   package grammar; 
 
@@ -97,8 +97,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Println;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:178:10: ( 'println' )
-			// src/grammar/Javathon.g:178:12: 'println'
+			// src/grammar/Javathon.g:199:10: ( 'println' )
+			// src/grammar/Javathon.g:199:12: 'println'
 			{
 			match("println"); 
 
@@ -118,8 +118,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Print;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:179:10: ( 'print' )
-			// src/grammar/Javathon.g:179:12: 'print'
+			// src/grammar/Javathon.g:200:10: ( 'print' )
+			// src/grammar/Javathon.g:200:12: 'print'
 			{
 			match("print"); 
 
@@ -139,8 +139,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Assert;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:180:10: ( 'assert' )
-			// src/grammar/Javathon.g:180:12: 'assert'
+			// src/grammar/Javathon.g:201:10: ( 'assert' )
+			// src/grammar/Javathon.g:201:12: 'assert'
 			{
 			match("assert"); 
 
@@ -160,8 +160,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Size;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:181:10: ( 'size' )
-			// src/grammar/Javathon.g:181:12: 'size'
+			// src/grammar/Javathon.g:202:10: ( 'size' )
+			// src/grammar/Javathon.g:202:12: 'size'
 			{
 			match("size"); 
 
@@ -181,8 +181,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Def;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:182:10: ( 'def' )
-			// src/grammar/Javathon.g:182:12: 'def'
+			// src/grammar/Javathon.g:203:10: ( 'def' )
+			// src/grammar/Javathon.g:203:12: 'def'
 			{
 			match("def"); 
 
@@ -202,8 +202,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = If;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:183:10: ( 'if' )
-			// src/grammar/Javathon.g:183:12: 'if'
+			// src/grammar/Javathon.g:204:10: ( 'if' )
+			// src/grammar/Javathon.g:204:12: 'if'
 			{
 			match("if"); 
 
@@ -223,8 +223,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Else;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:184:10: ( 'else' )
-			// src/grammar/Javathon.g:184:12: 'else'
+			// src/grammar/Javathon.g:205:10: ( 'else' )
+			// src/grammar/Javathon.g:205:12: 'else'
 			{
 			match("else"); 
 
@@ -244,8 +244,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Return;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:185:10: ( 'return' )
-			// src/grammar/Javathon.g:185:12: 'return'
+			// src/grammar/Javathon.g:206:10: ( 'return' )
+			// src/grammar/Javathon.g:206:12: 'return'
 			{
 			match("return"); 
 
@@ -265,8 +265,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = For;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:186:10: ( 'for' )
-			// src/grammar/Javathon.g:186:12: 'for'
+			// src/grammar/Javathon.g:207:10: ( 'for' )
+			// src/grammar/Javathon.g:207:12: 'for'
 			{
 			match("for"); 
 
@@ -286,8 +286,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = While;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:187:10: ( 'while' )
-			// src/grammar/Javathon.g:187:12: 'while'
+			// src/grammar/Javathon.g:208:10: ( 'while' )
+			// src/grammar/Javathon.g:208:12: 'while'
 			{
 			match("while"); 
 
@@ -307,8 +307,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = To;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:188:10: ( 'to' )
-			// src/grammar/Javathon.g:188:12: 'to'
+			// src/grammar/Javathon.g:209:10: ( 'to' )
+			// src/grammar/Javathon.g:209:12: 'to'
 			{
 			match("to"); 
 
@@ -328,8 +328,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Do;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:189:10: ( 'do' )
-			// src/grammar/Javathon.g:189:12: 'do'
+			// src/grammar/Javathon.g:210:10: ( 'do' )
+			// src/grammar/Javathon.g:210:12: 'do'
 			{
 			match("do"); 
 
@@ -349,8 +349,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = End;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:190:10: ( 'end' )
-			// src/grammar/Javathon.g:190:12: 'end'
+			// src/grammar/Javathon.g:211:10: ( 'end' )
+			// src/grammar/Javathon.g:211:12: 'end'
 			{
 			match("end"); 
 
@@ -370,8 +370,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = In;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:191:10: ( 'in' )
-			// src/grammar/Javathon.g:191:12: 'in'
+			// src/grammar/Javathon.g:212:10: ( 'in' )
+			// src/grammar/Javathon.g:212:12: 'in'
 			{
 			match("in"); 
 
@@ -391,8 +391,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Null;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:192:10: ( 'null' )
-			// src/grammar/Javathon.g:192:12: 'null'
+			// src/grammar/Javathon.g:213:10: ( 'null' )
+			// src/grammar/Javathon.g:213:12: 'null'
 			{
 			match("null"); 
 
@@ -412,8 +412,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Or;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:194:10: ( '||' )
-			// src/grammar/Javathon.g:194:12: '||'
+			// src/grammar/Javathon.g:215:10: ( '||' )
+			// src/grammar/Javathon.g:215:12: '||'
 			{
 			match("||"); 
 
@@ -433,8 +433,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = And;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:195:10: ( '&&' )
-			// src/grammar/Javathon.g:195:12: '&&'
+			// src/grammar/Javathon.g:216:10: ( '&&' )
+			// src/grammar/Javathon.g:216:12: '&&'
 			{
 			match("&&"); 
 
@@ -454,8 +454,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Equals;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:196:10: ( '==' )
-			// src/grammar/Javathon.g:196:12: '=='
+			// src/grammar/Javathon.g:217:10: ( '==' )
+			// src/grammar/Javathon.g:217:12: '=='
 			{
 			match("=="); 
 
@@ -475,8 +475,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = NEquals;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:197:10: ( '!=' )
-			// src/grammar/Javathon.g:197:12: '!='
+			// src/grammar/Javathon.g:218:10: ( '!=' )
+			// src/grammar/Javathon.g:218:12: '!='
 			{
 			match("!="); 
 
@@ -496,8 +496,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = GTEquals;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:198:10: ( '>=' )
-			// src/grammar/Javathon.g:198:12: '>='
+			// src/grammar/Javathon.g:219:10: ( '>=' )
+			// src/grammar/Javathon.g:219:12: '>='
 			{
 			match(">="); 
 
@@ -517,8 +517,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = LTEquals;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:199:10: ( '<=' )
-			// src/grammar/Javathon.g:199:12: '<='
+			// src/grammar/Javathon.g:220:10: ( '<=' )
+			// src/grammar/Javathon.g:220:12: '<='
 			{
 			match("<="); 
 
@@ -538,8 +538,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Pow;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:200:10: ( '^' )
-			// src/grammar/Javathon.g:200:12: '^'
+			// src/grammar/Javathon.g:221:10: ( '^' )
+			// src/grammar/Javathon.g:221:12: '^'
 			{
 			match('^'); 
 			}
@@ -558,8 +558,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Excl;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:201:10: ( '!' )
-			// src/grammar/Javathon.g:201:12: '!'
+			// src/grammar/Javathon.g:222:10: ( '!' )
+			// src/grammar/Javathon.g:222:12: '!'
 			{
 			match('!'); 
 			}
@@ -578,8 +578,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = GT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:202:10: ( '>' )
-			// src/grammar/Javathon.g:202:12: '>'
+			// src/grammar/Javathon.g:223:10: ( '>' )
+			// src/grammar/Javathon.g:223:12: '>'
 			{
 			match('>'); 
 			}
@@ -598,8 +598,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = LT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:203:10: ( '<' )
-			// src/grammar/Javathon.g:203:12: '<'
+			// src/grammar/Javathon.g:224:10: ( '<' )
+			// src/grammar/Javathon.g:224:12: '<'
 			{
 			match('<'); 
 			}
@@ -618,8 +618,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Add;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:204:10: ( '+' )
-			// src/grammar/Javathon.g:204:12: '+'
+			// src/grammar/Javathon.g:225:10: ( '+' )
+			// src/grammar/Javathon.g:225:12: '+'
 			{
 			match('+'); 
 			}
@@ -638,8 +638,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Subtract;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:205:10: ( '-' )
-			// src/grammar/Javathon.g:205:12: '-'
+			// src/grammar/Javathon.g:226:10: ( '-' )
+			// src/grammar/Javathon.g:226:12: '-'
 			{
 			match('-'); 
 			}
@@ -658,8 +658,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Multiply;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:206:10: ( '*' )
-			// src/grammar/Javathon.g:206:12: '*'
+			// src/grammar/Javathon.g:227:10: ( '*' )
+			// src/grammar/Javathon.g:227:12: '*'
 			{
 			match('*'); 
 			}
@@ -678,8 +678,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Divide;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:207:10: ( '/' )
-			// src/grammar/Javathon.g:207:12: '/'
+			// src/grammar/Javathon.g:228:10: ( '/' )
+			// src/grammar/Javathon.g:228:12: '/'
 			{
 			match('/'); 
 			}
@@ -698,8 +698,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Modulus;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:208:10: ( '%' )
-			// src/grammar/Javathon.g:208:12: '%'
+			// src/grammar/Javathon.g:229:10: ( '%' )
+			// src/grammar/Javathon.g:229:12: '%'
 			{
 			match('%'); 
 			}
@@ -718,8 +718,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = OBrace;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:209:10: ( '{' )
-			// src/grammar/Javathon.g:209:12: '{'
+			// src/grammar/Javathon.g:230:10: ( '{' )
+			// src/grammar/Javathon.g:230:12: '{'
 			{
 			match('{'); 
 			}
@@ -738,8 +738,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = CBrace;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:210:10: ( '}' )
-			// src/grammar/Javathon.g:210:12: '}'
+			// src/grammar/Javathon.g:231:10: ( '}' )
+			// src/grammar/Javathon.g:231:12: '}'
 			{
 			match('}'); 
 			}
@@ -758,8 +758,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = OBracket;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:211:10: ( '[' )
-			// src/grammar/Javathon.g:211:12: '['
+			// src/grammar/Javathon.g:232:10: ( '[' )
+			// src/grammar/Javathon.g:232:12: '['
 			{
 			match('['); 
 			}
@@ -778,8 +778,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = CBracket;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:212:10: ( ']' )
-			// src/grammar/Javathon.g:212:12: ']'
+			// src/grammar/Javathon.g:233:10: ( ']' )
+			// src/grammar/Javathon.g:233:12: ']'
 			{
 			match(']'); 
 			}
@@ -798,8 +798,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = OParen;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:213:10: ( '(' )
-			// src/grammar/Javathon.g:213:12: '('
+			// src/grammar/Javathon.g:234:10: ( '(' )
+			// src/grammar/Javathon.g:234:12: '('
 			{
 			match('('); 
 			}
@@ -818,8 +818,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = CParen;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:214:10: ( ')' )
-			// src/grammar/Javathon.g:214:12: ')'
+			// src/grammar/Javathon.g:235:10: ( ')' )
+			// src/grammar/Javathon.g:235:12: ')'
 			{
 			match(')'); 
 			}
@@ -838,8 +838,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = SColon;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:215:10: ( ';' )
-			// src/grammar/Javathon.g:215:12: ';'
+			// src/grammar/Javathon.g:236:10: ( ';' )
+			// src/grammar/Javathon.g:236:12: ';'
 			{
 			match(';'); 
 			}
@@ -858,8 +858,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Assign;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:216:10: ( '=' )
-			// src/grammar/Javathon.g:216:12: '='
+			// src/grammar/Javathon.g:237:10: ( '=' )
+			// src/grammar/Javathon.g:237:12: '='
 			{
 			match('='); 
 			}
@@ -878,8 +878,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Comma;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:217:10: ( ',' )
-			// src/grammar/Javathon.g:217:12: ','
+			// src/grammar/Javathon.g:238:10: ( ',' )
+			// src/grammar/Javathon.g:238:12: ','
 			{
 			match(','); 
 			}
@@ -898,8 +898,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = QMark;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:218:10: ( '?' )
-			// src/grammar/Javathon.g:218:12: '?'
+			// src/grammar/Javathon.g:239:10: ( '?' )
+			// src/grammar/Javathon.g:239:12: '?'
 			{
 			match('?'); 
 			}
@@ -918,8 +918,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Colon;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:219:10: ( ':' )
-			// src/grammar/Javathon.g:219:12: ':'
+			// src/grammar/Javathon.g:240:10: ( ':' )
+			// src/grammar/Javathon.g:240:12: ':'
 			{
 			match(':'); 
 			}
@@ -938,7 +938,7 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Bool;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:222:3: ( 'true' | 'false' )
+			// src/grammar/Javathon.g:243:3: ( 'true' | 'false' )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='t') ) {
@@ -956,14 +956,14 @@ public class JavathonLexer extends Lexer {
 
 			switch (alt1) {
 				case 1 :
-					// src/grammar/Javathon.g:222:6: 'true'
+					// src/grammar/Javathon.g:243:6: 'true'
 					{
 					match("true"); 
 
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:223:6: 'false'
+					// src/grammar/Javathon.g:244:6: 'false'
 					{
 					match("false"); 
 
@@ -985,12 +985,12 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Number;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:227:3: ( Int ( '.' ( Digit )* )? )
-			// src/grammar/Javathon.g:227:6: Int ( '.' ( Digit )* )?
+			// src/grammar/Javathon.g:248:3: ( Int ( '.' ( Digit )* )? )
+			// src/grammar/Javathon.g:248:6: Int ( '.' ( Digit )* )?
 			{
 			mInt(); 
 
-			// src/grammar/Javathon.g:227:10: ( '.' ( Digit )* )?
+			// src/grammar/Javathon.g:248:10: ( '.' ( Digit )* )?
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='.') ) {
@@ -998,10 +998,10 @@ public class JavathonLexer extends Lexer {
 			}
 			switch (alt3) {
 				case 1 :
-					// src/grammar/Javathon.g:227:11: '.' ( Digit )*
+					// src/grammar/Javathon.g:248:11: '.' ( Digit )*
 					{
 					match('.'); 
-					// src/grammar/Javathon.g:227:15: ( Digit )*
+					// src/grammar/Javathon.g:248:15: ( Digit )*
 					loop2:
 					while (true) {
 						int alt2=2;
@@ -1051,8 +1051,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Identifier;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:231:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )* )
-			// src/grammar/Javathon.g:231:6: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )*
+			// src/grammar/Javathon.g:252:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )* )
+			// src/grammar/Javathon.g:252:6: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -1062,7 +1062,7 @@ public class JavathonLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// src/grammar/Javathon.g:231:34: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )*
+			// src/grammar/Javathon.g:252:34: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -1107,7 +1107,7 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = String;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:238:3: ( '\"' (~ ( '\"' | '\\\\' ) | '\\\\' . )* '\"' | '\\'' (~ ( '\\'' | '\\\\' ) | '\\\\' . )* '\\'' )
+			// src/grammar/Javathon.g:259:3: ( '\"' (~ ( '\"' | '\\\\' ) | '\\\\' . )* '\"' | '\\'' (~ ( '\\'' | '\\\\' ) | '\\\\' . )* '\\'' )
 			int alt7=2;
 			int LA7_0 = input.LA(1);
 			if ( (LA7_0=='\"') ) {
@@ -1125,10 +1125,10 @@ public class JavathonLexer extends Lexer {
 
 			switch (alt7) {
 				case 1 :
-					// src/grammar/Javathon.g:238:6: '\"' (~ ( '\"' | '\\\\' ) | '\\\\' . )* '\"'
+					// src/grammar/Javathon.g:259:6: '\"' (~ ( '\"' | '\\\\' ) | '\\\\' . )* '\"'
 					{
 					match('\"'); 
-					// src/grammar/Javathon.g:238:11: (~ ( '\"' | '\\\\' ) | '\\\\' . )*
+					// src/grammar/Javathon.g:259:11: (~ ( '\"' | '\\\\' ) | '\\\\' . )*
 					loop5:
 					while (true) {
 						int alt5=3;
@@ -1142,7 +1142,7 @@ public class JavathonLexer extends Lexer {
 
 						switch (alt5) {
 						case 1 :
-							// src/grammar/Javathon.g:238:12: ~ ( '\"' | '\\\\' )
+							// src/grammar/Javathon.g:259:12: ~ ( '\"' | '\\\\' )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -1155,7 +1155,7 @@ public class JavathonLexer extends Lexer {
 							}
 							break;
 						case 2 :
-							// src/grammar/Javathon.g:238:29: '\\\\' .
+							// src/grammar/Javathon.g:259:29: '\\\\' .
 							{
 							match('\\'); 
 							matchAny(); 
@@ -1171,10 +1171,10 @@ public class JavathonLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:239:6: '\\'' (~ ( '\\'' | '\\\\' ) | '\\\\' . )* '\\''
+					// src/grammar/Javathon.g:260:6: '\\'' (~ ( '\\'' | '\\\\' ) | '\\\\' . )* '\\''
 					{
 					match('\''); 
-					// src/grammar/Javathon.g:239:11: (~ ( '\\'' | '\\\\' ) | '\\\\' . )*
+					// src/grammar/Javathon.g:260:11: (~ ( '\\'' | '\\\\' ) | '\\\\' . )*
 					loop6:
 					while (true) {
 						int alt6=3;
@@ -1188,7 +1188,7 @@ public class JavathonLexer extends Lexer {
 
 						switch (alt6) {
 						case 1 :
-							// src/grammar/Javathon.g:239:12: ~ ( '\\'' | '\\\\' )
+							// src/grammar/Javathon.g:260:12: ~ ( '\\'' | '\\\\' )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -1201,7 +1201,7 @@ public class JavathonLexer extends Lexer {
 							}
 							break;
 						case 2 :
-							// src/grammar/Javathon.g:239:29: '\\\\' .
+							// src/grammar/Javathon.g:260:29: '\\\\' .
 							{
 							match('\\'); 
 							matchAny(); 
@@ -1235,7 +1235,7 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Comment;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:243:3: ( '//' (~ ( '\\r' | '\\n' ) )* | '/*' ( . )* '*/' )
+			// src/grammar/Javathon.g:264:3: ( '//' (~ ( '\\r' | '\\n' ) )* | '/*' ( . )* '*/' )
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0=='/') ) {
@@ -1269,11 +1269,11 @@ public class JavathonLexer extends Lexer {
 
 			switch (alt10) {
 				case 1 :
-					// src/grammar/Javathon.g:243:6: '//' (~ ( '\\r' | '\\n' ) )*
+					// src/grammar/Javathon.g:264:6: '//' (~ ( '\\r' | '\\n' ) )*
 					{
 					match("//"); 
 
-					// src/grammar/Javathon.g:243:11: (~ ( '\\r' | '\\n' ) )*
+					// src/grammar/Javathon.g:264:11: (~ ( '\\r' | '\\n' ) )*
 					loop8:
 					while (true) {
 						int alt8=2;
@@ -1306,11 +1306,11 @@ public class JavathonLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:244:6: '/*' ( . )* '*/'
+					// src/grammar/Javathon.g:265:6: '/*' ( . )* '*/'
 					{
 					match("/*"); 
 
-					// src/grammar/Javathon.g:244:11: ( . )*
+					// src/grammar/Javathon.g:265:11: ( . )*
 					loop9:
 					while (true) {
 						int alt9=2;
@@ -1331,7 +1331,7 @@ public class JavathonLexer extends Lexer {
 
 						switch (alt9) {
 						case 1 :
-							// src/grammar/Javathon.g:244:11: .
+							// src/grammar/Javathon.g:265:11: .
 							{
 							matchAny(); 
 							}
@@ -1363,8 +1363,8 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = Space;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// src/grammar/Javathon.g:248:3: ( ( ' ' | '\\t' | '\\r' | '\\n' | '\\u000C' ) )
-			// src/grammar/Javathon.g:248:6: ( ' ' | '\\t' | '\\r' | '\\n' | '\\u000C' )
+			// src/grammar/Javathon.g:269:3: ( ( ' ' | '\\t' | '\\r' | '\\n' | '\\u000C' ) )
+			// src/grammar/Javathon.g:269:6: ( ' ' | '\\t' | '\\r' | '\\n' | '\\u000C' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
 				input.consume();
@@ -1389,7 +1389,7 @@ public class JavathonLexer extends Lexer {
 	// $ANTLR start "Int"
 	public final void mInt() throws RecognitionException {
 		try {
-			// src/grammar/Javathon.g:252:3: ( '1' .. '9' ( Digit )* | '0' )
+			// src/grammar/Javathon.g:273:3: ( '1' .. '9' ( Digit )* | '0' )
 			int alt12=2;
 			int LA12_0 = input.LA(1);
 			if ( ((LA12_0 >= '1' && LA12_0 <= '9')) ) {
@@ -1407,10 +1407,10 @@ public class JavathonLexer extends Lexer {
 
 			switch (alt12) {
 				case 1 :
-					// src/grammar/Javathon.g:252:6: '1' .. '9' ( Digit )*
+					// src/grammar/Javathon.g:273:6: '1' .. '9' ( Digit )*
 					{
 					matchRange('1','9'); 
-					// src/grammar/Javathon.g:252:15: ( Digit )*
+					// src/grammar/Javathon.g:273:15: ( Digit )*
 					loop11:
 					while (true) {
 						int alt11=2;
@@ -1442,7 +1442,7 @@ public class JavathonLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// src/grammar/Javathon.g:253:6: '0'
+					// src/grammar/Javathon.g:274:6: '0'
 					{
 					match('0'); 
 					}
@@ -1459,7 +1459,7 @@ public class JavathonLexer extends Lexer {
 	// $ANTLR start "Digit"
 	public final void mDigit() throws RecognitionException {
 		try {
-			// src/grammar/Javathon.g:257:3: ( '0' .. '9' )
+			// src/grammar/Javathon.g:278:3: ( '0' .. '9' )
 			// src/grammar/Javathon.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {

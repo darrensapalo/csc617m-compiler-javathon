@@ -2,10 +2,13 @@ package main;
 
 import grammar.JavathonLexer;
 import grammar.JavathonParser;
+import grammar.JavathonTreeWalker;
+import main.javathon.JNode;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.runtime.tree.DOTTreeGenerator;
 import org.antlr.stringtemplate.StringTemplate;
 
@@ -30,13 +33,23 @@ public class Compiler {
 		JavathonParser parser = new JavathonParser(tokens);
 
 	    // invoke the entry point of our parser and generate a DOT image of the tree  
-	    CommonTree tree = (CommonTree)parser.parse().getTree();  
-	    DOTTreeGenerator gen = new DOTTreeGenerator();  
-	    StringTemplate st = gen.toDOT(tree);
+	    CommonTree tree = (CommonTree)parser.parse().getTree();
 	    
-	    // Check out the graph by copy-pasting the result of this here:
-	    // http://graphviz-dev.appspot.com/
-	    System.out.println(st);  
+	    CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);  
+	      
+	    // pass the reference to the Map of functions to the tree walker  
+	    JavathonTreeWalker walker = new JavathonTreeWalker(nodes, parser.functions);  
+	      
+	    // get the returned node   
+	    JNode returned = walker.walk();  
+	    System.out.println(returned == null ? "null" : returned.evaluate());  
+	    
+//	    DOTTreeGenerator gen = new DOTTreeGenerator();  
+//	    StringTemplate st = gen.toDOT(tree);
+//	    
+//	    // Check out the graph by copy-pasting the result of this here:
+//	    // http://graphviz-dev.appspot.com/
+//	    System.out.println(st);  
 
 	}
 }
