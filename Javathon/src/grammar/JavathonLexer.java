@@ -1,6 +1,6 @@
 package grammar;
 
-// $ANTLR 3.5.1 JavathonLexer.g 2013-12-15 16:22:56
+// $ANTLR 3.5.1 Javathon.g 2013-12-15 16:28:41
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -28,15 +28,15 @@ public class JavathonLexer extends Lexer {
 	public JavathonLexer(CharStream input, RecognizerSharedState state) {
 		super(input,state);
 	}
-	@Override public String getGrammarFileName() { return "JavathonLexer.g"; }
+	@Override public String getGrammarFileName() { return "Javathon.g"; }
 
 	// $ANTLR start "Comma"
 	public final void mComma() throws RecognitionException {
 		try {
 			int _type = Comma;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// JavathonLexer.g:10:3: ( ',' )
-			// JavathonLexer.g:10:6: ','
+			// Javathon.g:17:3: ( ',' )
+			// Javathon.g:17:6: ','
 			{
 			match(','); 
 			}
@@ -55,7 +55,7 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = LineBreak;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// JavathonLexer.g:14:3: ( ( '\\r' )? '\\n' | '\\r' )
+			// Javathon.g:21:3: ( ( '\\r' )? '\\n' | '\\r' )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0=='\r') ) {
@@ -81,9 +81,9 @@ public class JavathonLexer extends Lexer {
 
 			switch (alt2) {
 				case 1 :
-					// JavathonLexer.g:14:6: ( '\\r' )? '\\n'
+					// Javathon.g:21:6: ( '\\r' )? '\\n'
 					{
-					// JavathonLexer.g:14:6: ( '\\r' )?
+					// Javathon.g:21:6: ( '\\r' )?
 					int alt1=2;
 					int LA1_0 = input.LA(1);
 					if ( (LA1_0=='\r') ) {
@@ -91,7 +91,7 @@ public class JavathonLexer extends Lexer {
 					}
 					switch (alt1) {
 						case 1 :
-							// JavathonLexer.g:14:6: '\\r'
+							// Javathon.g:21:6: '\\r'
 							{
 							match('\r'); 
 							}
@@ -103,7 +103,7 @@ public class JavathonLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// JavathonLexer.g:15:6: '\\r'
+					// Javathon.g:22:6: '\\r'
 					{
 					match('\r'); 
 					}
@@ -124,10 +124,10 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = SimpleValue;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// JavathonLexer.g:19:3: ( (~ ( ',' | '\\r' | '\\n' | '\"' ) )+ )
-			// JavathonLexer.g:19:6: (~ ( ',' | '\\r' | '\\n' | '\"' ) )+
+			// Javathon.g:26:3: ( (~ ( ',' | '\\r' | '\\n' | '\"' ) )+ )
+			// Javathon.g:26:6: (~ ( ',' | '\\r' | '\\n' | '\"' ) )+
 			{
-			// JavathonLexer.g:19:6: (~ ( ',' | '\\r' | '\\n' | '\"' ) )+
+			// Javathon.g:26:6: (~ ( ',' | '\\r' | '\\n' | '\"' ) )+
 			int cnt3=0;
 			loop3:
 			while (true) {
@@ -139,7 +139,7 @@ public class JavathonLexer extends Lexer {
 
 				switch (alt3) {
 				case 1 :
-					// JavathonLexer.g:
+					// Javathon.g:
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '+')||(input.LA(1) >= '-' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -176,11 +176,11 @@ public class JavathonLexer extends Lexer {
 		try {
 			int _type = QuotedValue;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// JavathonLexer.g:23:3: ( '\"' ( '\"\"' |~ '\"' )* '\"' )
-			// JavathonLexer.g:23:6: '\"' ( '\"\"' |~ '\"' )* '\"'
+			// Javathon.g:30:3: ( '\"' ( '\"\"' |~ '\"' )* '\"' )
+			// Javathon.g:30:6: '\"' ( '\"\"' |~ '\"' )* '\"'
 			{
 			match('\"'); 
-			// JavathonLexer.g:23:10: ( '\"\"' |~ '\"' )*
+			// Javathon.g:30:10: ( '\"\"' |~ '\"' )*
 			loop4:
 			while (true) {
 				int alt4=3;
@@ -198,14 +198,14 @@ public class JavathonLexer extends Lexer {
 
 				switch (alt4) {
 				case 1 :
-					// JavathonLexer.g:23:11: '\"\"'
+					// Javathon.g:30:11: '\"\"'
 					{
 					match("\"\""); 
 
 					}
 					break;
 				case 2 :
-					// JavathonLexer.g:23:18: ~ '\"'
+					// Javathon.g:30:18: ~ '\"'
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -237,7 +237,7 @@ public class JavathonLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// JavathonLexer.g:1:8: ( Comma | LineBreak | SimpleValue | QuotedValue )
+		// Javathon.g:1:8: ( Comma | LineBreak | SimpleValue | QuotedValue )
 		int alt5=4;
 		int LA5_0 = input.LA(1);
 		if ( (LA5_0==',') ) {
@@ -261,28 +261,28 @@ public class JavathonLexer extends Lexer {
 
 		switch (alt5) {
 			case 1 :
-				// JavathonLexer.g:1:10: Comma
+				// Javathon.g:1:10: Comma
 				{
 				mComma(); 
 
 				}
 				break;
 			case 2 :
-				// JavathonLexer.g:1:16: LineBreak
+				// Javathon.g:1:16: LineBreak
 				{
 				mLineBreak(); 
 
 				}
 				break;
 			case 3 :
-				// JavathonLexer.g:1:26: SimpleValue
+				// Javathon.g:1:26: SimpleValue
 				{
 				mSimpleValue(); 
 
 				}
 				break;
 			case 4 :
-				// JavathonLexer.g:1:38: QuotedValue
+				// Javathon.g:1:38: QuotedValue
 				{
 				mQuotedValue(); 
 
