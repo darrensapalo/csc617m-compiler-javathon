@@ -1,5 +1,11 @@
 grammar Javathon;  
+@parser::header { 
+  package grammar; 
+}  
   
+@lexer::header { 
+  package grammar; 
+}
 parse  
   :  (t=.   
           {System.out.printf("text: \%-7s  type: \%s \n",  

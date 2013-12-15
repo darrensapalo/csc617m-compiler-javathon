@@ -1,6 +1,7 @@
-package grammar;
+// $ANTLR 3.5.1 Javathon.g 2013-12-15 17:00:58
+ 
+  package grammar; 
 
-// $ANTLR 3.5.1 Javathon.g 2013-12-15 16:51:55
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -90,15 +91,15 @@ public class JavathonParser extends Parser {
 
 
 	// $ANTLR start "parse"
-	// Javathon.g:3:1: parse : (t= . )* EOF ;
+	// Javathon.g:9:1: parse : (t= . )* EOF ;
 	public final void parse() throws RecognitionException {
 		Token t=null;
 
 		try {
-			// Javathon.g:4:3: ( (t= . )* EOF )
-			// Javathon.g:4:6: (t= . )* EOF
+			// Javathon.g:10:3: ( (t= . )* EOF )
+			// Javathon.g:10:6: (t= . )* EOF
 			{
-			// Javathon.g:4:6: (t= . )*
+			// Javathon.g:10:6: (t= . )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -109,7 +110,7 @@ public class JavathonParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// Javathon.g:4:7: t= .
+					// Javathon.g:10:7: t= .
 					{
 					t=input.LT(1);
 					matchAny(input); 
@@ -123,7 +124,7 @@ public class JavathonParser extends Parser {
 				}
 			}
 
-			match(input,EOF,FOLLOW_EOF_in_parse57); 
+			match(input,EOF,FOLLOW_EOF_in_parse75); 
 			}
 
 		}
@@ -141,5 +142,5 @@ public class JavathonParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_EOF_in_parse57 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_EOF_in_parse75 = new BitSet(new long[]{0x0000000000000002L});
 }
