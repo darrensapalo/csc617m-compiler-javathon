@@ -1,5 +1,5 @@
 // CSVLexer.g  
-lexer grammar Javathon;  
+lexer grammar JavathonLexer;  
   
 /* 
 the rest of the file here 

@@ -1,6 +1,6 @@
 package com.javathon;
 
-import grammar.Javathon;
+import grammar.JavathonLexer;
 
 import org.antlr.runtime.*;  
   
@@ -31,7 +31,7 @@ public class Compiler {
         "\"line\nbreak\",Bbb,end";  
           
     // create an instance of the lexer
-    Javathon lexer = new Javathon(new ANTLRStringStream(source));  
+    JavathonLexer lexer = new JavathonLexer(new ANTLRStringStream(source));  
           
     // wrap a token-stream around the lexer  
     CommonTokenStream tokens = new CommonTokenStream(lexer);  
