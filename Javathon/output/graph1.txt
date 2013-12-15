@@ -1,0 +1,67 @@
+// Copy paste this into the site link below to see how the language is parsed
+// http://graphviz-dev.appspot.com/
+digraph {
+
+	ordering=out;
+	ranksep=.4;
+	bgcolor="lightgrey"; node [shape=box, fixedsize=false, fontsize=12, fontname="Helvetica-bold", fontcolor="blue"
+		width=.25, height=.25, color="black", fillcolor="white", style="filled, solid, bold"];
+	edge [arrowsize=.5, color="black", style="bold"]
+
+  n0 [label="BLOCK"];
+  n1 [label="STATEMENTS"];
+  n1 [label="STATEMENTS"];
+  n2 [label="IF"];
+  n2 [label="IF"];
+  n3 [label="EXP"];
+  n3 [label="EXP"];
+  n4 [label="("];
+  n5 [label=">"];
+  n5 [label=">"];
+  n6 [label="5"];
+  n7 [label="10"];
+  n8 [label=")"];
+  n9 [label="BLOCK"];
+  n9 [label="BLOCK"];
+  n10 [label="STATEMENTS"];
+  n10 [label="STATEMENTS"];
+  n11 [label="ASSIGNMENT"];
+  n11 [label="ASSIGNMENT"];
+  n12 [label="x"];
+  n13 [label="5"];
+  n14 [label="RETURN"];
+  n15 [label="ASSIGNMENT"];
+  n15 [label="ASSIGNMENT"];
+  n16 [label="y"];
+  n17 [label="3"];
+  n18 [label="RETURN"];
+  n18 [label="RETURN"];
+  n19 [label="*"];
+  n19 [label="*"];
+  n20 [label="x"];
+  n21 [label="y"];
+
+  n0 -> n1 // "BLOCK" -> "STATEMENTS"
+  n1 -> n2 // "STATEMENTS" -> "IF"
+  n2 -> n3 // "IF" -> "EXP"
+  n3 -> n4 // "EXP" -> "("
+  n3 -> n5 // "EXP" -> ">"
+  n5 -> n6 // ">" -> "5"
+  n5 -> n7 // ">" -> "10"
+  n3 -> n8 // "EXP" -> ")"
+  n3 -> n9 // "EXP" -> "BLOCK"
+  n9 -> n10 // "BLOCK" -> "STATEMENTS"
+  n10 -> n11 // "STATEMENTS" -> "ASSIGNMENT"
+  n11 -> n12 // "ASSIGNMENT" -> "x"
+  n11 -> n13 // "ASSIGNMENT" -> "5"
+  n9 -> n14 // "BLOCK" -> "RETURN"
+  n1 -> n15 // "STATEMENTS" -> "ASSIGNMENT"
+  n15 -> n16 // "ASSIGNMENT" -> "y"
+  n15 -> n17 // "ASSIGNMENT" -> "3"
+  n0 -> n18 // "BLOCK" -> "RETURN"
+  n18 -> n19 // "RETURN" -> "*"
+  n19 -> n20 // "*" -> "x"
+  n19 -> n21 // "*" -> "y"
+
+}
+

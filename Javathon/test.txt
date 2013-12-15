@@ -1,1 +1,5 @@
-if (5 > 10) do x = 5; y = 3;
+if (5 > 10) do 
+	x = 5;
+end
+y = 3;
+return x * y;

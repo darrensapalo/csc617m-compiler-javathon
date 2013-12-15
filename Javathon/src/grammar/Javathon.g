@@ -4,6 +4,26 @@ options {
   output=AST;
 }
 
+
+tokens { 
+  BLOCK; 
+  RETURN; 
+  STATEMENTS; 
+  ASSIGNMENT; 
+  FUNC_CALL; 
+  EXP; 
+  EXP_LIST; 
+  ID_LIST; 
+  IF; 
+  TERNARY; 
+  UNARY_MIN; 
+  NEGATE; 
+  FUNCTION; 
+  INDEXES; 
+  LIST; 
+  LOOKUP; 
+}  
+
 @parser::header { 
   package grammar; 
 }  
@@ -11,36 +31,74 @@ options {
 @lexer::header { 
   package grammar; 
 }
+
 parse  
-  : block EOF  
+  :  block EOF -> block  
   ;  
   
 block  
-  :  (statement | functionDecl)* (Return expression ';')?  
+  :  (statement | functionDecl)* (Return expression ';')?   
+     -> ^(BLOCK ^(STATEMENTS statement*) ^(RETURN expression?))  
   ;  
   
 statement  
-  :  assignment ';'  
-  |  functionCall ';'  
+  :  assignment ';' 	-> assignment 
+  |  functionCall ';'  	-> functionCall
   |  ifStatement   
   |  whileStatement  
   ;  
   
-functionDecl  
-  :  Def Identifier '(' idList? ')' block End  
-  ;  
-  
-idList  
-  :  Identifier (',' Identifier)*  
-  ;  
 
 /* Assignment */  
 assignment  
   :  Identifier indexes? '=' expression  
+  	 -> ^(ASSIGNMENT Identifier indexes? expression)
+  ;
+  
+functionCall  
+  :  Identifier '(' exprList? ')' -> ^(FUNC_CALL Identifier exprList?)  
+  |  Println '(' expression? ')'  -> ^(FUNC_CALL Println expression?)  
+  |  Print '(' expression ')'     -> ^(FUNC_CALL Print expression)  
+  |  Assert '(' expression ')'    -> ^(FUNC_CALL Assert expression)  
+  |  Size '(' expression ')'      -> ^(FUNC_CALL Size expression)  
   ;  
   
-indexes  
-  :  ('[' expression ']')+  
+   
+
+/* if statements */
+ifStatement  
+  :  ifStat elseIfStat* elseStat? End -> ^(IF ifStat elseIfStat* elseStat?)  
+  ;  
+  
+ifStat  
+  :  If expression Do block -> ^(EXP expression block)  
+  ;  
+  
+elseIfStat  
+  :  Else If expression Do block -> ^(EXP expression block)  
+  ;  
+  
+elseStat  
+  :  Else Do block -> ^(EXP block)  
+  ;
+  
+
+/* function declaration */
+  
+  functionDecl  
+  :  Def Identifier '(' idList? ')' block End {/* implemented later */}  
+  ;  
+  
+whileStatement  
+  :  While expression Do block End -> ^(While expression block)  
+  ;  
+  
+idList  
+  :  Identifier (',' Identifier)* -> ^(ID_LIST Identifier+)  
+  ;  
+  
+exprList  
+  :  expression (',' expression)* -> ^(EXP_LIST expression+)  
   ;  
 
 /* Expressions */  
@@ -49,52 +107,57 @@ expression
   ;  
   
 condExpr  
-  :  orExpr ( '?' expression ':' expression  
-            | In expression  
-            )?  
+  :  (orExpr -> orExpr)   
+     ( '?' a=expression ':' b=expression -> ^(TERNARY orExpr $a $b)  
+     | In expression                     -> ^(In orExpr expression)  
+     )?  
   ;  
   
 orExpr  
-  :  andExpr ('||' andExpr)*  
+  :  andExpr ('||'^ andExpr)*  
   ;  
   
 andExpr  
-  :  equExpr ('&&' equExpr)*  
+  :  equExpr ('&&'^ equExpr)*  
   ;  
   
 equExpr  
-  :  relExpr (('==' | '!=') relExpr)*  
+  :  relExpr (('==' | '!=')^ relExpr)*  
   ;  
   
 relExpr  
-  :  addExpr (('>=' | '<=' | '>' | '<') addExpr)*  
+  :  addExpr (('>=' | '<=' | '>' | '<')^ addExpr)*  
   ;  
   
 addExpr  
-  :  mulExpr (('+' | '-') mulExpr)*  
+  :  mulExpr (('+' | '-')^ mulExpr)*  
   ;  
   
 mulExpr  
-  :  powExpr (('*' | '/' | '%') powExpr)*  
+  :  powExpr (('*' | '/' | '%')^ powExpr)*  
   ;  
   
 powExpr  
-  :  unaryExpr ('^' unaryExpr)*  
+  :  unaryExpr ('^'^ unaryExpr)*  
   ;  
     
 unaryExpr  
-  :  '-' atom  
-  |  '!' atom  
+  :  '-' atom -> ^(UNARY_MIN atom)  
+  |  '!' atom -> ^(NEGATE atom)  
   |  atom  
   ;  
   
 atom  
-  :  Null  
-  |  Number  
+  :  Number  
   |  Bool  
+  |  Null  
   |  lookup  
   ;  
 
+list  
+  :  '[' exprList? ']' -> ^(LIST exprList?)  
+  ;  
+  
 
 /* Look up */
 lookup  
@@ -106,45 +169,9 @@ lookup
   ;  
   
   
-/* List */
-list  
-  :  '[' exprList? ']'  
-  ;  
-  
-exprList  
-  :  expression (',' expression)*  
-  ;  
-  
-  
-/* Function call */
-functionCall  
-  :  Identifier '(' exprList? ')'  
-  |  Println '(' expression? ')'  
-  |  Print '(' expression ')'  
-  |  Assert '(' expression ')'  
-  |  Size '(' expression ')'  
-  ;  
-
-
-/* if statements */
-ifStatement  
-  :  ifStat elseIfStat* elseStat? End   
-  ;  
-  
-ifStat  
-  :  If expression Do block  
-  ;  
-  
-elseIfStat  
-  :  Else If expression Do block  
-  ;  
-  
-elseStat  
-  :  Else Do block  
-  ;  
-  
-whileStatement  
-  :  While expression Do block End   
+/* Indices, used for arrays */
+indexes  
+  :  ('[' expression ']')+ -> ^(INDEXES expression+)  
   ;  
       
 /* Keywords */
