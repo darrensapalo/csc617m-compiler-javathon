@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 Javathon.g 2013-12-15 17:00:58
+// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-15 17:52:22
  
   package grammar; 
 
@@ -86,20 +86,20 @@ public class JavathonParser extends Parser {
 	}
 
 	@Override public String[] getTokenNames() { return JavathonParser.tokenNames; }
-	@Override public String getGrammarFileName() { return "Javathon.g"; }
+	@Override public String getGrammarFileName() { return "src/grammar/Javathon.g"; }
 
 
 
 	// $ANTLR start "parse"
-	// Javathon.g:9:1: parse : (t= . )* EOF ;
+	// src/grammar/Javathon.g:9:1: parse : (t= . )* EOF ;
 	public final void parse() throws RecognitionException {
 		Token t=null;
 
 		try {
-			// Javathon.g:10:3: ( (t= . )* EOF )
-			// Javathon.g:10:6: (t= . )* EOF
+			// src/grammar/Javathon.g:10:3: ( (t= . )* EOF )
+			// src/grammar/Javathon.g:10:6: (t= . )* EOF
 			{
-			// Javathon.g:10:6: (t= . )*
+			// src/grammar/Javathon.g:10:6: (t= . )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -110,7 +110,7 @@ public class JavathonParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// Javathon.g:10:7: t= .
+					// src/grammar/Javathon.g:10:7: t= .
 					{
 					t=input.LT(1);
 					matchAny(input); 

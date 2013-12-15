@@ -3,19 +3,19 @@
   
   <path id="classpath">  
     <pathelement location="build/classes/" />  
-    <pathelement location="src/main/" />  
+    <pathelement location="src/com/javathon/" />  
     <fileset dir="lib">  
       <include name="*.jar" />  
     </fileset>  
   </path>  
   
   <target name="clean">  
-    <delete dir="build/classes/" />  
-    <mkdir dir="build/classes/" />  
+  	<delete dir="build/classes/" />  
+  	    <mkdir dir="build/classes/" />
   </target>  
   
   <target name="compile" depends="clean">  
-    <javac srcdir="src/main/" destdir="build/classes/" includeantruntime="false">  
+    <javac srcdir="src/com/javathon/" destdir="build/classes/" includeantruntime="false">  
       <classpath refid="classpath" />  
     </javac>  
   </target>  
@@ -24,8 +24,8 @@
     <echo>Generating the lexer and parser...</echo>  
     <java classname="org.antlr.Tool" fork="true" failonerror="true">  
       <arg value="-fo" />  
-      <arg value="src/main/tl/parser/" />  
-      <arg value="src/grammar/TL.g" />  
+      <arg value="src/grammar/" />  
+      <arg value="src/grammar/Javathon.g" />  
       <classpath refid="classpath" />  
     </java>  
     <antcall target="compile" />  
@@ -33,7 +33,7 @@
   
   <target name="run" depends="generate">  
     <echo>Running the main class...</echo>  
-    <java classname="tl.Main">  
+    <java classname="com.javathon.Compiler">  
       <classpath refid="classpath" />  
     </java>  
   </target>  

@@ -8,8 +8,9 @@ import org.antlr.runtime.CommonTokenStream;
 
 
 /**
- * To run the program with the appropriate grammar building,
- * run compilegrammar.bat.
+ * To run the program properly, clean the project first (to remove bin files)
+ * and then compile. It should run the ant script to compile the necessary 
+ * grammar for the lexer and the parser.
  * @author Darren
  *
  */

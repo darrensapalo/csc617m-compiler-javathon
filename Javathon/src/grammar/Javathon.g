@@ -1,4 +1,5 @@
-grammar Javathon;  
+grammar Javathon;
+  
 @parser::header { 
   package grammar; 
 }  
