@@ -3,7 +3,7 @@
   
   <path id="classpath">  
     <pathelement location="build/classes/" />  
-    <pathelement location="src/com/javathon/" />  
+    <pathelement location="src/grammar/" />  
     <fileset dir="lib">  
       <include name="*.jar" />  
     </fileset>  
@@ -15,7 +15,7 @@
   </target>  
   
   <target name="compile" depends="clean">  
-    <javac srcdir="src/com/javathon/" destdir="build/classes/" includeantruntime="false">  
+    <javac srcdir="src/grammar/" destdir="build/classes/" includeantruntime="false">  
       <classpath refid="classpath" />  
     </javac>  
   </target>  
@@ -28,12 +28,21 @@
       <arg value="src/grammar/Javathon.g" />  
       <classpath refid="classpath" />  
     </java>  
-    <antcall target="compile" />  
+    
+	  <echo>Generating the tree walker...</echo>  
+	  <java classname="org.antlr.Tool" fork="true" failonerror="true">  
+	    <arg value="-fo" />  
+	    <arg value="src/grammar/" />  
+	    <arg value="src/grammar/JavathonTreeWalker.g" />  
+	    <classpath refid="classpath" />  
+	  </java>  
+	  <antcall target="compile" />  
+  	
   </target>  
   
   <target name="run" depends="generate">  
     <echo>Running the main class...</echo>  
-    <java classname="com.javathon.Compiler">  
+    <java classname="main.Compiler">  
       <classpath refid="classpath" />  
     </java>  
   </target>  

@@ -1,4 +1,4 @@
-package com.javathon;
+package main;
 
 import grammar.JavathonLexer;
 import grammar.JavathonParser;
