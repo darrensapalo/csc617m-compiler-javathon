@@ -6,7 +6,6 @@ public class IdentifierNode implements JNode {
   private Scope scope;  
   
   public IdentifierNode(String id, Scope s) {
-	  System.out.println("Identified found: " + id);
     identifier = id;  
     scope = s;  
   }  
