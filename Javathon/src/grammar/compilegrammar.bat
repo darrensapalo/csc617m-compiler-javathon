@@ -1,1 +1,1 @@
-java -cp antlr-3.5.1-complete.jar org.antlr.Tool *.g
+java -cp antlr-3.5.1-complete.jar org.antlr.Tool Javathon.g

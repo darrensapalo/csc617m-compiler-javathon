@@ -1,34 +1,91 @@
-grammar Javathon;
-
-file returns [List<List<String>> data]
-@init {data = new ArrayList<List<String>>();}
-  :  (row {data.add($row.list);})+ EOF
-  ;
-
+grammar Javathon;  
   
-row returns [List<String> list]
-@init {list = new ArrayList<String>();}
-  :  a = value {list.add($a.val);} (Comma b=value {list.add($b.val);})* (LineBreak | EOF)
-  ;
+parse  
+  :  (t=.   
+          {System.out.printf("text: \%-7s  type: \%s \n",  
+           $t.text, tokenNames[$t.type]);}  
+     )*   
+     EOF  
+  ;  
+    
+Println  : 'println';  
+Print    : 'print';  
+Assert   : 'assert';  
+Size     : 'size';  
+Def      : 'def';  
+If       : 'if';  
+Else     : 'else';  
+Return   : 'return';  
+For      : 'for';  
+While    : 'while';  
+To       : 'to';  
+Do       : 'do';  
+End      : 'end';  
+In       : 'in';  
+Null     : 'null';  
   
-value returns [String val]  
-  :  SimpleValue  { val = $SimpleValue.text; }
-  |  QuotedValue  { val = $QuotedValue.text; }
+Or       : '||';  
+And      : '&&';  
+Equals   : '==';  
+NEquals  : '!=';  
+GTEquals : '>=';  
+LTEquals : '<=';  
+Pow      : '^';  
+Excl     : '!';  
+GT       : '>';  
+LT       : '<';  
+Add      : '+';  
+Subtract : '-';  
+Multiply : '*';  
+Divide   : '/';  
+Modulus  : '%';  
+OBrace   : '{';  
+CBrace   : '}';  
+OBracket : '[';  
+CBracket : ']';  
+OParen   : '(';  
+CParen   : ')';  
+SColon   : ';';  
+Assign   : '=';  
+Comma    : ',';  
+QMark    : '?';  
+Colon    : ':';  
+  
+Bool  
+  :  'true'   
+  |  'false'  
   ;  
   
-Comma  
-  :  ','  
+Number  
+  :  Int ('.' Digit*)?  
   ;  
   
-LineBreak  
-  :  '\r'? '\n'  
-  |  '\r'  
+Identifier  
+  :  ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | Digit)*  
   ;  
   
-SimpleValue  
-  :  ~(',' | '\r' | '\n' | '"')+  
+String  
+@after { 
+  setText(getText().substring(1, getText().length()-1).replaceAll("\\\\(.)", "$1")); 
+}  
+  :  '"'  (~('"' | '\\')  | '\\' .)* '"'   
+  |  '\'' (~('\'' | '\\') | '\\' .)* '\''   
   ;  
   
-QuotedValue  
-  :  '"' ('""' | ~'"')* '"'  
+Comment  
+  :  '//' ~('\r' | '\n')* {skip();}  
+  |  '/*' .* '*/'         {skip();}  
+  ;  
+  
+Space  
+  :  (' ' | '\t' | '\r' | '\n' | '\u000C') {skip();}  
+  ;  
+  
+fragment Int  
+  :  '1'..'9' Digit*  
+  |  '0'  
+  ;  
+    
+fragment Digit   
+  :  '0'..'9'  
   ;  
