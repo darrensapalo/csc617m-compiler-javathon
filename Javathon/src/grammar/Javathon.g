@@ -14,7 +14,140 @@ parse
      )*   
      EOF  
   ;  
+  
+block  
+  :  (statement | functionDecl)* (Return expression ';')?  
+  ;  
+  
+statement  
+  :  assignment ';'  
+  |  functionCall ';'  
+  |  ifStatement   
+  |  whileStatement  
+  ;  
+  
+functionDecl  
+  :  Def Identifier '(' idList? ')' block End  
+  ;  
+  
+idList  
+  :  Identifier (',' Identifier)*  
+  ;  
+
+/* Assignment */  
+assignment  
+  :  Identifier indexes? '=' expression  
+  ;  
+  
+indexes  
+  :  ('[' expression ']')+  
+  ;  
+
+/* Expressions */  
+expression  
+  :  condExpr  
+  ;  
+  
+condExpr  
+  :  orExpr ( '?' expression ':' expression  
+            | In expression  
+            )?  
+  ;  
+  
+orExpr  
+  :  andExpr ('||' andExpr)*  
+  ;  
+  
+andExpr  
+  :  equExpr ('&&' equExpr)*  
+  ;  
+  
+equExpr  
+  :  relExpr (('==' | '!=') relExpr)*  
+  ;  
+  
+relExpr  
+  :  addExpr (('>=' | '<=' | '>' | '<') addExpr)*  
+  ;  
+  
+addExpr  
+  :  mulExpr (('+' | '-') mulExpr)*  
+  ;  
+  
+mulExpr  
+  :  powExpr (('*' | '/' | '%') powExpr)*  
+  ;  
+  
+powExpr  
+  :  unaryExpr ('^' unaryExpr)*  
+  ;  
     
+unaryExpr  
+  :  '-' atom  
+  |  '!' atom  
+  |  atom  
+  ;  
+  
+atom  
+  :  Null  
+  |  Number  
+  |  Bool  
+  |  lookup  
+  ;  
+
+
+/* Look up */
+lookup  
+  :  functionCall indexes?  
+  |  '(' expression ')' indexes?  
+  |  list indexes?  
+  |  Identifier indexes?  
+  |  String indexes?  
+  ;  
+  
+  
+/* List */
+list  
+  :  '[' exprList? ']'  
+  ;  
+  
+exprList  
+  :  expression (',' expression)*  
+  ;  
+  
+  
+/* Function call */
+functionCall  
+  :  Identifier '(' exprList? ')'  
+  |  Println '(' expression? ')'  
+  |  Print '(' expression ')'  
+  |  Assert '(' expression ')'  
+  |  Size '(' expression ')'  
+  ;  
+
+
+/* if statements */
+ifStatement  
+  :  ifStat elseIfStat* elseStat? End   
+  ;  
+  
+ifStat  
+  :  If expression Do block  
+  ;  
+  
+elseIfStat  
+  :  Else If expression Do block  
+  ;  
+  
+elseStat  
+  :  Else Do block  
+  ;  
+  
+whileStatement  
+  :  While expression Do block End   
+  ;  
+      
+/* Keywords */
 Println  : 'println';  
 Print    : 'print';  
 Assert   : 'assert';  
