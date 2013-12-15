@@ -9,6 +9,13 @@ import grammar.JavathonParser;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 
+
+/**
+ * To run the program with the appropriate grammar building,
+ * run compilegrammar.bat.
+ * @author Darren
+ *
+ */
 public class Compiler {
 	public static void main(String[] args) throws Exception {
 		// the input source
