@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-17 12:52:47
+// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-17 13:12:12
  
   package grammar; 
   import main.javathon.*;  
@@ -637,7 +637,7 @@ public class JavathonParser extends Parser {
 
 			stream_expression.add(expression17.getTree());
 			// AST REWRITE
-			// elements: Identifier, indexes, expression
+			// elements: expression, Identifier, indexes
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -819,7 +819,7 @@ public class JavathonParser extends Parser {
 					stream_CParen.add(char_literal21);
 
 					// AST REWRITE
-					// elements: exprList, Identifier
+					// elements: Identifier, exprList
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -936,7 +936,7 @@ public class JavathonParser extends Parser {
 					stream_CParen.add(char_literal29);
 
 					// AST REWRITE
-					// elements: expression, Print
+					// elements: Print, expression
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -982,7 +982,7 @@ public class JavathonParser extends Parser {
 					stream_CParen.add(char_literal33);
 
 					// AST REWRITE
-					// elements: expression, Assert
+					// elements: Assert, expression
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -1272,7 +1272,7 @@ public class JavathonParser extends Parser {
 
 			stream_block.add(block45.getTree());
 			// AST REWRITE
-			// elements: block, expression
+			// elements: expression, block
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1373,7 +1373,7 @@ public class JavathonParser extends Parser {
 
 			stream_block.add(block50.getTree());
 			// AST REWRITE
-			// elements: expression, block
+			// elements: block, expression
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1666,7 +1666,7 @@ public class JavathonParser extends Parser {
 			stream_End.add(End65);
 
 			// AST REWRITE
-			// elements: expression, While, block
+			// elements: While, block, expression
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -2088,7 +2088,7 @@ public class JavathonParser extends Parser {
 
 					stream_expression.add(b.getTree());
 					// AST REWRITE
-					// elements: a, b, orExpr
+					// elements: b, orExpr, a
 					// token labels: 
 					// rule labels: retval, b, a
 					// token list labels: 
@@ -2131,7 +2131,7 @@ public class JavathonParser extends Parser {
 
 					stream_expression.add(expression77.getTree());
 					// AST REWRITE
-					// elements: orExpr, expression, In
+					// elements: In, orExpr, expression
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -3354,7 +3354,7 @@ public class JavathonParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: indexes, functionCall
+					// elements: functionCall, indexes
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -3416,7 +3416,7 @@ public class JavathonParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: indexes, list
+					// elements: list, indexes
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -3604,7 +3604,7 @@ public class JavathonParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: indexes, expression
+					// elements: expression, indexes
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 

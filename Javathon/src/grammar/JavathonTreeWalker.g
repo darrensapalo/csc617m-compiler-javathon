@@ -92,27 +92,27 @@ exprList
   
 expression returns [JNode node]  
   :  ^(TERNARY expression expression expression)  
-  |  ^(In expression expression)  
-  |  ^('||' expression expression)  
-  |  ^('&&' expression expression)  
-  |  ^('==' expression expression)  
-  |  ^('!=' expression expression)  
-  |  ^('>=' expression expression)  
-  |  ^('<=' expression expression)  
-  |  ^('>' expression expression)                           
-  |  ^('<' a=expression b=expression)  		          {node = new LTNode 	($a.node, $b.node);}  
-  |  ^('+' a=expression b=expression) 		          {node = new AddNode	($a.node, $b.node);}
-  |  ^('-' a=expression b=expression)                   {node = new MinusNode ($a.node, $b.node);}
-  |  ^('*' a=expression b=expression)                   {node = new MultiplyNode ($a.node, $b.node);}
-  |  ^('/' a=expression b=expression)                   {node = new DivideNode ($a.node, $b.node);}
-  |  ^('%' a=expression b=expression)                  {node = new ModuloNode ($a.node, $b.node);}
-  |  ^('^' a=expression b=expression)                  {node = new PowerNode ($a.node, $b.node);}                  
-  |  ^(UNARY_MIN a=expression)                       {node = new UnaryMinNode ($a.node);}                
-  |  ^(NEGATE a=expression)                           {node = new NegateNode($a.node);}
-  |  Number  		                         						{node = new AtomNode(Double.parseDouble($Number.text));}  
-  |  Bool                                                               {node = new AtomNode(Boolean.parseBoolean($Bool.text));}
-  |  Null  
-  |  lookup 								{node = $lookup.node;}          
+  |  ^(In expression expression)  					  {node = new InNode		($a.node, $b.node);}
+  |  ^('||' a=expression b=expression)    			  {node = new OrNode		($a.node, $b.node);}
+  |  ^('&&' a=expression b=expression)    			  {node = new AndNode		($a.node, $b.node);}
+  |  ^('==' a=expression b=expression)    			  {node = new EqNode		($a.node, $b.node);}
+  |  ^('!=' a=expression b=expression)    			  {node = new NENode		($a.node, $b.node);}
+  |  ^('>=' a=expression b=expression)  			  {node = new GTENode		($a.node, $b.node);}
+  |  ^('<=' a=expression b=expression)  			  {node = new LTENode		($a.node, $b.node);}
+  |  ^('>' a=expression b=expression)                 {node = new GTNode		($a.node, $b.node);}
+  |  ^('<' a=expression b=expression)  		          {node = new LTNode		($a.node, $b.node);}  
+  |  ^('+' a=expression b=expression) 		          {node = new AddNode		($a.node, $b.node);}
+  |  ^('-' a=expression b=expression)                 {node = new MinusNode 	($a.node, $b.node);}
+  |  ^('*' a=expression b=expression)                 {node = new MultiplyNode 	($a.node, $b.node);}
+  |  ^('/' a=expression b=expression)                 {node = new DivideNode 	($a.node, $b.node);}
+  |  ^('%' a=expression b=expression)                 {node = new ModuloNode 	($a.node, $b.node);}
+  |  ^('^' a=expression b=expression)                 {node = new PowerNode 	($a.node, $b.node);}                  
+  |  ^(UNARY_MIN a=expression)                        {node = new UnaryMinNode 	($a.node);}                
+  |  ^(NEGATE a=expression)                           {node = new NegateNode	($a.node);}
+  |  Number  		                         		  {node = new AtomNode		(Double.parseDouble($Number.text));}  
+  |  Bool                                             {node = new AtomNode		(Boolean.parseBoolean($Bool.text));}
+  |  Null  											  {node = new AtomNode		(null);}
+  |  lookup 										  {node = $lookup.node;}          
   ;  
   
 list  
@@ -124,12 +124,16 @@ lookup returns [JNode node]
   |  ^(LOOKUP list indexes?)  
   |  ^(LOOKUP expression indexes?)   
   |  ^(LOOKUP i=Identifier x=indexes?)  
-      { 
+      {
         node = ($x.e != null) 
           ? new LookupNode(new IdentifierNode($i.text, currentScope), $x.e) 
           : new IdentifierNode($i.text, currentScope); 
+      }
+  |  ^(LOOKUP s=String x=indexes?)
+  	  {
+  	  	System.out.println("String: " + $s.text);
+        node = new StringNode($s.text, $x.e);
       }  
-  |  ^(LOOKUP String indexes?)  
   ;  
   
 indexes returns [List<JNode> e]  

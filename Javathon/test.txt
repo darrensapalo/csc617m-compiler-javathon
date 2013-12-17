@@ -1,4 +1,1 @@
-a = 4 * 2 / 8;
-println(a);
-b = a - 1 + 5;
-println(b);
+println("Darren"[2]);
