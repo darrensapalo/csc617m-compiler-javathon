@@ -1,35 +1,31 @@
 package main.javathon;
 
-import java.util.List;
 
 public class SizeNode implements JNode {
-    private JNode expr;  
-    private JNode rhs;  
 
-    public SizeNode(JNode expr) {  
-        this.expr = expr;    
-    }  
+	private JNode expression;
 
-    @Override  
-    public JValue evaluate() {  
+	public SizeNode(JNode e) {
+		expression = e;
+	}
 
-        JValue a = expr.evaluate();  
-        
-        // - number  
-        if(a.isNumber()) {  
-            return new JValue(-a.asDouble());  
-        }  
-        
-        // - string: -"Hello world" = "dlrow olleH". PALINDROMIC  
-        if(a.isString()) {  
-            return new JValue(new StringBuilder(a.asString()).reverse().toString());  
-        }  
+	@Override
+	public JValue evaluate() {
+		JValue value = expression.evaluate();
 
-        throw new RuntimeException("illegal expression: " + this);  
-    }  
+		if (value.isString()) {
+			return new JValue(value.asString().length());
+		}
 
-    @Override  
-    public String toString() {  
-        return String.format("(%s + %s)", expr, rhs);  
-    }  
+		if (value.isList()) {
+			return new JValue(value.asList().size());
+		}
+
+		throw new RuntimeException("Illegal function call: " + this);
+	}
+
+	@Override
+	public String toString() {
+		return String.format("size(%s)", expression);
+	}
 }
