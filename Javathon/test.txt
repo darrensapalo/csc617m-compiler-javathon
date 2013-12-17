@@ -1,12 +1,11 @@
 println("Hello and welcome to Javathon! A friendly compiler!");
+println();
 
 println("The demo for this compiler's feature begins with arithmetic.");
-println();
 addition = 5 + 2;
 subtraction = 4 - 2;
 multiplication = 5 * 2;
 division = 4 / 2;
-
 println("5 + 2 = " + addition);
 println("4 - 2 = " + subtraction);
 println("5 * 2 = " + multiplication);
@@ -14,111 +13,147 @@ println("4 / 2 = " + division);
 
 
 
+
+
 /* 
     A script for testing the language's syntax. 
+	Comments works!
 */  
   
-// boolean expressions  
-assert(true || false);  
-assert(!false);  
-assert(true && true);  
-assert(!true || !false);  
-assert(true && (true || false));  
-  
-// relational expressions  
-assert(1 < 2);  
-assert(666 >= 666);  
-assert(-5 > -6);  
-assert(0 >= -1);  
-assert('a' < 's');  
-assert('sw' <= 'sw');  
-  
-// add  
-assert(1 + 999 == 1000);  
-assert([1] + 1 == [1,1]);  
-assert(2 - -2 == 4);  
-assert(-1 + 1 == 0);  
-assert(1 - 50 == -49);  
-assert([1,2,3,4,5] - 4 == [1,2,3,5]);  
-  
-// multiply  
-assert(3 * 50 == 150);  
-assert(4 / 2 == 2);  
-assert(1 / 4 == 0.25);  
-assert(999999 % 3 == 0);  
-assert(-5 * -5 == 25);  
-assert([1,2,3] * 2 == [1,2,3,1,2,3]);  
-assert('ab'*3 == "ababab");  
+println();
+println("Boolean evaluations!");
+println("true || false = " + true || false);
+println("!false = " + !false);
+println("true && true = " + (true && true));
+println("!true || !false = " + (!true || !false));
+println("true && (true || false) = " + (true && (true || false)));
 
-// power  
-assert(2^10 == 1024);  
-assert(3^3 == 27);  
-  
+println();
+println("Relational expressions!");
+println("1 < 2 = " + (1 < 2));
+println("666 >= 666 = " + (666 >= 666));
+println("-5 > -6 = " + (-5 > -6));
+println("0 >= -1 = " + (0 >= -1));
+println("'a' < 's' = " + ('a' < 's'));
+println("'sw' <= 'sw' = " + ('sw' <= 'sw'));
+
+println();
+println("Addition and subtraction!");
+println("1 + 999 == 1000 = " + (1 + 999 == 1000));
+println("[1] + 1 == [1,1] = " + ([1] + 1 == [1,1]));
+println("2 - -2 == 4 = " + (2 - -2 == 4));
+println("-1 + 1 == 0 = " + (-1 + 1 == 0));
+println("1 - 50 == -49 = " + (1 - 50 == -49));
+println("[1,2,3,4,5] - 4 == [1,2,3,5] = " + ([1,2,3,4,5] - 4 == [1,2,3,5]));
+
+
+println();
+println("Multiplication and division!");
+println("3 * 50 == 150 = " + (3 * 50 == 150));
+println("4 / 2 == 2 = " + (4 / 2 == 2));
+println("1 / 4 == 0.25 = " + (1 / 4 == 0.25));
+println("999999 % 3 == 0 = " + (999999 % 3 == 0));
+println("-5 * -5 == 25 = " + (-5 * -5 == 25));
+println("[1,2,3] * 2 == [1,2,3,1,2,3] = " + ([1,2,3] * 2 == [1,2,3,1,2,3]));
+println("'ab'*3 == \"ababab\" = " + ('ab'*3 == "ababab"));
+
+
+println();
+println("Exponent operator using ^!");
+println("2^10 == 1024 = " + (2^10 == 1024));
+println("3^3 == 27 = " + (3^3 == 27));
+
+println();
  
-b = -10;  
-c = 0;  
-while b < 0 do   
-  c = c + b;  
-  b = b + 1;  
-end  
-assert(c == -(1+2+3+4+5+6+7+8+9+10));  
-  
-// if  
-a = 123;  
-if a > 200 do  
-  assert(false);  
-end  
-  
-if a < 100 do  
-  assert(false);  
-else if a > 124 do  
-  assert(false);  
-else if a < 124 do  
-  assert(true);  
-else do  
-  assert(false);  
-end  
-  
-if false do  
-  assert(false);  
-else do  
-  assert(true);  
-end  
+b = -10;
+c = 0;
+while b < 0 do 
+c = c + b;
+b = b + 1;
+end
+assert(c == -(1+2+3+4+5+6+7+8+9+10));
+
+println("Assert 1 success (while loop)!");
+
+// if
+a = 123;
+if a > 200 do
+assert(false);
+end
+
+println("Assert 2 success (if statement)!");
+
+if a < 100 do
+assert(false);
+else if a > 124 do
+assert(false);
+else if a < 124 do
+assert(true);
+else do
+assert(false);
+end
+
+println("Assert 3 success (if-else if-else)!");
+println();
+
+if false do
+assert(false);
+else do
+assert(true);
+end
+
+println("Function definitions!");
+// functions
+def twice(n)
+temp = n + n; 
+return temp; 
+end
+
+def squared(n) 
+return n*n; 
+end
+
+def squaredAndTwice(n) 
+return twice(squared(n)); 
+end
+
+def list()
+return [7,8,9];
+end
+
+println("squared(666) == 666^2 = " + (squared(666) == 666^2));
+println("twice(squared(5)) == 50 = " + (twice(squared(5)) == 50));
+println("squaredAndTwice(10) == 200 = " + (squaredAndTwice(10) == 200));
+println("squared(squared(squared(2))) == 2^2^2^2 = " + (squared(squared(squared(2))) == 2^2^2^2));
+println("list() == [7,8,9] = " + (list() == [7,8,9]));
+println("size(list()) == 3 = " + (size(list()) == 3));
+println("list()[1] == 8 = " + (list()[1] == 8));
+println("User defined functions working!");
+println();
+
+// lists and lookups, `in` operator
+n = [[1,0,0],[0,1,0],[0,0,1]];
+p = [-1, 'abc', true];
+
+println("Checking for elements in a list!");
+println("'abc' in p = " + ( 'abc' in p));
+println("[0,1,0] in n = " + ( [0,1,0] in n));
+println("n[0][2] == 0 = " + ( n[0][2] == 0));
+println("n[1][1] == n[2][2] = " + ( n[1][1] == n[2][2]));
+println("p[2] = " + ( p[2]));
+println("p[1][2] == 'c' = " + ( p[1][2] == 'c'));
 
 
-// functions  
-def twice(n)  
-  temp = n + n;   
-  return temp;   
-end  
-  
-def squared(n)   
-  return n*n;   
-end  
-  
-def squaredAndTwice(n)   
-  return twice(squared(n));   
-end  
-  
-def list()  
-  return [7,8,9];  
-end  
-  
-assert(squared(666) == 666^2);  
-assert(twice(squared(5)) == 50);  
-assert(squaredAndTwice(10) == 200);  
-assert(squared(squared(squared(2))) == 2^2^2^2);  
-assert(list() == [7,8,9]);  
-assert(size(list()) == 3);  
-assert(list()[1] == 8);  
-  
-// lists and lookups, `in` operator  
-n = [[1,0,0],[0,1,0],[0,0,1]];  
-p = [-1, 'abc', true];  
-  
-assert('abc' in p);  
-assert([0,1,0] in n);  
-assert(n[0][2] == 0);  
-assert(n[1][1] == n[2][2]);  
-assert(p[2]);  
-assert(p[1][2] == 'c');  
+println();
+println("Some cool compiler features!");
+println("Syntactic sugar for AND operator!");
+println("true + false = " + (true + false));
+println();
+println("Reverse a string!");
+println("\"Hello world\" = " + (-"Hello world"));
+println();
+
+println("This language, Javathon, is designed for new programmers. The error messages are very newbie friendly and the source code for this interpreter is well documented.");
+
+
+
