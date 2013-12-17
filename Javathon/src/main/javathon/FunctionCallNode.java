@@ -37,7 +37,7 @@ public class FunctionCallNode implements JNode {
         JFunction f = functions.get(identifier + params.size());
 
         if(f == null) {
-            throw new RuntimeException("no function `" + identifier + "` with " + params.size() + " parameter(s)");
+            throw new RuntimeException("There was no function `" + identifier + "` found that had " + params.size() + " parameter(s).");
         }
 
         JFunction function = new JFunction(f);

@@ -1,6 +1,7 @@
 package main.javathon;
 
 import main.javathon.JValue;  
+
 import java.util.List;  
   
 public class InNode implements JNode {  
@@ -22,9 +23,7 @@ public class InNode implements JNode {
         if (container.isString()) {
             boolean contains = container.asString().contains(value.toString());
             return new JValue(contains);
-        }
-        
-        if (container.isList()) {
+        }else if (container.isList()) {
             boolean contains = false;
             for (JValue contained : container.asList()) {
                 if (value.equals(contained)) { 
@@ -34,9 +33,8 @@ public class InNode implements JNode {
             }
             
             return new JValue(contains);
-        }
-        
-        throw new RuntimeException("illegal expression: " + this);  
+        }else
+        	throw new RuntimeException("Illegal expression: " + this +". The container must either be a list or a string.");  
     }  
 
     @Override  

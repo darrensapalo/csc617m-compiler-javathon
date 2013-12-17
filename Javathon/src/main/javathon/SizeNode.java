@@ -26,7 +26,7 @@ public class SizeNode implements JNode {
 			return new JValue(value.asList().size());
 		}
 
-		throw new RuntimeException("Illegal function call: " + this);
+		throw new RuntimeException("Illegal function call: " + this +". You can only check for the size or length of a list or a string.");
 	}
 
 	@Override

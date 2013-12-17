@@ -31,7 +31,7 @@ public class LTNode implements JNode {
 	      return new JValue(a.asString().compareTo(b.asString()) < 0);  
 	    }  
 	  
-	    throw new RuntimeException("illegal expression: " + this);  
+	    throw new RuntimeException("Illegal expression: " + this +". You are only allowed to use the < operator on numbers and strings.");    
 	  }  
 	  
 	  @Override  

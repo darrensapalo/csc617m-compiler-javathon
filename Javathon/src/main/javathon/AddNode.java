@@ -66,7 +66,7 @@ public class AddNode implements JNode {
         }  
 
         // Unallowed operation
-        throw new RuntimeException("illegal expression: " + this);  
+        throw new RuntimeException("Illegal expression: " + this + ". You are only allowed to either add numbers, add elements to lists, or concatenate strings.");  
     }  
 
     @Override  

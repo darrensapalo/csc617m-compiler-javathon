@@ -42,7 +42,7 @@ public class NotEqualNode implements JNode {
 			return new JValue(!b.asString().equals(a.toString()));
 		}
 
-		throw new RuntimeException("illegal expression: " + this);
+		throw new RuntimeException("Illegal expression: " + this +". You may only check for equality of numbers, booleans, or strings.");
 	}
 
 	@Override

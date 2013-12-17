@@ -37,8 +37,8 @@ public class LookupNode implements JNode {
 			 * (2) The data is being drawn from a list 
 			 * (3) If not a list, then a string */
 			if (!index.isNumber() || !(value.isList() || value.isString())) {
-				throw new RuntimeException("illegal expression: " + expression
-						+ "[" + index + "]");
+				throw new RuntimeException("Illegal expression: " + expression
+						+ "[" + index + "]. The index must be a number and you must use either list or string.");
 			}
 
 			/* Get the index */

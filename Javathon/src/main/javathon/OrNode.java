@@ -66,7 +66,7 @@ public class OrNode implements JNode {
         }  
        
          
-        throw new RuntimeException("illegal expression: " + this);  
+        throw new RuntimeException("Illegal expression: " + this +".");  
     }  
 
     @Override  

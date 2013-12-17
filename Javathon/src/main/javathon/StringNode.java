@@ -36,9 +36,9 @@ public class StringNode implements JNode {
 			JValue index = indexes.get(0).evaluate();
 			
 			if (!index.isNumber()) // sanity checks
-				throw new RuntimeException("invalid index statement: " + this);
+				throw new RuntimeException("Invalid index: " + this +". The index must be a number.");
 			if (index.asDouble() < 0)
-				throw new RuntimeException("array out of bounds statement: " + this);
+				throw new RuntimeException("Array way out of bounds: " + this +". You cannot have a negative index.");
 			
 			/* Gets the sub element of the string */
 			char character[] = {string.charAt(index.asDouble().intValue())};

@@ -25,7 +25,7 @@ public class AndNode implements JNode {
 
         /* Ensure both values are boolean */
         if(!a.isBoolean() || !b.isBoolean()) {
-            throw new RuntimeException("illegal expression: " + this);
+            throw new RuntimeException("illegal expression: " + this +". One of the expressions is not a boolean.");
         }
         
         /* Return the value */

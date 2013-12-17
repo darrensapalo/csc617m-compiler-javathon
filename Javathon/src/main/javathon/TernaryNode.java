@@ -22,7 +22,7 @@ public class TernaryNode implements JNode {
         JValue alternate = c.evaluate();
         
         if(!condition.isBoolean()) {  
-            throw new RuntimeException("illegal boolean expression in ternary: " + a);  
+            throw new RuntimeException("Illegal expression in ternary: " + a +". The condition for the ternary if statement must evaluate to boolean.");  
         }
         
         if (condition.asBoolean()) {

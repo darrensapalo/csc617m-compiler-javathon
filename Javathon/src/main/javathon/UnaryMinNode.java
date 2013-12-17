@@ -36,7 +36,7 @@ public class UnaryMinNode implements JNode {
 					.toString());
 		}
 
-		throw new RuntimeException("illegal expression: " + this);
+		throw new RuntimeException("Illegal expression: " + this +". You are only allowed to negate a number or reverse a string.");
 	}
 
 	@Override

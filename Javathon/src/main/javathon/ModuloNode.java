@@ -26,7 +26,7 @@ public class ModuloNode implements JNode {
 			return new JValue(a.asDouble() % b.asDouble());
 		}
 
-		throw new RuntimeException("illegal expression: " + this);
+		throw new RuntimeException("Illegal expression: " + this +". You can only use modulo with numbers.");
 	}
 
 	@Override

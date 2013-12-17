@@ -21,7 +21,7 @@ public class JValue implements Comparable<JValue> {
     value = v;
     // only accept boolean, list, number or string types
     if(!(isBoolean() || isList() || isNumber() || isString())) {
-      throw new RuntimeException("invalid type: " + v + " (" + v.getClass() + ")");
+      throw new RuntimeException("Invalid type: " + v + " (" + v.getClass() + "). The only allowed values are boolean, list, number, or string.");
     }
   }
 
@@ -60,15 +60,15 @@ public class JValue implements Comparable<JValue> {
       return this.asString().compareTo(that.asString());
     }
     else {
-      throw new RuntimeException("illegal expression: can't compare `" + 
-          this + "` to `" + that + "`");
+      throw new RuntimeException("Illegal expression: cannot compare `" + 
+          this + "` to `" + that + "`.");
     }
   }
 
   @Override
   public boolean equals(Object o) {
     if(this == VOID || o == VOID) {
-      throw new RuntimeException("can't use VOID: " + this + " ==/!= " + o);
+      throw new RuntimeException("check for equality using void: " + this + " ==/!= " + o);
     }
     if(this == o) {
       return true;
@@ -117,6 +117,6 @@ public class JValue implements Comparable<JValue> {
 
   @Override
   public String toString() {
-    return isNull() ? "NULL" : isVoid() ? "VOID" : String.valueOf(value);
+    return isNull() ? "NULL" : isVoid() ? "void" : String.valueOf(value);
   }
 }

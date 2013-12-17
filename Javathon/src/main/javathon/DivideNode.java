@@ -29,7 +29,7 @@ public class DivideNode implements JNode {
         return new JValue(a.asDouble() / b.asDouble());  
       }  
         
-      throw new RuntimeException("Illegal expression: " + this);  
+      throw new RuntimeException("Illegal expression: " + this + ". You are only allowed to divide numbers.");  
     }  
     
     @Override  

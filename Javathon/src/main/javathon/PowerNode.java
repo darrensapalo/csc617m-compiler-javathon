@@ -25,7 +25,7 @@ public class PowerNode implements JNode {
             return new JValue(Math.pow(a.asDouble(), b.asDouble()));  
         }  
 
-        throw new RuntimeException("illegal expression: " + this);  
+        throw new RuntimeException("Illegal expression: " + this +". You may only use the exponent (^) operation with numbers.");  
     }  
 
     @Override  

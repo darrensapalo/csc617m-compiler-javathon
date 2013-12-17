@@ -29,7 +29,7 @@ public class NegateNode implements JNode {
             return new JValue(false);  
         }  
 
-        throw new RuntimeException("illegal expression: " + this);  
+        throw new RuntimeException("Illegal expression: " + this +". You may only negate numbers or lists.");  
     }  
 
     @Override  

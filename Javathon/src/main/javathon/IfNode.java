@@ -31,8 +31,7 @@ public class IfNode implements JNode {
       JValue value = ch.expression.evaluate();  
   
       if(!value.isBoolean()) {  
-        throw new RuntimeException("illegal boolean expression " +   
-            "inside if-statement: " + ch.expression);  
+        throw new RuntimeException("You are only allowed to use boolean expressions inside the if-statement. Error found with expression: " + ch.expression +".");  
       }  
   
       if(value.asBoolean()) {  

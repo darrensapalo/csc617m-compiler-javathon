@@ -57,7 +57,7 @@ public class MultiplyNode implements JNode {
 			return new JValue(total);
 		}
 
-		throw new RuntimeException("illegal expression: " + this);
+		throw new RuntimeException("Illegal expression: " + this +". You can only multiply numbers with numbers, or strings/lists with the number of times to repeat.");
 	}
 
 	@Override

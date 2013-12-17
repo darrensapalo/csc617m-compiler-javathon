@@ -37,7 +37,7 @@ public class AssignmentNode implements JNode {
 		 * x = println("whatthehell");
 		 */
 		if (value == JValue.VOID) {
-			throw new RuntimeException("Can't assign VOID to " + identifier +".");
+			throw new RuntimeException("You are not allowed to assign void type to any variable. Error found in assignment of " + identifier +".");
 		}
 		
 		

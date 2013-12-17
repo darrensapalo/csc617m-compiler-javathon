@@ -39,7 +39,7 @@ public class MinusNode implements JNode {
           return new JValue(list);  
         }  
       
-        throw new RuntimeException("illegal expression: " + this);  
+        throw new RuntimeException("Illegal expression: " + this +". You can only subtract using numbers.");  
     }
     
 

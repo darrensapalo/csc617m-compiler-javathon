@@ -35,8 +35,8 @@ public class JFunction {
   public JValue invoke(List<JNode> params, Map<String, JFunction> JFunctions) {
 
     if(params.size() != identifiers.size()) {
-      throw new RuntimeException("illegal JFunction call: " + identifiers.size() +
-          " parameters expected for JFunction `" + id + "`");
+      throw new RuntimeException("Illegal function call: " + identifiers.size() +
+          " parameters are expected for JFunction `" + id + "` but there were only " + params.size() +" found.");
     }
 
     // Assign all expression parameters to this JFunction's identifiers
@@ -51,7 +51,7 @@ public class JFunction {
       return walker.walk().evaluate();
     } catch (RecognitionException e) {
       // do not recover from this
-      throw new RuntimeException("something went wrong, terminating", e);
+      throw new RuntimeException("Something went wrong with the function evaluation.", e);
     }
   }
 

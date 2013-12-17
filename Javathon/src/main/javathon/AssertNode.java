@@ -26,7 +26,7 @@ public class AssertNode implements JNode {
 
         /* Only allow boolean expressions for assertions */
         if(!value.isBoolean()) {
-            throw new RuntimeException("assert(...) only takes boolean expressions");
+            throw new RuntimeException("The assert function only takes in boolean expressions.");
         }
 
         /* Throw an error if resulted to false */
