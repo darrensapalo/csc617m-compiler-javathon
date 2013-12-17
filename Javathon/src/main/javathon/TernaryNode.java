@@ -17,10 +17,19 @@ public class TernaryNode implements JNode {
 
     @Override  
     public JValue evaluate() {  
-        a.evaluate();
-        b.evaluate();
-        c.evaluate();
-        throw new RuntimeException("illegal expression: " + this);  
+        JValue condition = a.evaluate();
+        JValue action = b.evaluate();
+        JValue alternate = c.evaluate();
+        
+        if(!condition.isBoolean()) {  
+            throw new RuntimeException("illegal boolean expression in ternary: " + a);  
+        }
+        
+        if (condition.asBoolean()) {
+            return action;
+        }
+        
+        return alternate;  
     }  
 
     @Override  
