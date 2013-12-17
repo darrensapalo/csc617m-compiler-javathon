@@ -73,25 +73,27 @@ ifStatement returns [JNode node]
   node = ifNode; 
 }  
   :  ^(IF   
-       (^(EXP expression b1=block) {ifNode.addChoice($expression.node,$b1.node);})+   
-       (^(EXP b2=block)           {ifNode.addChoice(new AtomNode(true),$b2.node);})?  
+       (^(EXP expression b1=block) 		{ifNode.addChoice($expression.node,$b1.node);})+   
+       (^(EXP b2=block)           		{ifNode.addChoice(new AtomNode(true),$b2.node);})?  
      )  
   ;  
   
 whileStatement returns [JNode node]
-  :  ^(While expression block)  
+  :  ^(While expression block)  		{node = new WhileStatementNode($expression.node, $block.node);}
   ;  
   
 idList  
-  :  ^(ID_LIST Identifier+)  
-  ;  
+@init {i = new java.util.ArrayList<String>();}
+  :  ^(ID_LIST (Identifier {i.add($Identifier.text);})+)
+  ;
   
 exprList  
-  :  ^(EXP_LIST expression+)  
-  ;  
+@init  {e = new java.util.ArrayList<JNode>();}
+  :  ^(EXP_LIST (expression {e.add($expression.node);})+)
+  ;
   
 expression returns [JNode node]  
-  :  ^(TERNARY expression expression expression)  
+  :  ^(TERNARY expression expression expression)  	  {node = new TernaryNode($a.node, $b.node, $c.node);}
   |  ^(In expression expression)  					  {node = new InNode		($a.node, $b.node);}
   |  ^('||' a=expression b=expression)    			  {node = new OrNode		($a.node, $b.node);}
   |  ^('&&' a=expression b=expression)    			  {node = new AndNode		($a.node, $b.node);}
@@ -115,9 +117,9 @@ expression returns [JNode node]
   |  lookup 										  {node = $lookup.node;}         
   ;  
   
-list  
-  :  ^(LIST exprList?)  
-  ;  
+list returns [JNode node]
+  :  ^(LIST exprList?) {node = new ListNode($exprList.e);}
+  ;
   
 lookup returns [JNode node]  
   :  ^(LOOKUP functionCall indexes?)  
