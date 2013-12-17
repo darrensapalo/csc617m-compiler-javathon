@@ -2,3 +2,5 @@
 /JavathonLexer.tokens
 /Javathon.tokens
 /JavathonParser.java
+/JavathonTreeWalker.java
+/JavathonTreeWalker.tokens
