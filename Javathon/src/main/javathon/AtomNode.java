@@ -1,6 +1,5 @@
 package main.javathon;
 
-
 public class AtomNode implements JNode {  
   
   private JValue value;  

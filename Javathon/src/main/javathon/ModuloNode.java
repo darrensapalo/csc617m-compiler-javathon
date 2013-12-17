@@ -1,6 +1,5 @@
 package main.javathon;
 
-
 public class ModuloNode implements JNode {
 
     private JNode lhs;  

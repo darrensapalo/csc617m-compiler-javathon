@@ -14,7 +14,7 @@ public class MultiplyNode implements JNode {
     @Override
     public JValue evaluate() {
 
-        JValue a = lhs.evaluate();
+        JValue a = lhs.evaluate();  
         JValue b = rhs.evaluate();  
         
         // number - number  

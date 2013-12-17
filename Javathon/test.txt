@@ -1,4 +1,8 @@
-a = 10  + 5;  
-  
-println(a);  
-println("Darren"[2]);
+addition = 5 + 2;
+subtraction = 4 - 2;
+multiplication = 5 * 2;
+division = 4 / 2;
+println(addition);
+println(subtraction);
+println(multiplication);
+println(division);

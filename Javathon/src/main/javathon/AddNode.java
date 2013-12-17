@@ -1,5 +1,6 @@
 package main.javathon;
 
+import main.javathon.JValue;  
 import java.util.List;  
   
 public class AddNode implements JNode {  
