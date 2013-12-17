@@ -32,20 +32,20 @@ walk returns [JNode node]
   ;  
   
 block returns [JNode node]  
-@init { 
-  BlockNode bn = new BlockNode(); 
-  node = bn; 
-  Scope scope = new Scope(currentScope); 
-  currentScope = scope; 
-}  
-@after { 
-  currentScope = currentScope.parent(); 
-}  
-  :  ^(BLOCK   
-        ^( STATEMENTS (statement  { bn.addStatement($statement.node);})* )   
-        ^( RETURN     (expression { bn.addReturn($expression.node);  })? )  
-      )  
-  ;  
+    @init { 
+      BlockNode bn = new BlockNode(); 
+      node = bn; 
+      Scope scope = new Scope(currentScope); 
+      currentScope = scope; 
+    }  
+    @after { 
+      currentScope = currentScope.parent(); 
+    }  
+      :  ^(BLOCK   
+            ^( STATEMENTS (statement  { bn.addStatement($statement.node);})* )   
+            ^( RETURN     (expression { bn.addReturn($expression.node);  })? )  
+          )  
+;  
   
 statement returns [JNode node]  
   :  assignment     {node = $assignment.node;}  
