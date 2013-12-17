@@ -102,8 +102,8 @@ expression returns [JNode node]
   |  ^('>' expression expression)  
   |  ^('<' a=expression b=expression)  		{node = new LTNode 	($a.node, $b.node);}  
   |  ^('+' a=expression b=expression) 		{node = new AddNode	($a.node, $b.node);}
-  |  ^('-' expression expression)  
-  |  ^('*' expression expression)  
+  |  ^('-' expression expression)                   {node = new MinusNode {$a.node, $b.node);}
+  |  ^('*' expression expression)                   
   |  ^('/' expression expression)  
   |  ^('%' expression expression)  
   |  ^('^' expression expression)  

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-16 02:38:02
+// $ANTLR 3.5.1 src/grammar/Javathon.g 2013-12-16 17:45:17
  
   package grammar; 
   import main.javathon.*;  
@@ -310,7 +310,7 @@ public class JavathonParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: expression, statement
+			// elements: statement, expression
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -819,7 +819,7 @@ public class JavathonParser extends Parser {
 					stream_CParen.add(char_literal21);
 
 					// AST REWRITE
-					// elements: Identifier, exprList
+					// elements: exprList, Identifier
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -885,7 +885,7 @@ public class JavathonParser extends Parser {
 					stream_CParen.add(char_literal25);
 
 					// AST REWRITE
-					// elements: Println, expression
+					// elements: expression, Println
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -1666,7 +1666,7 @@ public class JavathonParser extends Parser {
 			stream_End.add(End65);
 
 			// AST REWRITE
-			// elements: While, block, expression
+			// elements: While, expression, block
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -2131,7 +2131,7 @@ public class JavathonParser extends Parser {
 
 					stream_expression.add(expression77.getTree());
 					// AST REWRITE
-					// elements: In, orExpr, expression
+					// elements: expression, orExpr, In
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -3604,7 +3604,7 @@ public class JavathonParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: expression, indexes
+					// elements: indexes, expression
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
