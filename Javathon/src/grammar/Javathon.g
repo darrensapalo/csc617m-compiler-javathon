@@ -88,15 +88,15 @@ ifStatement
   ;  
   
 ifStat  
-  :  If expression Do block -> ^(EXP expression block)  
+  :  If expression Colon block -> ^(EXP expression block)  
   ;  
   
 elseIfStat  
-  :  Else If expression Do block -> ^(EXP expression block)  
+  :  Else If expression Colon block -> ^(EXP expression block)  
   ;  
   
 elseStat  
-  :  Else Do block -> ^(EXP block)  
+  :  Else Colon block -> ^(EXP block)  
   ;
   
   functionDecl  
@@ -110,7 +110,7 @@ elseStat
 
 
 whileStatement  
-  :  While expression Do block End -> ^(While expression block)  
+  :  While expression Colon block End -> ^(While expression block)  
   ;  
   
 idList  
