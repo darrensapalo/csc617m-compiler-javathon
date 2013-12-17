@@ -95,8 +95,8 @@ expression returns [JNode node]
   |  ^(In expression expression)  					  {node = new InNode		($a.node, $b.node);}
   |  ^('||' a=expression b=expression)    			  {node = new OrNode		($a.node, $b.node);}
   |  ^('&&' a=expression b=expression)    			  {node = new AndNode		($a.node, $b.node);}
-  |  ^('==' a=expression b=expression)    			  {node = new EqNode		($a.node, $b.node);}
-  |  ^('!=' a=expression b=expression)    			  {node = new NENode		($a.node, $b.node);}
+  |  ^('==' a=expression b=expression)    			  {node = new EqualNode		($a.node, $b.node);}
+  |  ^('!=' a=expression b=expression)    			  {node = new NotEqualNode	($a.node, $b.node);}
   |  ^('>=' a=expression b=expression)  			  {node = new GTENode		($a.node, $b.node);}
   |  ^('<=' a=expression b=expression)  			  {node = new LTENode		($a.node, $b.node);}
   |  ^('>' a=expression b=expression)                 {node = new GTNode		($a.node, $b.node);}
