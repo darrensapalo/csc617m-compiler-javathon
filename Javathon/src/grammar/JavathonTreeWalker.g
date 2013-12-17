@@ -82,12 +82,12 @@ whileStatement returns [JNode node]
   :  ^(While expression block)  		{node = new WhileStatementNode($expression.node, $block.node);}
   ;  
   
-idList  
+idList  returns [java.util.List<String> i]
 @init {i = new java.util.ArrayList<String>();}
   :  ^(ID_LIST (Identifier {i.add($Identifier.text);})+)
   ;
   
-exprList  
+exprList returns [java.util.List<JNode> e]
 @init  {e = new java.util.ArrayList<JNode>();}
   :  ^(EXP_LIST (expression {e.add($expression.node);})+)
   ;
@@ -123,8 +123,14 @@ list returns [JNode node]
   
 lookup returns [JNode node]  
   :  ^(LOOKUP functionCall indexes?)  
-  |  ^(LOOKUP list indexes?)  
-  |  ^(LOOKUP expression indexes?)   
+  		{node = $i.e != null ? new LookupNode($functionCall.node, $indexes.e) : $functionCall.node;}
+  		
+  |  ^(LOOKUP list indexes?)
+  		{node = $i.e != null ? new LookupNode($list.node, $indexes.e) : $list.node;}
+  		  
+  |  ^(LOOKUP expression indexes?)
+  		{node = $i.e != null ? new LookupNode($expression.node, $indexes.e) : $expression.node;}
+  		   
   |  ^(LOOKUP i=Identifier x=indexes?)  
       {
         node = ($x.e != null) 
