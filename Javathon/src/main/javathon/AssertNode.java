@@ -4,7 +4,6 @@ import java.util.List;
 
 public class AssertNode implements JNode {
     private JNode expr;  
-    private JNode rhs;  
 
     public AssertNode(JNode expr) {  
         this.expr = expr;    
@@ -13,23 +12,21 @@ public class AssertNode implements JNode {
     @Override  
     public JValue evaluate() {  
 
-        JValue a = expr.evaluate();  
-        
-        // - number  
-        if(a.isNumber()) {  
-            return new JValue(-a.asDouble());  
-        }  
-        
-        // - string: -"Hello world" = "dlrow olleH". PALINDROMIC  
-        if(a.isString()) {  
-            return new JValue(new StringBuilder(a.asString()).reverse().toString());  
-        }  
+        JValue value = expr.evaluate();
 
-        throw new RuntimeException("illegal expression: " + this);  
+        if(!value.isBoolean()) {
+            throw new RuntimeException("assert(...) only takes boolean expressions");
+        }
+
+        if(!value.asBoolean()) {
+            throw new AssertionError(expr.toString());
+        }
+
+        return JValue.VOID;  
     }  
 
     @Override  
     public String toString() {  
-        return String.format("(%s + %s)", expr, rhs);  
+        return String.format("(%s == %s)", expr);  
     }  
 }
