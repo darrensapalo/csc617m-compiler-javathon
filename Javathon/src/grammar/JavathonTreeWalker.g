@@ -92,10 +92,10 @@ exprList
   
 expression returns [JNode node]  
   :  ^(TERNARY expression expression expression)  
-  |  ^(In expression expression)  
-  |  ^('||' expression expression)  
-  |  ^('&&' expression expression)  
-  |  ^('==' a=expression b=expression)                 {node = new NotEqualNode   ($a.node, $b.node);}
+  |  ^(In a=expression b=expression)  
+  |  ^('||' a=expression b=expression)  
+  |  ^('&&' a=expression b=expression)  
+  |  ^('==' a=expression b=expression)                 {node = new EqualNode   ($a.node, $b.node);}
   |  ^('!=' a=expression b=expression)                   {node = new NotEqualNode   ($a.node, $b.node);}
   |  ^('>=' a=expression b=expression)                 {node = new GTENode   ($a.node, $b.node);}
   |  ^('<=' a=expression b=expression)                 {node = new LTENode   ($a.node, $b.node);}
