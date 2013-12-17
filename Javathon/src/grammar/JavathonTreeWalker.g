@@ -93,8 +93,8 @@ exprList returns [java.util.List<JNode> e]
   ;
   
 expression returns [JNode node]  
-  :  ^(TERNARY expression expression expression)  	  {node = new TernaryNode($a.node, $b.node, $c.node);}
-  |  ^(In expression expression)  					  {node = new InNode		($a.node, $b.node);}
+  :  ^(TERNARY a=expression b=expression c=expression)  	  {node = new TernaryNode($a.node, $b.node, $c.node);}
+  |  ^(In a=expression b=expression)  					  {node = new InNode		($a.node, $b.node);}
   |  ^('||' a=expression b=expression)    			  {node = new OrNode		($a.node, $b.node);}
   |  ^('&&' a=expression b=expression)    			  {node = new AndNode		($a.node, $b.node);}
   |  ^('==' a=expression b=expression)    			  {node = new EqualNode		($a.node, $b.node);}
