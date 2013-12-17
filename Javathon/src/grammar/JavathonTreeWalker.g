@@ -93,8 +93,8 @@ exprList returns [java.util.List<JNode> e]
   ;
   
 expression returns [JNode node]  
-  :  ^(TERNARY a=expression b=expression c=expression){node = new TernaryNode($a.node, $b.node, $c.node);}
-  |  ^(In a=expression b=expression)  				  {node = new InNode		($a.node, $b.node);}
+  :  ^(TERNARY a=expression b=expression c=expression)  	  {node = new TernaryNode($a.node, $b.node, $c.node);}
+  |  ^(In a=expression b=expression)  					  {node = new InNode		($a.node, $b.node);}
   |  ^('||' a=expression b=expression)    			  {node = new OrNode		($a.node, $b.node);}
   |  ^('&&' a=expression b=expression)    			  {node = new AndNode		($a.node, $b.node);}
   |  ^('==' a=expression b=expression)    			  {node = new EqualNode		($a.node, $b.node);}
@@ -120,7 +120,7 @@ expression returns [JNode node]
 list returns [JNode node]
   :  ^(LIST exprList?) {node = new ListNode($exprList.e);}
   ;
-  
+    
 lookup returns [JNode node]  
   :  ^(LOOKUP functionCall i=indexes?)  
   		{node = $i.e != null ? new LookupNode($functionCall.node, $indexes.e) : $functionCall.node;}
