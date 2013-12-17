@@ -5,15 +5,18 @@ import java.util.List;
 
 /**
  * 
- * This method allows the programmer to: <br /> 
- * Add values (numbers)  <br />
- * 5 + 4.5 <br /><br />
- * Add elements to lists<br />
- * [2,3,4] + 5 = [2,3,4,5]<br /><br />
- * Use a syntactic sugar for the && keyword<br />
- *(false + true) == (false && true)<br /><br />
- * Concatenate anything with a string<br />
- * "Test" + "test" + 1<br /><br />
+ * This method allows the programmer to add values of numbers, add elements to lists, a syntactic sugar for AND, and concatenation with a string.<br /> 
+ * <I>Numerical addition</I><br />
+ * &nbsp 5 + 4.5 <br /><br />
+ * 
+ * <I>Add elements to lists</I><br />
+ * &nbsp [2,3,4] + 5 = [2,3,4,5]<br /><br />
+ * 
+ * <I>Use a syntactic sugar for the && keyword</I><br />
+ *&nbsp (false + true) == (false && true)<br /><br />
+ *
+ * <I>Concatenate anything with a string</I><br />
+ * &nbsp "Test" + "test" + 1<br /><br />
  * 
  * @author Darren
  *
