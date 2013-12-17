@@ -1,5 +1,6 @@
 package main.javathon;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultiplyNode implements JNode {
@@ -22,22 +23,25 @@ public class MultiplyNode implements JNode {
             return new JValue(a.asDouble() * b.asDouble());  
         }  
 
-        // string * number: "ab" * 3 = "ababab"
-        if(a.isString() && a.isNumber() && b.asDouble().intValue() >= 0) {
-            int iterations = b.asDouble().intValue();
-            StringBuilder string = new StringBuilder();
-            for (int i = 0; i < iterations; i++) {
-                string.append(a.asString());
+        // string * number
+        if(a.isString() && b.isNumber()) {
+            StringBuilder str = new StringBuilder();
+            int stop = b.asDouble().intValue();
+            for(int i = 0; i < stop; i++) {
+                str.append(a.asString());
             }
-            return new JValue(string.toString());  
-        }  
+            return new JValue(str.toString());
+        }
 
-        // list - any  
-        if(a.isList()) {  
-            List<JValue> list = a.asList();  
-            list.remove(b);  
-            return new JValue(list);  
-        }  
+        // list * number
+        if(a.isList() && b.isNumber()) {
+            List<JValue> total = new ArrayList<JValue>();
+            int stop = b.asDouble().intValue();
+            for(int i = 0; i < stop; i++) {
+                total.addAll(a.asList());
+            }
+            return new JValue(total);
+        }
 
         throw new RuntimeException("illegal expression: " + this);  
     }
