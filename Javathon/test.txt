@@ -78,3 +78,41 @@ if false do
 else do  
   assert(true);  
 end  
+
+
+// functions  
+def twice(n)  
+  temp = n + n;   
+  return temp;   
+end  
+  
+def squared(n)   
+  return n*n;   
+end  
+  
+def squaredAndTwice(n)   
+  return twice(squared(n));   
+end  
+  
+def list()  
+  return [7,8,9];  
+end  
+  
+assert(squared(666) == 666^2);  
+assert(twice(squared(5)) == 50);  
+assert(squaredAndTwice(10) == 200);  
+assert(squared(squared(squared(2))) == 2^2^2^2);  
+assert(list() == [7,8,9]);  
+assert(size(list()) == 3);  
+assert(list()[1] == 8);  
+  
+// lists and lookups, `in` operator  
+n = [[1,0,0],[0,1,0],[0,0,1]];  
+p = [-1, 'abc', true];  
+  
+assert('abc' in p);  
+assert([0,1,0] in n);  
+assert(n[0][2] == 0);  
+assert(n[1][1] == n[2][2]);  
+assert(p[2]);  
+assert(p[1][2] == 'c');  
