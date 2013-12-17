@@ -127,7 +127,7 @@ expression
   
 condExpr  
   :  (orExpr -> orExpr)   
-     ( '?' a=expression ':' b=expression -> ^(TERNARY orExpr $a $b)  
+     ( a=expression '?' b=expression ':' c=expression -> ^(TERNARY orExpr $a $b $c)  
      | In expression                     -> ^(In orExpr expression)  
      )?  
   ;  
