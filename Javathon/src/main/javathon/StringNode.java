@@ -4,16 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This method allows the user to 
- * get a character from the string and returns it as a single character in a string.<BR />
+ * This method allows the user to get a character from the string and returns it
+ * as a single character in a string.<BR />
  * "Hello World"[4] == "o".<BR />
+ * 
  * @author Darren
- *
+ * 
  */
 public class StringNode implements JNode {
 
 	private String expression;
 	private List<JNode> indexes;
+	private JValue index;
 
 	public StringNode(String e, List<JNode> i) {
 		expression = e;
@@ -23,28 +25,34 @@ public class StringNode implements JNode {
 	@Override
 	public JValue evaluate() {
 		String string = expression;
-		
+
 		if (string.equalsIgnoreCase(""))
 			return new JValue("");
-		
+
 		int indices = indexes.size();
-		switch(indices){
+		switch (indices) {
 		case 0:
 			return new JValue(string);
-			
+
 		case 1:
-			JValue index = indexes.get(0).evaluate();
-			
+			index = indexes.get(0).evaluate();
 			if (!index.isNumber()) // sanity checks
-				throw new RuntimeException("Invalid index: " + this +". The index must be a number.");
+				throw new RuntimeException("Invalid index: " + this
+						+ ". The index must be a number.");
 			if (index.asDouble() < 0)
-				throw new RuntimeException("Array way out of bounds: " + this +". You cannot have a negative index.");
-			
+				throw new RuntimeException("Array way out of bounds: " + this
+						+ ". You cannot have a negative index.");
+
 			/* Gets the sub element of the string */
-			char character[] = {string.charAt(index.asDouble().intValue())};
+			char character[] = { string.charAt(index.asDouble().intValue()) };
 			Object charAsString = new String(character);
 			return new JValue(charAsString);
 		}
 		return JValue.NULL;
+	}
+	
+	@Override
+	public String toString() {
+		return expression+"[" + ((index == null)? "": index.asLong().intValue()) + "]";
 	}
 }

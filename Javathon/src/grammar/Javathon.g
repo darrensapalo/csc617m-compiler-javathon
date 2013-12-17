@@ -54,7 +54,7 @@ tokens {
 
 
 parse  
-  :  block EOF -> block  
+  :  block -> block  
   ;  
   
 block  

@@ -6,6 +6,8 @@ println("5 + 2 = " + addition);
 println("4 - 2 = " + subtraction);
 println("5 * 2 = " + multiplication);
 println("4 / 2 = " + division);
+println(-"Hello world");
+return "Hello world"[-1];
 
 
 /* 
