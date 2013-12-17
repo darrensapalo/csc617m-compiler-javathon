@@ -16,7 +16,7 @@ public class MultiplyNode implements JNode {
 
         JValue a = lhs.evaluate();  
         JValue b = rhs.evaluate();  
-
+        
         // number - number  
         if(a.isNumber() && b.isNumber()) {  
             return new JValue(a.asDouble() - b.asDouble());  

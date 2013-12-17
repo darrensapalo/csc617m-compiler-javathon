@@ -1,7 +1,5 @@
 package main.javathon;
 
-import java.util.List;
-
 public class ModuloNode implements JNode {
 
     private JNode lhs;  
@@ -28,7 +26,7 @@ public class ModuloNode implements JNode {
 
     @Override  
     public String toString() {  
-        return String.format("(%s % %s)", lhs, rhs);  
+        return String.format("(%s %% %s)", lhs, rhs);  
     }  
 
 }

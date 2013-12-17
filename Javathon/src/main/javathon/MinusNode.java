@@ -32,7 +32,7 @@ public class MinusNode implements JNode {
         throw new RuntimeException("illegal expression: " + this);  
     }
     
-    
+
     @Override  
     public String toString() {  
         return String.format("(%s - %s)", lhs, rhs);  

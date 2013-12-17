@@ -23,7 +23,7 @@ public class AddNode implements JNode {
         if(a.isNumber() && b.isNumber()) {  
             return new JValue(a.asDouble() + b.asDouble());  
         }  
-
+        
         // list + any  
         if(a.isList()) {  
             List<JValue> list = a.asList();  
@@ -31,11 +31,18 @@ public class AddNode implements JNode {
             return new JValue(list);  
         }  
 
+
+        // boolean + boolean (syntactic sugar baby)
+        if(a.isBoolean() && b.isBoolean()) {  
+            return new JValue(a.asBoolean() && b.asBoolean());  
+        }  
+
+        
         // string + any  
         if(a.isString()) {  
             return new JValue(a.asString() + "" + b.toString());  
         }  
-
+        
         // any + string  
         if(b.isString()) {  
             return new JValue(a.toString() + "" + b.asString());  
