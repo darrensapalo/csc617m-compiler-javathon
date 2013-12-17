@@ -1,3 +1,7 @@
+println("Hello and welcome to Javathon! A friendly compiler!");
+
+println("The demo for this compiler's feature begins with arithmetic.");
+println();
 addition = 5 + 2;
 subtraction = 4 - 2;
 multiplication = 5 * 2;
@@ -7,11 +11,11 @@ println("5 + 2 = " + addition);
 println("4 - 2 = " + subtraction);
 println("5 * 2 = " + multiplication);
 println("4 / 2 = " + division);
-println(-"Hello world");
+
 
 
 /* 
-    A script for testing Tiny Language syntax. 
+    A script for testing the language's syntax. 
 */  
   
 // boolean expressions  
