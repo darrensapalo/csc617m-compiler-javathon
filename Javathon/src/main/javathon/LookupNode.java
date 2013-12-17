@@ -9,7 +9,6 @@ public class LookupNode implements JNode {
 	  private List<JNode> indexes;  
 	  
 	  public LookupNode(JNode e, List<JNode> i) {
-		  System.out.println("Looking up node: " + e.toString());
 	    expression = e;  
 	    indexes = i;  
 	  }  
