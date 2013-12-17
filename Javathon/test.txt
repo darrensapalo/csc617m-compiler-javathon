@@ -1,4 +1,4 @@
-a = 10  5;  
+a = 10  + 5;  
   
 println(a);  
 println("Darren"[2]);
