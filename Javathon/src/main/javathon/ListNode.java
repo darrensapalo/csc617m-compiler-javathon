@@ -1,24 +1,28 @@
 package main.javathon;
 
-import main.javathon.JValue;  
-import java.util.List;  
-  
-public class ListNode implements JNode {  
-    
-    List<JNode> exprList;
+import main.javathon.JValue;
 
-    public ListNode(List<JNode> exprList) {  
-        this.exprList = exprList;
-    }  
+import java.util.ArrayList;
+import java.util.List;
 
-    @Override  
-    public JValue evaluate() {  
+public class ListNode implements JNode {
+	private List<JNode> expressionNodes;
 
-        throw new RuntimeException("illegal expression: " + this);  
-    }  
+	public ListNode(List<JNode> nodes) {
+		expressionNodes = (nodes == null) ? new ArrayList<JNode>() : nodes;
+	}
 
-    @Override  
-    public String toString() {  
-        return String.format("expression list(%s)", exprList.toString());  
-    }  
-}  
+	@Override
+	public JValue evaluate() {
+		List<JValue> evaluated = new ArrayList<JValue>();
+		for (JNode node : expressionNodes) {
+			evaluated.add(node.evaluate());
+		}
+		return new JValue(evaluated);
+	}
+
+	@Override
+	public String toString() {
+		return expressionNodes.toString();
+	}
+}
