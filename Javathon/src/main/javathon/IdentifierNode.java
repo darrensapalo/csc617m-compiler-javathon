@@ -1,5 +1,11 @@
 package main.javathon;
 
+/**
+ * This class handles the retrieval
+ * of the value owned by an identifier (or variable).
+ * @author Darren
+ *
+ */
 public class IdentifierNode implements JNode {  
   
   private String identifier;  
@@ -14,7 +20,7 @@ public class IdentifierNode implements JNode {
   public JValue evaluate() {  
     JValue value = scope.resolve(identifier);  
     if(value == null) {  
-      throw new RuntimeException("no such variable: " + this);  
+      throw new RuntimeException("No such variable: " + this);  
     }  
     return value;  
   }  

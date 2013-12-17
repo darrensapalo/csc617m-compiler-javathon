@@ -1,5 +1,11 @@
 package main.javathon;
 
+/**
+ * This class handles the "greater than"
+ * relational operation.
+ * @author Darren
+ *
+ */
 public class GTNode implements JNode {  
 	  
 	  private JNode lhs;  

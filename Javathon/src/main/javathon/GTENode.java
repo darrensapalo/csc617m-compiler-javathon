@@ -1,9 +1,11 @@
 package main.javathon;
 
-import main.javathon.JValue;  
-
-import java.util.List;  
-  
+/**
+ * This class handles the "greater than
+ * or equal to" relational operation.  
+ * @author Darren
+ *
+ */
 public class GTENode implements JNode {  
   
     private JNode lhs;  

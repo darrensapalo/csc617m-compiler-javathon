@@ -2,7 +2,13 @@ package main.javathon;
   
 import java.util.ArrayList;  
 import java.util.List;  
-  
+
+/**
+ * This class handles a list of statements
+ * that may or may not return a value.
+ * @author Darren
+ *
+ */
 public class BlockNode implements JNode {  
   
   private List<JNode> statements;  

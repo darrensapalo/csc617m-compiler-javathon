@@ -1,32 +1,35 @@
 package main.javathon;
 
-import main.javathon.JValue;  
 
-import java.util.List;  
-  
-public class EqualNode implements JNode {  
-  
-    private JNode lhs;  
-    private JNode rhs;  
+/**
+ * This class handles equality checking for two expressions.
+ * 
+ * @author Darren
+ * 
+ */
+public class EqualNode implements JNode {
 
-    public EqualNode(JNode lhs, JNode rhs) {  
-        this.lhs = lhs;  
-        this.rhs = rhs;  
-    }  
+	private JNode lhs;
+	private JNode rhs;
 
-    @Override  
-    public JValue evaluate() {  
+	public EqualNode(JNode lhs, JNode rhs) {
+		this.lhs = lhs;
+		this.rhs = rhs;
+	}
 
-        JValue a = lhs.evaluate();  
-        JValue b = rhs.evaluate();  
+	@Override
+	public JValue evaluate() {
+		/* Evaluate the expressions */
+		JValue a = lhs.evaluate();
+		JValue b = rhs.evaluate();
 
-       
-        return new JValue(a.equals(b));
-        //throw new RuntimeException("illegal expression: " + this);  
-    }  
+		/* Check equality */
+		return new JValue(a.equals(b));
 
-    @Override  
-    public String toString() {  
-        return String.format("(%s == %s)", lhs, rhs);  
-    }  
-}  
+	}
+
+	@Override
+	public String toString() {
+		return String.format("(%s == %s)", lhs, rhs);
+	}
+}

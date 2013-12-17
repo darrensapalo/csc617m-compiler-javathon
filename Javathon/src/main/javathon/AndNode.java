@@ -1,59 +1,35 @@
 package main.javathon;
 
-import main.javathon.JValue;  
-
-import java.util.List;  
   
+/**
+ * This operator ensures that both expressions
+ * are booleans and returns its logical AND result.
+ * @author Darren
+ *
+ */
 public class AndNode implements JNode {  
-  
     private JNode lhs;  
     private JNode rhs;  
 
-    public AndNode(JNode lhs, JNode rhs) {  
+    public AndNode(JNode lhs, JNode rhs) {
+    	/* Receive the two expressions to be evaluated */
         this.lhs = lhs;  
         this.rhs = rhs;  
     }  
 
     @Override  
     public JValue evaluate() {  
-
+    	/* Evaluate both expressions */
         JValue a = lhs.evaluate();  
         JValue b = rhs.evaluate();  
 
-        // boolean && boolean  
-        if(a.isBoolean() && b.isBoolean()) {  
-            return new JValue(a.asBoolean() && b.asBoolean());  
-        }  
-        
-        // lhs is false: return false
-        if (a.isBoolean() && !a.asBoolean()) {
-            return new JValue(false);
+        /* Ensure both values are boolean */
+        if(!a.isBoolean() || !b.isBoolean()) {
+            throw new RuntimeException("illegal expression: " + this);
         }
         
-        // rhs is false: return false
-        if (b.isBoolean() && !b.asBoolean()) {
-            return new JValue(false);
-        }
-        
-        
-        // return rhs
-        if (b.isNumber()) {  
-            return new JValue(b.asDouble());  
-        }  
-        
-        if (b.isBoolean()) {  
-            return new JValue(true);  
-        }  
-        
-        if (b.isString()) {  
-            return new JValue(b.asString());  
-        }  
-        
-        if (b.isList()) {  
-            return new JValue(b.asList());  
-        }  
-        
-        throw new RuntimeException("illegal expression: " + this);
+        /* Return the value */
+        return new JValue(a.asBoolean() && b.asBoolean());
     }  
 
     @Override  

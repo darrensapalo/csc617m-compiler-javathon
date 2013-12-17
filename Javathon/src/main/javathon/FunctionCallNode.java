@@ -4,6 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class handles calling of functions.
+ * Functions have their unique identifiers as
+ * the name of the function concatenated with
+ * the number of parameters.<BR /><BR />
+ * 
+ * Before the function is called, it is first
+ * checked whether it is a valid function saved
+ * in the map of available functions.
+ * 
+ * Further, the number of parameters is verified
+ * before calling the functions.
+ * @author Darren
+ *
+ */
 public class FunctionCallNode implements JNode {
 
     private String identifier;
