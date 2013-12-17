@@ -1,7 +1,11 @@
 package main.javathon;
 
-import java.util.List;
-
+/**
+ * This class handles the negation of a value.
+ * It works for booleans.
+ * @author Darren
+ *
+ */
 public class NegateNode implements JNode {
     private JNode expr;  
     

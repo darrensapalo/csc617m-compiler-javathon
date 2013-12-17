@@ -1,5 +1,12 @@
 package main.javathon;
 
+/**
+ * This class handles the "less than" 
+ * relational operation. This works with
+ * numbers as well as strings.
+ * @author Darren
+ *
+ */
 public class LTNode implements JNode {  
 	  
 	  private JNode lhs;  

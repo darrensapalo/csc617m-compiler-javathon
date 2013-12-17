@@ -2,6 +2,16 @@ package main.javathon;
 
 import java.util.List;
 
+/**
+ * This class handles subtraction of values. It allows: <BR />
+ * <I>Subtraction of values</I><BR />
+ * &nbsp 5 - 3<BR />
+ *  
+ * <I>Removal from list</I><BR />
+ * &nbsp [1,2,3] - 3 = [1,2]
+ * @author Darren
+ *
+ */
 public class MinusNode implements JNode {
     private JNode lhs;  
     private JNode rhs;  
