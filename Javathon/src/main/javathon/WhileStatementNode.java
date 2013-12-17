@@ -17,11 +17,16 @@ public class WhileStatementNode implements JNode {
     @Override  
     public JValue evaluate() {  
 
-        JValue a = statement.evaluate();  
-        JValue b = block.evaluate();  
+        while(statement.evaluate().asBoolean()) {
 
-        
-        throw new RuntimeException("illegal expression: " + this);  
+            JValue returnValue = block.evaluate();
+
+            if(returnValue != JValue.VOID) {
+                return returnValue;
+            }
+            
+        }
+        return JValue.VOID;
     }  
 
     @Override  

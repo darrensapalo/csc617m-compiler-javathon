@@ -43,3 +43,38 @@ assert(999999 % 3 == 0);
 assert(-5 * -5 == 25);  
 assert([1,2,3] * 2 == [1,2,3,1,2,3]);  
 assert('ab'*3 == "ababab");  
+
+// power  
+assert(2^10 == 1024);  
+assert(3^3 == 27);  
+  
+ 
+b = -10;  
+c = 0;  
+while b < 0 do   
+  c = c + b;  
+  b = b + 1;  
+end  
+assert(c == -(1+2+3+4+5+6+7+8+9+10));  
+  
+// if  
+a = 123;  
+if a > 200 do  
+  assert(false);  
+end  
+  
+if a < 100 do  
+  assert(false);  
+else if a > 124 do  
+  assert(false);  
+else if a < 124 do  
+  assert(true);  
+else do  
+  assert(false);  
+end  
+  
+if false do  
+  assert(false);  
+else do  
+  assert(true);  
+end  
