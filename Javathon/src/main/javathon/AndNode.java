@@ -21,26 +21,39 @@ public class AndNode implements JNode {
         JValue b = rhs.evaluate();  
 
         // boolean && boolean  
-
         if(a.isBoolean() && b.isBoolean()) {  
             return new JValue(a.asBoolean() && b.asBoolean());  
         }  
         
-        if(a.isNumber() && b.isNumber()) {  
+        // lhs is false: return false
+        if (a.isBoolean() && !a.asBoolean()) {
+            return new JValue(false);
+        }
+        
+        // rhs is false: return false
+        if (b.isBoolean() && !b.asBoolean()) {
+            return new JValue(false);
+        }
+        
+        
+        // return rhs
+        if (b.isNumber()) {  
             return new JValue(b.asDouble());  
         }  
         
-        // string + any  
-        if(a.isString()) {  
-            return new JValue(a.asString().equals(b.toString()));  
+        if (b.isBoolean()) {  
+            return new JValue(true);  
         }  
         
-        // any + string  
-        if(b.isString()) {  
-            return new JValue(b.asString().equals(a.toString()));  
+        if (b.isString()) {  
+            return new JValue(b.asString());  
         }  
-
-        throw new RuntimeException("illegal expression: " + this);  
+        
+        if (b.isList()) {  
+            return new JValue(b.asList());  
+        }  
+        
+        throw new RuntimeException("illegal expression: " + this);
     }  
 
     @Override  

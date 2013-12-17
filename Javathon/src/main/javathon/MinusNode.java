@@ -22,7 +22,7 @@ public class MinusNode implements JNode {
           return new JValue(a.asDouble() - b.asDouble());  
         }  
       
-        // list + any  
+        // list - any  
         if(a.isList()) {  
           List<JValue> list = a.asList();  
           list.remove(b);  

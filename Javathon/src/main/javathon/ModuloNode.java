@@ -16,9 +16,8 @@ public class ModuloNode implements JNode {
         JValue a = lhs.evaluate();  
         JValue b = rhs.evaluate();  
 
-        // number % number  (forced integer)
         if(a.isNumber() && b.isNumber()) {  
-            return new JValue(a.asDouble().intValue() % b.asDouble().intValue());  
+            return new JValue(a.asDouble() % b.asDouble());  
         }  
         
         throw new RuntimeException("illegal expression: " + this);  

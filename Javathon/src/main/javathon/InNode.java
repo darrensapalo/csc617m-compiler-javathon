@@ -15,15 +15,32 @@ public class InNode implements JNode {
 
     @Override  
     public JValue evaluate() {  
+        
+        JValue value = lhs.evaluate();  
+        JValue container = rhs.evaluate();  
 
-        JValue a = lhs.evaluate();  
-        JValue b = rhs.evaluate();  
-
+        if (container.isString()) {
+            boolean contains = container.asString().contains(value.toString());
+            return new JValue(contains);
+        }
+        
+        if (container.isList()) {
+            boolean contains = false;
+            for (JValue contained : container.asList()) {
+                if (value.equals(contained)) { 
+                    contains = true;
+                    break;
+                }
+            }
+            
+            return new JValue(contains);
+        }
+        
         throw new RuntimeException("illegal expression: " + this);  
     }  
 
     @Override  
     public String toString() {  
-        return String.format("(%s == %s)", lhs, rhs);  
+        return String.format("(%s in %s)", lhs, rhs);  
     }  
 }  
