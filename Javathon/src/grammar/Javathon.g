@@ -117,7 +117,7 @@ idList
   :  Identifier (',' Identifier)* -> ^(ID_LIST Identifier+)  
   ;  
   
-exprList  
+exprList returns [java.util.List<JNode> e]
   :  expression (',' expression)* -> ^(EXP_LIST expression+)  
   ;  
 

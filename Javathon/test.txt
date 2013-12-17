@@ -3,6 +3,43 @@ subtraction = 4 - 2;
 multiplication = 5 * 2;
 division = 4 / 2;
 println("5 + 2 = " + addition);
-println(subtraction);
-println(multiplication);
-println(division);
+println("4 - 2 = " + subtraction);
+println("5 * 2 = " + multiplication);
+println("4 / 2 = " + division);
+
+
+/* 
+    A script for testing Tiny Language syntax. 
+*/  
+  
+// boolean expressions  
+assert(true || false);  
+assert(!false);  
+assert(true && true);  
+assert(!true || !false);  
+assert(true && (true || false));  
+  
+// relational expressions  
+assert(1 < 2);  
+assert(666 >= 666);  
+assert(-5 > -6);  
+assert(0 >= -1);  
+assert('a' < 's');  
+assert('sw' <= 'sw');  
+  
+// add  
+assert(1 + 999 == 1000);  
+assert([1] + 1 == [1,1]);  
+assert(2 - -2 == 4);  
+assert(-1 + 1 == 0);  
+assert(1 - 50 == -49);  
+assert([1,2,3,4,5] - 4 == [1,2,3,5]);  
+  
+// multiply  
+assert(3 * 50 == 150);  
+assert(4 / 2 == 2);  
+assert(1 / 4 == 0.25);  
+assert(999999 % 3 == 0);  
+assert(-5 * -5 == 25);  
+assert([1,2,3] * 2 == [1,2,3,1,2,3]);  
+assert('ab'*3 == "ababab");  
