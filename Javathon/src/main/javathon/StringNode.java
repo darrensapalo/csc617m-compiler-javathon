@@ -2,8 +2,14 @@ package main.javathon;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
+/**
+ * This method allows the user to 
+ * get a character from the string and returns it as a single character in a string.<BR />
+ * "Hello World"[4] == "o".<BR />
+ * @author Darren
+ *
+ */
 public class StringNode implements JNode {
 
 	private String expression;

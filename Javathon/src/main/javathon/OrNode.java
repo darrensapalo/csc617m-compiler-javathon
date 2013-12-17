@@ -1,9 +1,12 @@
 package main.javathon;
 
-import main.javathon.JValue;  
 
-import java.util.List;  
-  
+/**
+ * This class handles the "OR" logical
+ * operation.
+ * @author Darren
+ *
+ */
 public class OrNode implements JNode {  
   
     private JNode lhs;  

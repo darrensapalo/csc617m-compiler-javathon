@@ -1,7 +1,10 @@
 package main.javathon;
 
 import java.io.PrintStream;  
-  
+/**
+ * Handles an output stream.
+ * @author Darren
+ */
 public class PrintlnNode implements JNode {  
   
   private JNode expression;  

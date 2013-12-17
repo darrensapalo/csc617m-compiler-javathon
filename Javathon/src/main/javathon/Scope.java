@@ -2,6 +2,14 @@ package main.javathon;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class handles the storing of variables
+ * within different scopes. As deeper scopes occur,
+ * parent scopes are passed down to the constructor
+ * to have a parent-child relationship.
+ * @author Darren
+ *
+ */
 public class Scope {
 
   private Scope parent;

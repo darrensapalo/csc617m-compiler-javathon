@@ -1,7 +1,9 @@
 package main.javathon;
 
 import java.io.PrintStream;  
-  
+/*
+ * Handles an output stream.
+ */
 public class PrintNode implements JNode {  
   
   private JNode expression;  

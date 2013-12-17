@@ -1,9 +1,9 @@
 package main.javathon;
-
-import main.javathon.JValue;  
-
-import java.util.List;  
-  
+/**
+ * This class handles ternary if statement evaluation.
+ * @author Darren
+ *
+ */
 public class TernaryNode implements JNode {
     private JNode b;
 	private JNode a;

@@ -1,8 +1,10 @@
 package main.javathon;
-
-import java.util.List;
-
-// LITERALLY MADE OF POWER
+/**
+ * This class handles the exponential
+ * function when encountering the "^" keyword.
+ * @author Darren
+ *
+ */
 public class PowerNode implements JNode {
     private JNode lhs;  
     private JNode rhs;  

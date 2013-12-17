@@ -2,7 +2,8 @@ package main.javathon;
 
 /**
  * This class handles the negation of a value.
- * It works for booleans.
+ * It works for booleans, and for lists.<BR />
+ * When a list is negated, it returns false.
  * @author Darren
  *
  */

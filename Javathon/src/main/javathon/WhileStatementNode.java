@@ -1,36 +1,44 @@
 package main.javathon;
 
-import main.javathon.JValue;  
+import main.javathon.JValue;
 
-import java.util.List;  
-  
-public class WhileStatementNode implements JNode {  
-  
-    private JNode statement;  
-    private JNode block;  
+/**
+ * This class handles the while statement iterator.
+ * 
+ * @author Darren
+ * 
+ */
+public class WhileStatementNode implements JNode {
 
-    public WhileStatementNode(JNode statement, JNode block) {  
-        this.statement = statement;  
-        this.block = block;  
-    }  
+	private JNode statement;
+	private JNode block;
 
-    @Override  
-    public JValue evaluate() {  
+	public WhileStatementNode(JNode statement, JNode block) {
+		/* Receive the expression and the statement list */
+		this.statement = statement;
+		this.block = block;
+	}
 
-        while(statement.evaluate().asBoolean()) {
+	@Override
+	public JValue evaluate() {
 
-            JValue returnValue = block.evaluate();
+		/* As long as the statement is true */
+		while (statement.evaluate().asBoolean()) {
 
-            if(returnValue != JValue.VOID) {
-                return returnValue;
-            }
-            
-        }
-        return JValue.VOID;
-    }  
+			/* Evaluate the statements. */
+			JValue returnValue = block.evaluate();
 
-    @Override  
-    public String toString() {  
-        return String.format("While statement (%s)", statement);  
-    }  
-}  
+			/* If you find a return value, return it and end the while loop. */
+			if (returnValue != JValue.VOID) {
+				return returnValue;
+			}
+
+		}
+		return JValue.VOID;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("While statement (%s)", statement);
+	}
+}

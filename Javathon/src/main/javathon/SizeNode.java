@@ -1,6 +1,11 @@
 package main.javathon;
 
-
+/**
+ * This method handles checking the length
+ * of a string or a list.
+ * @author Darren
+ *
+ */
 public class SizeNode implements JNode {
 
 	private JNode expression;
