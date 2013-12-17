@@ -19,7 +19,7 @@ public class MultiplyNode implements JNode {
         
         // number - number  
         if(a.isNumber() && b.isNumber()) {  
-            return new JValue(a.asDouble() - b.asDouble());  
+            return new JValue(a.asDouble() * b.asDouble());  
         }  
 
         // string * number: "ab" * 3 = "ababab"
