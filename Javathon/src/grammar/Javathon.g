@@ -171,6 +171,7 @@ atom
   |  Bool  
   |  Null  
   |  lookup  
+  |  Input	'(' String? ')' -> ^(Input String?)
   ;  
 
 list  
@@ -192,6 +193,7 @@ indexes
   ;  
       
 /* Keywords */
+Input    : 'input';
 Println  : 'println';  
 Print    : 'print';  
 Assert   : 'assert';  

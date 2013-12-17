@@ -129,7 +129,9 @@ expression returns [JNode node]
   |  Number  		                         		  {node = new AtomNode		(Double.parseDouble($Number.text));}  
   |  Bool                                             {node = new AtomNode		(Boolean.parseBoolean($Bool.text));}
   |  Null  											  {node = new AtomNode		(null);}
-  |  lookup 										  {node = $lookup.node;}         
+  |  lookup 										  {node = $lookup.node;}
+  |  ^(Input String?)                                  {node = new InputNode($String.text);} // added this line
+           
   ;  
 
 // Lists may have varying data types inside.

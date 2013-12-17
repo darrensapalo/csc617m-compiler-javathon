@@ -67,7 +67,7 @@ println();
  
 b = -10;
 c = 0;
-while b < 0 : 
+while b < 0: 
 c = c + b;
 b = b + 1;
 end
@@ -77,28 +77,28 @@ println("Assert 1 success (while loop)!");
 
 // if
 a = 123;
-if a > 200 :
+if a > 200:
 assert(false);
 end
 
 println("Assert 2 success (if statement)!");
 
-if a < 100 :
+if a < 100:
 assert(false);
-else if a > 124 :
+else if a > 124:
 assert(false);
-else if a < 124 :
+else if a < 124:
 assert(true);
-else :
+else:
 assert(false);
 end
 
 println("Assert 3 success (if-else if-else)!");
 println();
 
-if false :
+if false:
 assert(false);
-else :
+else:
 assert(true);
 end
 
