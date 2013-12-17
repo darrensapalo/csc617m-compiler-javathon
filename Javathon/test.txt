@@ -2,7 +2,7 @@ addition = 5 + 2;
 subtraction = 4 - 2;
 multiplication = 5 * 2;
 division = 4 / 2;
-println(addition);
+println("5 + 2 = " + addition);
 println(subtraction);
 println(multiplication);
 println(division);

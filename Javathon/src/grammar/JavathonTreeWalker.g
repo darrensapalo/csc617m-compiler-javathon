@@ -131,7 +131,6 @@ lookup returns [JNode node]
       }
   |  ^(LOOKUP s=String x=indexes?)
   	  {
-  	  	System.out.println("String: " + $s.text);
         node = new StringNode($s.text, $x.e);
       }  
   ;  
