@@ -67,7 +67,7 @@ println();
  
 b = -10;
 c = 0;
-while b < 0 do 
+while b < 0 : 
 c = c + b;
 b = b + 1;
 end
@@ -77,28 +77,28 @@ println("Assert 1 success (while loop)!");
 
 // if
 a = 123;
-if a > 200 do
+if a > 200 :
 assert(false);
 end
 
 println("Assert 2 success (if statement)!");
 
-if a < 100 do
+if a < 100 :
 assert(false);
-else if a > 124 do
+else if a > 124 :
 assert(false);
-else if a < 124 do
+else if a < 124 :
 assert(true);
-else do
+else :
 assert(false);
 end
 
 println("Assert 3 success (if-else if-else)!");
 println();
 
-if false do
+if false :
 assert(false);
-else do
+else :
 assert(true);
 end
 
@@ -150,7 +150,7 @@ println("Syntactic sugar for AND operator!");
 println("true + false = " + (true + false));
 println();
 println("Reverse a string!");
-println("\"Hello world\" = " + (-"Hello world"));
+println("-\"Hello world\" = " + (-"Hello world"));
 println();
 
 println("This language, Javathon, is designed for new programmers. The error messages are very newbie friendly and the source code for this interpreter is well documented.");
