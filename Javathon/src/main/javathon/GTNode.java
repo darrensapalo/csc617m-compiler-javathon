@@ -17,11 +17,11 @@ public class GTNode implements JNode {
 	    JValue b = rhs.evaluate();  
 	  
 	    if(a.isNumber() && b.isNumber()) {  
-	      return new JValue(a.asDouble() < b.asDouble());  
+	      return new JValue(a.asDouble() > b.asDouble());  
 	    }  
 	  
 	    if(a.isString() && b.isString()) {  
-	      return new JValue(a.asString().compareTo(b.asString()) < 0);  
+	      return new JValue(a.asString().compareTo(b.asString()) > 0);  
 	    }  
 	  
 	    throw new RuntimeException("illegal expression: " + this);  
@@ -29,6 +29,6 @@ public class GTNode implements JNode {
 	  
 	  @Override  
 	  public String toString() {  
-	    return String.format("(%s < %s)", lhs, rhs);  
+	    return String.format("(%s > %s)", lhs, rhs);  
 	  }  
 	}  
