@@ -124,12 +124,16 @@ lookup returns [JNode node]
   |  ^(LOOKUP list indexes?)  
   |  ^(LOOKUP expression indexes?)   
   |  ^(LOOKUP i=Identifier x=indexes?)  
-      { 
+      {
         node = ($x.e != null) 
           ? new LookupNode(new IdentifierNode($i.text, currentScope), $x.e) 
           : new IdentifierNode($i.text, currentScope); 
+      }
+  |  ^(LOOKUP s=String x=indexes?)
+  	  {
+  	  	System.out.println("String: " + $s.text);
+        node = new StringNode($s.text, $x.e);
       }  
-  |  ^(LOOKUP String indexes?)  
   ;  
   
 indexes returns [List<JNode> e]  
