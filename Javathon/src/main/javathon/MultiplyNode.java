@@ -14,12 +14,12 @@ public class MultiplyNode implements JNode {
     @Override
     public JValue evaluate() {
 
-        JValue a = lhs.evaluate();  
+        JValue a = lhs.evaluate();
         JValue b = rhs.evaluate();  
         
         // number - number  
         if(a.isNumber() && b.isNumber()) {  
-            return new JValue(a.asDouble() - b.asDouble());  
+            return new JValue(a.asDouble() * b.asDouble());  
         }  
 
         // string * number: "ab" * 3 = "ababab"

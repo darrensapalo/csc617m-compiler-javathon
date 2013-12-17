@@ -95,22 +95,22 @@ expression returns [JNode node]
   |  ^(In expression expression)  
   |  ^('||' expression expression)  
   |  ^('&&' expression expression)  
-  |  ^('==' expression expression)  
-  |  ^('!=' expression expression)  
-  |  ^('>=' expression expression)  
-  |  ^('<=' expression expression)  
-  |  ^('>' expression expression)                           
+  |  ^('==' a=expression b=expression)                 {node = new NotEqualNode   ($a.node, $b.node);}
+  |  ^('!=' a=expression b=expression)                   {node = new NotEqualNode   ($a.node, $b.node);}
+  |  ^('>=' a=expression b=expression)                 {node = new GTENode   ($a.node, $b.node);}
+  |  ^('<=' a=expression b=expression)                 {node = new LTENode   ($a.node, $b.node);}
+  |  ^('>' a=expression b=expression)                   {node = new GTNode  ($a.node, $b.node);}         
   |  ^('<' a=expression b=expression)  		          {node = new LTNode 	($a.node, $b.node);}  
   |  ^('+' a=expression b=expression) 		          {node = new AddNode	($a.node, $b.node);}
   |  ^('-' a=expression b=expression)                   {node = new MinusNode ($a.node, $b.node);}
   |  ^('*' a=expression b=expression)                   {node = new MultiplyNode ($a.node, $b.node);}
   |  ^('/' a=expression b=expression)                   {node = new DivideNode ($a.node, $b.node);}
-  |  ^('%' a=expression b=expression)                  {node = new ModuloNode ($a.node, $b.node);}
+  |  ^('%' a=expression b=expression)                 {node = new ModuloNode ($a.node, $b.node);}
   |  ^('^' a=expression b=expression)                  {node = new PowerNode ($a.node, $b.node);}                  
-  |  ^(UNARY_MIN a=expression)                       {node = new UnaryMinNode ($a.node);}                
-  |  ^(NEGATE a=expression)                           {node = new NegateNode($a.node);}
-  |  Number  		                         						{node = new AtomNode(Double.parseDouble($Number.text));}  
-  |  Bool                                                               {node = new AtomNode(Boolean.parseBoolean($Bool.text));}
+  |  ^(UNARY_MIN a=expression)                         {node = new UnaryMinNode ($a.node);}                
+  |  ^(NEGATE a=expression)                                {node = new NegateNode($a.node);}
+  |  Number  		                         						     {node = new AtomNode(Double.parseDouble($Number.text));}  
+  |  Bool                                                                    {node = new AtomNode(Boolean.parseBoolean($Bool.text));}
   |  Null  
   |  lookup 								{node = $lookup.node;}          
   ;  

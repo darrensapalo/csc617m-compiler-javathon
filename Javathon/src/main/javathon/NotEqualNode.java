@@ -1,13 +1,14 @@
 package main.javathon;
 
-import java.util.List;  
-  
-public class AddNode implements JNode {  
-  
+import java.util.List;
+
+public class NotEqualNode implements JNode {
+
+
     private JNode lhs;  
     private JNode rhs;  
 
-    public AddNode(JNode lhs, JNode rhs) {  
+    public NotEqualNode(JNode lhs, JNode rhs) {  
         this.lhs = lhs;  
         this.rhs = rhs;  
     }  
@@ -20,31 +21,22 @@ public class AddNode implements JNode {
 
         // number + number  
         if(a.isNumber() && b.isNumber()) {  
-            return new JValue(a.asDouble() + b.asDouble());  
+            return new JValue(a.asDouble() != b.asDouble());  
         }  
-        
-        // list + any  
-        if(a.isList()) {  
-            List<JValue> list = a.asList();  
-            list.add(b);  
-            return new JValue(list);  
-        }  
-
 
         // boolean + boolean (syntactic sugar baby)
         if(a.isBoolean() && b.isBoolean()) {  
             return new JValue(a.asBoolean() && b.asBoolean());  
         }  
 
-        
         // string + any  
         if(a.isString()) {  
-            return new JValue(a.asString() + "" + b.toString());  
+            return new JValue(!a.asString().equals(b.toString()));  
         }  
         
         // any + string  
         if(b.isString()) {  
-            return new JValue(a.toString() + "" + b.asString());  
+            return new JValue(b.asString().equals(a.toString()));  
         }  
 
         throw new RuntimeException("illegal expression: " + this);  
@@ -52,6 +44,6 @@ public class AddNode implements JNode {
 
     @Override  
     public String toString() {  
-        return String.format("(%s + %s)", lhs, rhs);  
+        return String.format("(%s != %s)", lhs, rhs);  
     }  
-}  
+}

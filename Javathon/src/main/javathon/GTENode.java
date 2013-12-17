@@ -1,12 +1,11 @@
 package main.javathon;
 
-
-public class LTNode implements JNode {  
+public class GTENode implements JNode {
 
     private JNode lhs;  
     private JNode rhs;  
 
-    public LTNode(JNode lhs, JNode rhs) {  
+    public GTENode(JNode lhs, JNode rhs) {  
         this.lhs = lhs;  
         this.rhs = rhs;  
     }  
@@ -18,11 +17,11 @@ public class LTNode implements JNode {
         JValue b = rhs.evaluate();  
 
         if(a.isNumber() && b.isNumber()) {  
-            return new JValue(a.asDouble() < b.asDouble());  
+            return new JValue(a.asDouble() >= b.asDouble());  
         }  
 
         if(a.isString() && b.isString()) {  
-            return new JValue(a.asString().compareTo(b.asString()) < 0);  
+            return new JValue(a.asString().compareTo(b.asString()) >= 0);  
         }  
 
         throw new RuntimeException("illegal expression: " + this);  
@@ -30,6 +29,8 @@ public class LTNode implements JNode {
 
     @Override  
     public String toString() {  
-        return String.format("(%s < %s)", lhs, rhs);  
-    }  
-}  
+        return String.format("(%s >= %s)", lhs, rhs);  
+    }
+
+
+}
