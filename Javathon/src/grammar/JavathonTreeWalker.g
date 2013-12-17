@@ -93,8 +93,8 @@ exprList returns [java.util.List<JNode> e]
   ;
   
 expression returns [JNode node]  
-  :  ^(TERNARY expression expression expression)  	  {node = new TernaryNode($a.node, $b.node, $c.node);}
-  |  ^(In expression expression)  					  {node = new InNode		($a.node, $b.node);}
+  :  ^(TERNARY a=expression b=expression c=expression){node = new TernaryNode($a.node, $b.node, $c.node);}
+  |  ^(In a=expression b=expression)  				  {node = new InNode		($a.node, $b.node);}
   |  ^('||' a=expression b=expression)    			  {node = new OrNode		($a.node, $b.node);}
   |  ^('&&' a=expression b=expression)    			  {node = new AndNode		($a.node, $b.node);}
   |  ^('==' a=expression b=expression)    			  {node = new EqualNode		($a.node, $b.node);}
@@ -122,21 +122,20 @@ list returns [JNode node]
   ;
   
 lookup returns [JNode node]  
-  :  ^(LOOKUP functionCall indexes?)  
+  :  ^(LOOKUP functionCall i=indexes?)  
   		{node = $i.e != null ? new LookupNode($functionCall.node, $indexes.e) : $functionCall.node;}
   		
-  |  ^(LOOKUP list indexes?)
+  |  ^(LOOKUP list i=indexes?)
   		{node = $i.e != null ? new LookupNode($list.node, $indexes.e) : $list.node;}
   		  
-  |  ^(LOOKUP expression indexes?)
+  |  ^(LOOKUP expression i=indexes?)
   		{node = $i.e != null ? new LookupNode($expression.node, $indexes.e) : $expression.node;}
   		   
-  |  ^(LOOKUP i=Identifier x=indexes?)  
+  |  ^(LOOKUP Identifier i=indexes?)  
       {
-        node = ($x.e != null) 
-          ? new LookupNode(new IdentifierNode($i.text, currentScope), $x.e) 
-          : new IdentifierNode($i.text, currentScope); 
-      }
+      	node = $i.e != null 
+      	? new LookupNode(new IdentifierNode($Identifier.text, currentScope), $indexes.e)
+      	: new IdentifierNode($Identifier.text, currentScope);}
   |  ^(LOOKUP s=String x=indexes?)
   	  {
         node = new StringNode($s.text, $x.e);
