@@ -42,7 +42,7 @@
   
   <target name="run" depends="generate">  
     <echo>Running the main class...</echo>  
-    <java classname="main.Compiler">  
+    <java classname="main.CompilerIDE">  
       <classpath refid="classpath" />  
     </java>  
   </target>  
